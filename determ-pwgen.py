@@ -7,7 +7,12 @@ def main():
 	print "version2 (use version1 if you already generated passwords with it)"
 	print "using " + str(ROUNDS) + " rounds of sha256"
 
-	seed = getpass.getpass('Please enter your custom seed / password:')
+	while True:
+		seed = getpass.getpass('Please enter your custom seed / password:')
+		seed2 = getpass.getpass('Again:')
+		if seed == seed2:
+			break
+		print "passwords / seeds don't match, please try again"
 
 	while True:
 		thing = raw_input('Please enter the domain or name of the program (e.g. google or outlook):')
@@ -23,3 +28,4 @@ def main():
 
 if __name__ == '__main__':
 	main()
+
