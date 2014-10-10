@@ -1,10 +1,11 @@
-import hashlib, getpass
+import hashlib, getpass, base64
 
 ROUNDS = 1000000
 
 def main():
+	print "determ-pwgen by I3ck https://github.com/I3ck/determ-pwgen"
+	print "version2 (use version1 if you already generated passwords with it)"
 	print "using " + str(ROUNDS) + " rounds of sha256"
-	print "make sure to remember these settings in case you lose the program"
 
 	seed = getpass.getpass('Please enter your custom seed / password:')
 
@@ -15,7 +16,7 @@ def main():
 		pw = seed + thing + username
 
 		for i in range(ROUNDS):
-			pw = hashlib.sha256(pw).hexdigest()
+			pw = base64.b64encode((hashlib.sha256(pw).digest()))
 
 		print "your password for " + thing + " with username: " + username + " is:"
 		print pw
