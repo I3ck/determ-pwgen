@@ -8,12 +8,12 @@ def use_user_input(seed):
 	determPwgen = DetermPwgen(seed)
 
 	while True:
-		thing = raw_input('\n\nPlease enter the domain or name of the program (e.g. google or outlook): ')
-		username = raw_input('Please enter your username for ' + thing + ': ')
+		hostname = raw_input('\n\nPlease enter the domain or name of the program (e.g. google or outlook): ')
+		username = raw_input('Please enter your username for ' + hostname + ': ')
 
-		pw = determPwgen.generate_password(thing, username, ROUNDS)
+		pw = determPwgen.generate_password(hostname, username, ROUNDS)
 
-		print "\n" + username + " @ " + thing + ": " + pw
+		print "\n" + username + " @ " + hostname + ": " + pw
 
 
 def use_json_file(seed):
