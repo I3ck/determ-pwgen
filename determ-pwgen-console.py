@@ -52,6 +52,7 @@ def main():
 				break
 			elif mode == "1":
 				use_json_file(seed)
+				use_user_input(seed)
 				break
 			else:
 				print "unknown mode, please try again"
