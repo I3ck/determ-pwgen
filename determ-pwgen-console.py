@@ -4,6 +4,10 @@ from inc.DetermPwgen import *
 ROUNDS = 1000000
 
 
+def get_print_string(hostname, username, pw):
+	return username + " @ " + hostname + ": " + pw
+
+
 def use_user_input(seed):
 	determPwgen = DetermPwgen(seed)
 
@@ -13,7 +17,7 @@ def use_user_input(seed):
 
 		pw = determPwgen.generate_password(hostname, username, ROUNDS)
 
-		print "\n" + username + " @ " + hostname + ": " + pw
+		print "\n" + get_print_string(hostname, username, pw)
 
 
 def use_json_file(seed):
@@ -24,7 +28,7 @@ def use_json_file(seed):
 
 	for account in accounts:
 		pw = determPwgen.generate_password(account['hostname'], account['username'], ROUNDS)
-		print "\n" + account['username'] + " @ " + account['hostname'] + ": " + pw
+		print "\n" + get_print_string(account['hostname'], account['username'], pw)
 
 
 def main():
