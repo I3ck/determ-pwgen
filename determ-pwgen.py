@@ -9,23 +9,22 @@ def main():
 	print "using " + str(ROUNDS) + " rounds of sha256"
 
 	while True:
-		seed = getpass.getpass('Please enter your custom seed / password:')
-		seed2 = getpass.getpass('Again:')
+		seed = getpass.getpass('password:')
+		seed2 = getpass.getpass('again:')
 		if seed == seed2:
 			break
-		print "passwords / seeds don't match, please try again"
+		print "passwords don't match, please try again"
 
 	while True:
-		thing = raw_input('Please enter the domain or name of the program (e.g. google or outlook):')
-		username = raw_input('Please enter your username for ' + thing + ':')
+		thing = raw_input('\n\nPlease enter the domain or name of the program (e.g. google or outlook): ')
+		username = raw_input('Please enter your username for ' + thing + ': ')
 
 		pw = seed + thing + username
 
 		for i in range(ROUNDS):
 			pw = base64.b64encode((hashlib.sha256(pw).digest()))
 
-		print "your password for " + thing + " with username: " + username + " is:"
-		print pw
+		print "\n" + username + " @ " + thing + ": " + pw
 
 if __name__ == '__main__':
 	main()
