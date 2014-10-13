@@ -5,7 +5,7 @@ ROUNDS = 1000000
 
 
 def get_print_string(hostname, username, pw):
-	return username + " @ " + hostname + ": " + pw
+	return username + " @ " + hostname + ":\n" + pw
 
 
 def use_user_input(seed):
