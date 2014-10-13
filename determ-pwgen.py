@@ -3,7 +3,8 @@ import hashlib, getpass, base64
 ROUNDS = 1000000
 
 def main():
-	print "determ-pwgen by I3ck https://github.com/I3ck/determ-pwgen"
+	print "determ-pwgen created by I3ck https://github.com/I3ck/determ-pwgen"
+	print "licensed under the MIT License"
 	print "version2 (use version1 if you already generated passwords with it)"
 	print "using " + str(ROUNDS) + " rounds of sha256"
 
