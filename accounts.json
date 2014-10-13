@@ -6,5 +6,9 @@
 	{
 		"hostname" : "YOURSITE",
 		"username" : "YOURNAME"
+	},
+	{
+		"hostname" : "anotherHostOfYou",
+		"username" : "anotherUserOfYou"
 	}
 ]
