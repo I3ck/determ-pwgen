@@ -6,7 +6,8 @@ ROUNDS = 1000000
 def welcome_banner():
 	print("\n")
 	print "*********************************************************************"
-	print "* determ-pwgen created by I3ck https://github.com/I3ck/determ-pwgen *"
+	print "* determ-pwgen created by I3ck (Martin Buck)                        *"
+	print "+ https://github.com/I3ck/determ-pwgen                              *"
 	print "* licensed under the MIT License                                    *"
 	print "* version2 (use version1 if you already generated passwords with it)*"
 	print "* using " + str(ROUNDS) + " rounds of sha256                                    *"
