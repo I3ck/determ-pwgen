@@ -3,6 +3,15 @@ from inc.DetermPwgen import *
 
 ROUNDS = 1000000
 
+def welcome_banner():
+	print("\n")
+	print "*********************************************************************"
+	print "* determ-pwgen created by I3ck https://github.com/I3ck/determ-pwgen *"
+	print "* licensed under the MIT License                                    *"
+	print "* version2 (use version1 if you already generated passwords with it)*"
+	print "* using " + str(ROUNDS) + " rounds of sha256                                    *"
+	print "*********************************************************************"
+	print("\n")
 
 def get_print_string(hostname, username, pw):
 	return username + " @ " + hostname + ":\n" + pw
@@ -32,25 +41,24 @@ def use_json_file(seed):
 
 
 def main():
-	print "determ-pwgen created by I3ck https://github.com/I3ck/determ-pwgen"
-	print "licensed under the MIT License"
-	print "version2 (use version1 if you already generated passwords with it)"
-	print "using " + str(ROUNDS) + " rounds of sha256\n\n"
+	welcome_banner()
 
 	try:
 		while True:
-			seed = getpass.getpass('password:')
-			seed2 = getpass.getpass('again:')
+			print("Enter the following: \n")
+			seed = getpass.getpass('password: ')
+			seed2 = getpass.getpass('Re-enter password: ')
 			if seed == seed2:
 				break
 			print "passwords don't match, please try again"
 
 		while True:
-			mode = raw_input('\n\nInput host- and usernames by hand[0]. Use accounts.json[1]: ')
-			if mode == "0":
+			print("\nMain Menu: ")
+			mode = raw_input('\n1. Input host and usernames by hand.\n2. Use accounts.json\nMake a selection: ')
+			if mode == "1":
 				use_user_input(seed)
 				break
-			elif mode == "1":
+			elif mode == "2":
 				use_json_file(seed)
 				use_user_input(seed)
 				break
