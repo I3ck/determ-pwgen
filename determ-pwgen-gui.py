@@ -38,10 +38,10 @@ def main():
 	}
 	SETTINGS = {
 		'seed1Label' : {
-			'text' : "Enter password: "
+			'text' : "enter seed: "
 		},
 		'seed2Label' : {
-			'text' : "Again: "
+			'text' : "again: "
 		},
 		'seed1Entry' : {
 			'width' : 15,
