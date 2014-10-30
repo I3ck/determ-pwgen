@@ -100,7 +100,7 @@ def main():
 
 	root.mainloop()
 
-def callback(hostname, username, seed1, seed2): #todo rename seed1 and seed2 to seed1 and seed2
+def callback(hostname, username, seed1, seed2):
 	if seed1 != "" and seed1 == seed2:
 		determPwgen = DetermPwgen(seed1)
 		pw = determPwgen.generate_password(hostname, username, ROUNDS)
