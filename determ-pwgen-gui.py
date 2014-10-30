@@ -26,7 +26,8 @@ POSITIONS = {
 		'y' : 45
 	},
 	'accounts' : {
-		'y' : 100
+		'y' : 100,
+		'distance' : 50
 	},
 	'info' : {
 		'x' : 100
@@ -86,7 +87,7 @@ def main():
 		infoLabel.place(x=POSITIONS['info']['x'], y=y)
 		calcButton.place(x=POSITIONS['calc']['x'], y=y)
 
-		y += 50
+		y += POSITIONS['accounts']['distance']
 
 
 
