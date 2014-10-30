@@ -75,7 +75,7 @@ def main():
 		usernameLabel = Label(root, text=account['username'])
 
 		calcButton = Button(	root, text="calc", width=SETTINGS['calc']['width'],
-								command=lambda: callback(account['hostname'], account['username']))
+								command=lambda hostname=account['hostname'], username=account['username'] : callback(hostname, username))
 
 		hostnameLabel.place(x=POSITIONS['hostname']['x'], y=y)
 		usernameLabel.place(x=POSITIONS['username']['x'], y=y)
@@ -99,7 +99,7 @@ def main():
 
 def callback(hostname, username):
 	# todo either fill a text field after username @ hostname or open a message box with the values
-    print "TODO : " + hostname + " @ " + username # bug currently always only prints the last pair, seems like the callback doesnt work
+    print "TODO : " + hostname + " @ " + username
 
 
 if __name__ == '__main__':
