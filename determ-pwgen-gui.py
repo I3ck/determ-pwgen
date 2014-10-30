@@ -8,53 +8,55 @@ ROUNDS = 1000000 # todo should be defined at only one place
 
 from inc.DetermPwgen import *
 
+POSITIONS = {
+	'seed1Label' : {
+		'x' : 25,
+		'y' : 25
+	},
+	'seed2Label' : {
+		'x' : 25,
+		'y' : 45
+	},
+	'seed1Entry' : {
+		'x' : 125,
+		'y' : 25
+	},
+	'seed2Entry' : {
+		'x' : 125,
+		'y' : 45
+	},
+	'accounts' : {
+		'y' : 100
+	},
+	'info' : {
+		'x' : 100
+	},
+	'calc' : {
+		'x' : 25
+	}
+}
+SETTINGS = {
+	'seed1Label' : {
+		'text' : "enter seed: "
+	},
+	'seed2Label' : {
+		'text' : "again: "
+	},
+	'seed1Entry' : {
+		'width' : 15,
+		'show' : "*"
+	},
+	'seed2Entry' : {
+		'width' : 15,
+		'show' : "*"
+	},
+	'calc' : {
+		'width' : 10
+	}
+}
+
+
 def main():
-	POSITIONS = {
-		'seed1Label' : {
-			'x' : 25,
-			'y' : 25
-		},
-		'seed2Label' : {
-			'x' : 25,
-			'y' : 45
-		},
-		'seed1Entry' : {
-			'x' : 125,
-			'y' : 25
-		},
-		'seed2Entry' : {
-			'x' : 125,
-			'y' : 45
-		},
-		'accounts' : {
-			'y' : 100
-		},
-		'info' : {
-			'x' : 100
-		},
-		'calc' : {
-			'x' : 25
-		}
-	}
-	SETTINGS = {
-		'seed1Label' : {
-			'text' : "enter seed: "
-		},
-		'seed2Label' : {
-			'text' : "again: "
-		},
-		'seed1Entry' : {
-			'width' : 15,
-			'show' : "*"
-		},
-		'seed2Entry' : {
-			'width' : 15,
-			'show' : "*"
-		},
-		'calc' : {
-			'width' : 10
-		}
-	}
 
 	root = Tk()
 	root.geometry("400x600")
