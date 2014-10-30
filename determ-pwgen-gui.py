@@ -27,11 +27,8 @@ def main():
 		'accounts' : {
 			'y' : 200
 		},
-		'hostname' : {
+		'info' : {
 			'x' : 100
-		},
-		'username' : {
-			'x' : 250
 		},
 		'calc' : {
 			'x' : 300
@@ -77,15 +74,12 @@ def main():
 
 	y = POSITIONS['accounts']['y']
 	for account in accounts:
-		hostnameLabel = Label(root, text=account['hostname'] + " @ ")
-
-		usernameLabel = Label(root, text=account['username'])
+		infoLabel = Label(root, text=account['hostname'] + " @ " + account['username'])
 
 		calcButton = Button(	root, text="calc", width=SETTINGS['calc']['width'],
 								command=lambda hostname=account['hostname'], username=account['username'] : callback(hostname, username, seed1Entry.get(), seed2Entry.get()))
 
-		hostnameLabel.place(x=POSITIONS['hostname']['x'], y=y)
-		usernameLabel.place(x=POSITIONS['username']['x'], y=y)
+		infoLabel.place(x=POSITIONS['info']['x'], y=y)
 		calcButton.place(x=POSITIONS['calc']['x'], y=y)
 
 		y += 50
