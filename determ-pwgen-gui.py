@@ -3,6 +3,7 @@ import tkMessageBox
 import json
 
 # todo it should be possible to directly edit the .json from the gui
+# todo add two more fields to directly get the password for a username@hostname
 
 ROUNDS = 1000000 # todo should be defined at only one place
 
