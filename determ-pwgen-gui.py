@@ -20,8 +20,16 @@ def main():
 			'y' : 120
 		},
 		'accounts' : {
-			'x' : 100,
 			'y' : 200
+		},
+		'hostname' : {
+			'x' : 100
+		},
+		'username' : {
+			'x' : 250
+		},
+		'calc' : {
+			'x' : 300
 		}
 	}
 	SETTINGS = {
@@ -38,6 +46,9 @@ def main():
 		'pw2Entry' : {
 			'width' : 15,
 			'show' : "*"
+		},
+		'calc' : {
+			'width' : 10
 		}
 	}
 
@@ -57,22 +68,18 @@ def main():
 	with open('accounts.json', 'r') as f:
 		accounts = json.load(f)
 
-	x = POSITIONS['accounts']['x']
 	y = POSITIONS['accounts']['y']
-	distance = 100
-	width = 15
 	for account in accounts:
 		hostnameLabel = Label(root, text=account['hostname'] + " @ ")
 
-
 		usernameLabel = Label(root, text=account['username'])
 
-		calcButton = Button(	root, text="calc", width=10,
+		calcButton = Button(	root, text="calc", width=SETTINGS['calc']['width'],
 								command=lambda: callback(account['hostname'], account['username']))
 
-		hostnameLabel.place(x=x, y=y)
-		usernameLabel.place(x=x+1.5*distance, y=y)
-		calcButton.place(x=x+2.0*distance, y=y)
+		hostnameLabel.place(x=POSITIONS['hostname']['x'], y=y)
+		usernameLabel.place(x=POSITIONS['username']['x'], y=y)
+		calcButton.place(x=POSITIONS['calc']['x'], y=y)
 
 		y += 50
 
@@ -91,7 +98,8 @@ def main():
 	root.mainloop()
 
 def callback(hostname, username):
-    print "TODO : " + hostname + " @ " + username # currently always only prints the last pair, seems like the callback doesnt work
+	# todo either fill a text field after username @ hostname or open a message box with the values
+    print "TODO : " + hostname + " @ " + username # bug currently always only prints the last pair, seems like the callback doesnt work
 
 
 if __name__ == '__main__':
