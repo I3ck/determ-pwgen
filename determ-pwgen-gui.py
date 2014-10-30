@@ -1,4 +1,5 @@
 from Tkinter import *
+import json
 
 def main():
 	POSITIONS = {
@@ -49,6 +50,29 @@ def main():
 	pw2Entry = Entry(root, **SETTINGS['pw2Entry'])
 
 
+	with open('accounts.json', 'r') as f:
+		accounts = json.load(f)
+
+	x = 100
+	y = 200
+	distance = 100
+	width = 15
+	for account in accounts:
+		hostnameLabel = Label(root, text=account['hostname'] + " @ ")
+
+
+		usernameLabel = Label(root, text=account['username'])
+
+		calcButton = Button(root, text="calc", width=10, command=callback)
+
+		hostnameLabel.place(x=x, y=y)
+		usernameLabel.place(x=x+1.5*distance, y=y)
+		calcButton.place(x=x+2.0*distance, y=y)
+
+		y += 50
+
+
+
 
 	pw1Label.place(**POSITIONS['pw1Label'])
 	pw2Label.place(**POSITIONS['pw2Label'])
@@ -61,8 +85,11 @@ def main():
 
 	root.mainloop()
 
-
+def callback():
+    print 'todo'
 
 
 if __name__ == '__main__':
 	main()
+
+
