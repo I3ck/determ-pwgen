@@ -100,15 +100,18 @@ def main():
 
 	root.mainloop()
 
+
 def callback(hostname, username, seed1, seed2):
-	if seed1 != "" and seed1 == seed2:
+	if seed1 == "":
+		tkMessageBox.showerror("Invalid seed", "You have to provide a seed first")
+
+	elif seed1 != seed2:
+		tkMessageBox.showerror("Invalid seed", "The seeds you provided don't match")
+
+	else:
 		determPwgen = DetermPwgen(seed1)
 		pw = determPwgen.generate_password(hostname, username, ROUNDS)
 		tkMessageBox.showinfo("Password for " + username + "@" + hostname , pw) # todo a dialog with copyable text
-
-	else:
-		tkMessageBox.showerror("Seeds don't match", "The seeds you provided don't match")
-
 
 
 if __name__ == '__main__':
