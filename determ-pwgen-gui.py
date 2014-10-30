@@ -11,29 +11,29 @@ from inc.DetermPwgen import *
 def main():
 	POSITIONS = {
 		'seed1Label' : {
-			'x' : 0,
-			'y' : 100
+			'x' : 25,
+			'y' : 25
 		},
 		'seed2Label' : {
-			'x' : 0,
-			'y' : 120
+			'x' : 25,
+			'y' : 45
 		},
 		'seed1Entry' : {
-			'x' : 100,
-			'y' : 100
+			'x' : 125,
+			'y' : 25
 		},
 		'seed2Entry' : {
-			'x' : 100,
-			'y' : 120
+			'x' : 125,
+			'y' : 45
 		},
 		'accounts' : {
-			'y' : 200
+			'y' : 100
 		},
 		'info' : {
-			'x' : 175
+			'x' : 100
 		},
 		'calc' : {
-			'x' : 100
+			'x' : 25
 		}
 	}
 	SETTINGS = {
@@ -57,7 +57,7 @@ def main():
 	}
 
 	root = Tk()
-	root.geometry("500x500")
+	root.geometry("400x600")
 	root.title("determ-pwgen by I3ck")
 
 	# todo add info box similar to console version
