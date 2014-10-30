@@ -16,6 +16,30 @@ Please use version 1 to recover the old passwords and move to version 2.
 FAQ
 ===
 
+What are the benefits of using determ-pwgen?
+--------------------------------------------
+
+### Generally there's two ways people are managing passwords
+
+Either by using the same password for everything  
+(easy to remember, very insecure)  
+
+Using a different password for every service  
+(difficult to remember, very secure)
+
+### What determ-pwgen does differently
+
+Instead of saving all your different passwords (like many password managers do),  
+determ-pwgen can generate any number of passwords, while you only have to remember a single password / seed.  
+
+### Why shouldn't I simply use one of the existing password managers?
+
+Most password managers will save all your passwords in an encrypted database.  
+This works perfectly fine, until you want to backup the database onto another device. (in case your hard drive fails)  
+Whenever a password is added to your local copy, you have to ensure that all backups are being updated.  
+This process is cumbersome, and, if not done correctly, may result in loss of many of your passwords.
+
+
 How does this work?
 -------------------
 
