@@ -76,7 +76,7 @@ def main():
 	for account in accounts:
 		infoLabel = Label(root, text=account['hostname'] + " @ " + account['username'])
 
-		calcButton = Button(	root, text="calc", width=SETTINGS['calc']['width'],
+		calcButton = Button(	root, text="get pw", width=SETTINGS['calc']['width'],
 								command=lambda hostname=account['hostname'], username=account['username'] : callback(hostname, username, seed1Entry.get(), seed2Entry.get()))
 
 		infoLabel.place(x=POSITIONS['info']['x'], y=y)
