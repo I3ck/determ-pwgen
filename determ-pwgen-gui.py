@@ -18,6 +18,10 @@ def main():
 		'pw2Entry' : {
 			'x' : 100,
 			'y' : 120
+		},
+		'accounts' : {
+			'x' : 100,
+			'y' : 200
 		}
 	}
 	SETTINGS = {
@@ -53,8 +57,8 @@ def main():
 	with open('accounts.json', 'r') as f:
 		accounts = json.load(f)
 
-	x = 100
-	y = 200
+	x = POSITIONS['accounts']['x']
+	y = POSITIONS['accounts']['y']
 	distance = 100
 	width = 15
 	for account in accounts:
@@ -63,7 +67,8 @@ def main():
 
 		usernameLabel = Label(root, text=account['username'])
 
-		calcButton = Button(root, text="calc", width=10, command=callback)
+		calcButton = Button(	root, text="calc", width=10,
+								command=lambda: callback(account['hostname'], account['username']))
 
 		hostnameLabel.place(x=x, y=y)
 		usernameLabel.place(x=x+1.5*distance, y=y)
@@ -85,8 +90,8 @@ def main():
 
 	root.mainloop()
 
-def callback():
-    print 'todo'
+def callback(hostname, username):
+    print "TODO : " + hostname + " @ " + username # currently always only prints the last pair, seems like the callback doesnt work
 
 
 if __name__ == '__main__':
