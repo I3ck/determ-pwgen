@@ -2,6 +2,8 @@ from Tkinter import *
 import tkMessageBox
 import json
 
+# todo it should be possible to directly edit the .json from the gui
+
 ROUNDS = 1000000 # todo should be defined at only one place
 
 from inc.DetermPwgen import *
@@ -28,10 +30,10 @@ def main():
 			'y' : 200
 		},
 		'info' : {
-			'x' : 100
+			'x' : 175
 		},
 		'calc' : {
-			'x' : 300
+			'x' : 100
 		}
 	}
 	SETTINGS = {
