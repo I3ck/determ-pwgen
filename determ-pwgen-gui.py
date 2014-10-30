@@ -2,11 +2,11 @@ from Tkinter import *
 
 def main():
 	POSITIONS = {
-		'pw1' : {
+		'pw1Entry' : {
 			'x' : 10,
 			'y' : 100
 		},
-		'pw2' : {
+		'pw2Entry' : {
 			'x' : 10,
 			'y' : 120
 		}
@@ -15,12 +15,12 @@ def main():
 	root = Tk()
 	root.geometry("500x500")
 
-	pw1 = Entry(root, show="*", width=15)
-	pw2 = Entry(root, show="*", width=15)
+	pw1Entry = Entry(root, show="*", width=15)
+	pw2Entry = Entry(root, show="*", width=15)
 
 
-	pw1.place(**POSITIONS['pw1'])
-	pw2.place(**POSITIONS['pw2'])
+	pw1Entry.place(**POSITIONS['pw1Entry'])
+	pw2Entry.place(**POSITIONS['pw2Entry'])
 
 	root.title("determ-pwgen by I3ck")
 
