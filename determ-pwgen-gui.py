@@ -8,19 +8,19 @@ from inc.DetermPwgen import *
 
 def main():
 	POSITIONS = {
-		'pw1Label' : {
+		'seed1Label' : {
 			'x' : 0,
 			'y' : 100
 		},
-		'pw2Label' : {
+		'seed2Label' : {
 			'x' : 0,
 			'y' : 120
 		},
-		'pw1Entry' : {
+		'seed1Entry' : {
 			'x' : 100,
 			'y' : 100
 		},
-		'pw2Entry' : {
+		'seed2Entry' : {
 			'x' : 100,
 			'y' : 120
 		},
@@ -38,17 +38,17 @@ def main():
 		}
 	}
 	SETTINGS = {
-		'pw1Label' : {
+		'seed1Label' : {
 			'text' : "Enter password: "
 		},
-		'pw2Label' : {
+		'seed2Label' : {
 			'text' : "Again: "
 		},
-		'pw1Entry' : {
+		'seed1Entry' : {
 			'width' : 15,
 			'show' : "*"
 		},
-		'pw2Entry' : {
+		'seed2Entry' : {
 			'width' : 15,
 			'show' : "*"
 		},
@@ -61,13 +61,15 @@ def main():
 	root.geometry("500x500")
 	root.title("determ-pwgen by I3ck")
 
+	# todo add info box similar to console version
 
 
-	pw1Label = Label(root, **SETTINGS['pw1Label'])
-	pw2Label = Label(root, **SETTINGS['pw2Label'])
 
-	pw1Entry = Entry(root, **SETTINGS['pw1Entry'])
-	pw2Entry = Entry(root, **SETTINGS['pw2Entry'])
+	seed1Label = Label(root, **SETTINGS['seed1Label'])
+	seed2Label = Label(root, **SETTINGS['seed2Label'])
+
+	seed1Entry = Entry(root, **SETTINGS['seed1Entry'])
+	seed2Entry = Entry(root, **SETTINGS['seed2Entry'])
 
 
 	with open('accounts.json', 'r') as f:
@@ -80,7 +82,7 @@ def main():
 		usernameLabel = Label(root, text=account['username'])
 
 		calcButton = Button(	root, text="calc", width=SETTINGS['calc']['width'],
-								command=lambda hostname=account['hostname'], username=account['username'] : callback(hostname, username, pw1Entry.get(), pw2Entry.get()))
+								command=lambda hostname=account['hostname'], username=account['username'] : callback(hostname, username, seed1Entry.get(), seed2Entry.get()))
 
 		hostnameLabel.place(x=POSITIONS['hostname']['x'], y=y)
 		usernameLabel.place(x=POSITIONS['username']['x'], y=y)
@@ -91,25 +93,25 @@ def main():
 
 
 
-	pw1Label.place(**POSITIONS['pw1Label'])
-	pw2Label.place(**POSITIONS['pw2Label'])
+	seed1Label.place(**POSITIONS['seed1Label'])
+	seed2Label.place(**POSITIONS['seed2Label'])
 
-	pw1Entry.place(**POSITIONS['pw1Entry'])
-	pw2Entry.place(**POSITIONS['pw2Entry'])
+	seed1Entry.place(**POSITIONS['seed1Entry'])
+	seed2Entry.place(**POSITIONS['seed2Entry'])
 
 
 
 
 	root.mainloop()
 
-def callback(hostname, username, pw1, pw2): #todo rename pw1 and pw2 to seed1 and seed2
-	if pw1 != "" and pw1 == pw2:
-		determPwgen = DetermPwgen(pw1)
-		answer = determPwgen.generate_password(hostname, username, ROUNDS) # todo rename to pw once pw1 was renamed to seed
-		tkMessageBox.showinfo("Password for " + username + "@" + hostname , answer) # todo a dialog with copyable text
+def callback(hostname, username, seed1, seed2): #todo rename seed1 and seed2 to seed1 and seed2
+	if seed1 != "" and seed1 == seed2:
+		determPwgen = DetermPwgen(seed1)
+		pw = determPwgen.generate_password(hostname, username, ROUNDS)
+		tkMessageBox.showinfo("Password for " + username + "@" + hostname , pw) # todo a dialog with copyable text
 
 	else:
-		tkMessageBox.showerror("Passwords don't match", "The passwords you provided don't match")
+		tkMessageBox.showerror("Seeds don't match", "The seeds you provided don't match")
 
 
 
