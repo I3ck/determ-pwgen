@@ -2,10 +2,7 @@ from Tkinter import *
 import tkMessageBox
 import json
 
-# todo it should be possible to directly edit the .json from the gui
-# todo add two more fields to directly get the password for a username@hostname
-
-ROUNDS = 1000000 # todo should be defined at only one place
+ROUNDS = 1000000
 
 from inc.DetermPwgen import *
 from inc.PasswordDialog import *
@@ -27,8 +24,24 @@ POSITIONS = {
 		'x' : 125,
 		'y' : 45
 	},
+	'hostnameLabel' : {
+		'x' : 275,
+		'y' : 100
+	},
+	'usernameLabel' : {
+		'x' : 100,
+		'y' : 100
+	},
+	'hostnameEntry' : {
+		'x' : 350,
+		'y' : 100
+	},
+	'usernameEntry' : {
+		'x' : 175,
+		'y' : 100
+	},
 	'accounts' : {
-		'y' : 100,
+		'y' : 150,
 		'distance' : 50
 	},
 	'info' : {
@@ -53,6 +66,18 @@ SETTINGS = {
 		'width' : 15,
 		'show' : "*"
 	},
+	'hostnameLabel' : {
+		'text' : "hostname"
+	},
+	'usernameLabel' : {
+		'text' : "username"
+	},
+	'hostnameEntry' : {
+		'width' : 15
+	},
+	'usernameEntry' : {
+		'width' : 15
+	},
 	'calc' : {
 		'width' : 10
 	}
@@ -62,18 +87,25 @@ SETTINGS = {
 def main():
 
 	root = Tk()
-	root.geometry("400x600")
+	root.geometry("500x800")
 	root.title("determ-pwgen by I3ck")
-
-	# todo add info box similar to console version
-
-
 
 	seed1Label = Label(root, **SETTINGS['seed1Label'])
 	seed2Label = Label(root, **SETTINGS['seed2Label'])
 
 	seed1Entry = Entry(root, **SETTINGS['seed1Entry'])
 	seed2Entry = Entry(root, **SETTINGS['seed2Entry'])
+
+	hostnameLabel = Label(root, **SETTINGS['hostnameLabel'])
+	usernameLabel = Label(root, **SETTINGS['usernameLabel'])
+
+	hostnameEntry = Entry(root, **SETTINGS['hostnameEntry'])
+	usernameEntry = Entry(root, **SETTINGS['usernameEntry'])
+
+	calcButton = Button(	root, text="get pw", width=SETTINGS['calc']['width'],
+							command=lambda  : callback(root, hostnameEntry.get(), usernameEntry.get(), seed1Entry.get(), seed2Entry.get()))
+
+	calcButton.place(x=POSITIONS['calc']['x'], y=POSITIONS['usernameLabel']['y'])
 
 
 	with open('accounts.json', 'r') as f:
@@ -100,6 +132,11 @@ def main():
 	seed1Entry.place(**POSITIONS['seed1Entry'])
 	seed2Entry.place(**POSITIONS['seed2Entry'])
 
+	hostnameLabel.place(**POSITIONS['hostnameLabel'])
+	usernameLabel.place(**POSITIONS['usernameLabel'])
+
+	hostnameEntry.place(**POSITIONS['hostnameEntry'])
+	usernameEntry.place(**POSITIONS['usernameEntry'])
 
 
 

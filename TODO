@@ -1,0 +1,5 @@
+it should be possible to directly edit the .json from the gui
+
+ROUNDS should only be defined once ( currently both in gui and console file)
+
+add info box similar to console version to the gui version
