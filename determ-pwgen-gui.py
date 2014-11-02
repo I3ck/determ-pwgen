@@ -2,10 +2,10 @@ from Tkinter import *
 import tkMessageBox
 import json
 
-ROUNDS = 1000000
-
 from inc.DetermPwgen import *
 from inc.PasswordDialog import *
+
+ROUNDS = 1000000
 
 POSITIONS = {
 	'seed1Label' : {
@@ -51,6 +51,7 @@ POSITIONS = {
 		'x' : 25
 	}
 }
+
 SETTINGS = {
 	'seed1Label' : {
 		'text' : "enter seed: "
@@ -111,6 +112,7 @@ def main():
 	with open('accounts.json', 'r') as f:
 		accounts = json.load(f)
 
+
 	y = POSITIONS['accounts']['y']
 	for account in accounts:
 		infoLabel = Label(root, text=account['hostname'] + " @ " + account['username'])
@@ -124,8 +126,6 @@ def main():
 		y += POSITIONS['accounts']['distance']
 
 
-
-
 	seed1Label.place(**POSITIONS['seed1Label'])
 	seed2Label.place(**POSITIONS['seed2Label'])
 
@@ -137,7 +137,6 @@ def main():
 
 	hostnameEntry.place(**POSITIONS['hostnameEntry'])
 	usernameEntry.place(**POSITIONS['usernameEntry'])
-
 
 
 	root.mainloop()
@@ -159,5 +158,3 @@ def callback(root,hostname, username, seed1, seed2):
 
 if __name__ == '__main__':
 	main()
-
-
