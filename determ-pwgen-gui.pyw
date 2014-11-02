@@ -115,7 +115,7 @@ def main():
 
 	y = POSITIONS['accounts']['y']
 	for account in accounts:
-		infoLabel = Label(root, text=account['hostname'] + " @ " + account['username'])
+		infoLabel = Label(root, text=account['username'] + " @ " + account['hostname'])
 
 		calcButton = Button(	root, text="get pw", width=SETTINGS['calc']['width'],
 								command=lambda hostname=account['hostname'], username=account['username'] : callback(root,hostname, username, seed1Entry.get(), seed2Entry.get()))
