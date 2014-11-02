@@ -1,4 +1,4 @@
-it should be possible to directly edit the .json from the gui
+it should be possible to directly edit the .json from the gui (adding and removing accounts)
 
 ROUNDS should only be defined once ( currently both in gui and console file)
 
