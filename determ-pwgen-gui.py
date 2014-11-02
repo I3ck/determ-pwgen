@@ -9,6 +9,18 @@ ROUNDS = 1000000 # todo should be defined at only one place
 
 from inc.DetermPwgen import *
 
+class PasswordDialog:
+
+    def __init__(self, parent, hostname, username, pw):
+		top = self.top = Toplevel(parent)
+		top.geometry("200x75")
+		top.title("determ-pwgen by I3ck")
+		self.infoLabel = Label(top, text=username + " @ " + hostname)
+		self.infoLabel.pack()
+		self.pwEntry = Entry(top)
+		self.pwEntry.pack()
+		self.pwEntry.insert(0, pw)
+
 POSITIONS = {
 	'seed1Label' : {
 		'x' : 25,
@@ -83,7 +95,7 @@ def main():
 		infoLabel = Label(root, text=account['hostname'] + " @ " + account['username'])
 
 		calcButton = Button(	root, text="get pw", width=SETTINGS['calc']['width'],
-								command=lambda hostname=account['hostname'], username=account['username'] : callback(hostname, username, seed1Entry.get(), seed2Entry.get()))
+								command=lambda hostname=account['hostname'], username=account['username'] : callback(root,hostname, username, seed1Entry.get(), seed2Entry.get()))
 
 		infoLabel.place(x=POSITIONS['info']['x'], y=y)
 		calcButton.place(x=POSITIONS['calc']['x'], y=y)
@@ -105,7 +117,7 @@ def main():
 	root.mainloop()
 
 
-def callback(hostname, username, seed1, seed2):
+def callback(root,hostname, username, seed1, seed2):
 	if seed1 == "":
 		tkMessageBox.showerror("Invalid seed", "You have to provide a seed first")
 
@@ -115,7 +127,8 @@ def callback(hostname, username, seed1, seed2):
 	else:
 		determPwgen = DetermPwgen(seed1)
 		pw = determPwgen.generate_password(hostname, username, ROUNDS)
-		tkMessageBox.showinfo("Password for " + username + "@" + hostname , pw) # todo a dialog with copyable text
+		passwordDialog = PasswordDialog(root, hostname, username, pw)
+		root.wait_window(passwordDialog.top)
 
 
 if __name__ == '__main__':
