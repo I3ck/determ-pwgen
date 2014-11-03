@@ -93,24 +93,24 @@ SETTINGS = {
 class MainWindow:
 
 	def __init__(self):
-		root = Tk()
-		root.geometry("600x800")
-		root.title("determ-pwgen by I3ck")
+		self.root = Tk()
+		self.root.geometry("600x800")
+		self.root.title("determ-pwgen by I3ck")
 
-		seed1Label = Label(root, **SETTINGS['seed1Label'])
-		seed2Label = Label(root, **SETTINGS['seed2Label'])
+		seed1Label = Label(self.root, **SETTINGS['seed1Label'])
+		seed2Label = Label(self.root, **SETTINGS['seed2Label'])
 
-		seed1Entry = Entry(root, **SETTINGS['seed1Entry'])
-		seed2Entry = Entry(root, **SETTINGS['seed2Entry'])
+		seed1Entry = Entry(self.root, **SETTINGS['seed1Entry'])
+		seed2Entry = Entry(self.root, **SETTINGS['seed2Entry'])
 
-		hostnameLabel = Label(root, **SETTINGS['hostnameLabel'])
-		usernameLabel = Label(root, **SETTINGS['usernameLabel'])
+		hostnameLabel = Label(self.root, **SETTINGS['hostnameLabel'])
+		usernameLabel = Label(self.root, **SETTINGS['usernameLabel'])
 
-		hostnameEntry = Entry(root, **SETTINGS['hostnameEntry'])
-		usernameEntry = Entry(root, **SETTINGS['usernameEntry'])
+		hostnameEntry = Entry(self.root, **SETTINGS['hostnameEntry'])
+		usernameEntry = Entry(self.root, **SETTINGS['usernameEntry'])
 
-		calcButton = Button(	root, text="get pw", width=SETTINGS['calc']['width'],
-								command=lambda  : self.showPassword(root, hostnameEntry.get(), usernameEntry.get(), seed1Entry.get(), seed2Entry.get()))
+		calcButton = Button(	self.root, text="get pw", width=SETTINGS['calc']['width'],
+								command=lambda  : self.showPassword(hostnameEntry.get(), usernameEntry.get(), seed1Entry.get(), seed2Entry.get()))
 
 		calcButton.place(x=POSITIONS['calc']['x'], y=POSITIONS['usernameLabel']['y'])
 
@@ -123,18 +123,18 @@ class MainWindow:
 
 		y = POSITIONS['accounts']['y']
 		for account in accounts:
-			infoLabel = Label(root, text=account['username'] + " @ " + account['hostname'])
+			infoLabel = Label(self.root, text=account['username'] + " @ " + account['hostname'])
 
-			calcButton = Button(	root, text="get pw", width=SETTINGS['calc']['width'],
-									command=lambda hostname=account['hostname'], username=account['username'] : self.showPassword(root,hostname, username, seed1Entry.get(), seed2Entry.get()))
+			calcButton = Button(	self.root, text="get pw", width=SETTINGS['calc']['width'],
+									command=lambda hostname=account['hostname'], username=account['username'] : self.showPassword(hostname, username, seed1Entry.get(), seed2Entry.get()))
 
 			infoLabel.place(x=POSITIONS['info']['x'], y=y)
 			calcButton.place(x=POSITIONS['calc']['x'], y=y)
 
 			y += POSITIONS['accounts']['distance']
 
-		addButton = Button(	root, text="add", width=SETTINGS['add']['width'],
-							command=lambda : self.addAccount(root, hostnameEntry.get(), usernameEntry.get(), y))
+		addButton = Button(	self.root, text="add", width=SETTINGS['add']['width'],
+							command=lambda : self.addAccount(hostnameEntry.get(), usernameEntry.get(), y))
 
 		seed1Label.place(**POSITIONS['seed1Label'])
 		seed2Label.place(**POSITIONS['seed2Label'])
@@ -150,9 +150,9 @@ class MainWindow:
 
 		addButton.place(x=POSITIONS['add']['x'], y=POSITIONS['usernameLabel']['y'])
 
-		root.mainloop()
+		self.root.mainloop()
 
-	def showPassword(self,root,hostname, username, seed1, seed2):
+	def showPassword(self,hostname, username, seed1, seed2):
 		if seed1 == "":
 			tkMessageBox.showerror("Invalid seed", "You have to provide a seed first")
 
@@ -162,10 +162,10 @@ class MainWindow:
 		else:
 			determPwgen = DetermPwgen(seed1)
 			pw = determPwgen.generate_password(hostname, username, ROUNDS)
-			passwordDialog = PasswordDialog(root, hostname, username, pw)
-			root.wait_window(passwordDialog.top)
+			passwordDialog = PasswordDialog(self.root, hostname, username, pw)
+			self.root.wait_window(passwordDialog.top)
 
-	def addAccount(self,root,hostname, username, y):
+	def addAccount(self,hostname, username, y):
 
 		with open('accounts.json', 'r') as f:
 			accounts = json.load(f)
@@ -179,10 +179,10 @@ class MainWindow:
 		with open('accounts.json', 'w') as f:
 			json.dump(accounts, f)
 
-		infoLabel = Label(root, text=username + " @ " + hostname)
+		infoLabel = Label(self.root, text=username + " @ " + hostname)
 
-		calcButton = Button(	root, text="get pw", width=SETTINGS['calc']['width'],
-								command=lambda hostname=hostname, username=username : showPassword(root,hostname, username, seed1Entry.get(), seed2Entry.get()))
+		calcButton = Button(	self.root, text="get pw", width=SETTINGS['calc']['width'],
+								command=lambda hostname=hostname, username=username : showPassword(hostname, username, seed1Entry.get(), seed2Entry.get()))
 
 		infoLabel.place(x=POSITIONS['info']['x'], y=y)
 		calcButton.place(x=POSITIONS['calc']['x'], y=y)
