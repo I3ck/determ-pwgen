@@ -49,6 +49,9 @@ POSITIONS = {
 	},
 	'calc' : {
 		'x' : 25
+	},
+	'add' : {
+		'x' : 450
 	}
 }
 
@@ -81,6 +84,9 @@ SETTINGS = {
 	},
 	'calc' : {
 		'width' : 10
+	},
+	'add' : {
+		'width' : 10
 	}
 }
 
@@ -88,7 +94,7 @@ SETTINGS = {
 def main():
 
 	root = Tk()
-	root.geometry("500x800")
+	root.geometry("600x800")
 	root.title("determ-pwgen by I3ck")
 
 	seed1Label = Label(root, **SETTINGS['seed1Label'])
@@ -108,6 +114,10 @@ def main():
 
 	calcButton.place(x=POSITIONS['calc']['x'], y=POSITIONS['usernameLabel']['y'])
 
+	addButton = Button(	root, text="add", width=SETTINGS['add']['width'],
+						command=lambda : addAccount(hostnameEntry.get(), usernameEntry.get()))
+
+	addButton.place(x=POSITIONS['add']['x'], y=POSITIONS['usernameLabel']['y'])
 
 	with open('accounts.json', 'r') as f:
 		accounts = json.load(f)
@@ -138,7 +148,6 @@ def main():
 	hostnameEntry.place(**POSITIONS['hostnameEntry'])
 	usernameEntry.place(**POSITIONS['usernameEntry'])
 
-
 	root.mainloop()
 
 
@@ -155,6 +164,19 @@ def showPassword(root,hostname, username, seed1, seed2):
 		passwordDialog = PasswordDialog(root, hostname, username, pw)
 		root.wait_window(passwordDialog.top)
 
+def addAccount(hostname, username):
+
+	with open('accounts.json', 'r') as f:
+		accounts = json.load(f)
+
+	new_account = {
+		'hostname' : hostname,
+		'username' : username
+	}
+	accounts.append(new_account)
+
+	with open('accounts.json', 'w') as f:
+		json.dump(accounts, f)
 
 if __name__ == '__main__':
 	main()
