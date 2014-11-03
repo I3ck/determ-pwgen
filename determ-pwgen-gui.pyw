@@ -52,6 +52,9 @@ POSITIONS = {
 	},
 	'add' : {
 		'x' : 450
+	},
+	'remove' : {
+		'x' : 450
 	}
 }
 
@@ -86,6 +89,9 @@ SETTINGS = {
 		'width' : 10
 	},
 	'add' : {
+		'width' : 10
+	},
+	'remove' : {
 		'width' : 10
 	}
 }
@@ -128,8 +134,12 @@ class MainWindow:
 			calcButton = Button(	self.root, text="get pw", width=SETTINGS['calc']['width'],
 									command=lambda hostname=account['hostname'], username=account['username'] : self.showPassword(hostname, username, seed1Entry.get(), seed2Entry.get()))
 
+			removeButton = Button(	self.root, text="remove", width=SETTINGS['remove']['width'],
+									command=lambda hostname=account['hostname'], username=account['username'] : self.removeAccount(hostname, username))
+
 			infoLabel.place(x=POSITIONS['info']['x'], y=self.y)
 			calcButton.place(x=POSITIONS['calc']['x'], y=self.y)
+			removeButton.place(x=POSITIONS['remove']['x'], y=self.y)
 
 			self.y += POSITIONS['accounts']['distance']
 
@@ -188,6 +198,23 @@ class MainWindow:
 		calcButton.place(x=POSITIONS['calc']['x'], y=self.y)
 
 		self.y += POSITIONS['accounts']['distance']
+
+
+	def removeAccount(self, hostname, username):
+		with open('accounts.json', 'r') as f:
+			accounts = json.load(f)
+
+		new_accounts = []
+
+		for account in accounts:
+			if account['hostname'] == hostname and account['username'] == username:
+				pass
+			else:
+				new_accounts.append(account)
+
+		with open('accounts.json', 'w') as f:
+			json.dump(new_accounts, f, indent=4)
+
 
 if __name__ == '__main__':
 	mainWindow = MainWindow()
