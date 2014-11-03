@@ -104,7 +104,7 @@ def main():
 	usernameEntry = Entry(root, **SETTINGS['usernameEntry'])
 
 	calcButton = Button(	root, text="get pw", width=SETTINGS['calc']['width'],
-							command=lambda  : callback(root, hostnameEntry.get(), usernameEntry.get(), seed1Entry.get(), seed2Entry.get()))
+							command=lambda  : showPassword(root, hostnameEntry.get(), usernameEntry.get(), seed1Entry.get(), seed2Entry.get()))
 
 	calcButton.place(x=POSITIONS['calc']['x'], y=POSITIONS['usernameLabel']['y'])
 
@@ -118,7 +118,7 @@ def main():
 		infoLabel = Label(root, text=account['username'] + " @ " + account['hostname'])
 
 		calcButton = Button(	root, text="get pw", width=SETTINGS['calc']['width'],
-								command=lambda hostname=account['hostname'], username=account['username'] : callback(root,hostname, username, seed1Entry.get(), seed2Entry.get()))
+								command=lambda hostname=account['hostname'], username=account['username'] : showPassword(root,hostname, username, seed1Entry.get(), seed2Entry.get()))
 
 		infoLabel.place(x=POSITIONS['info']['x'], y=y)
 		calcButton.place(x=POSITIONS['calc']['x'], y=y)
@@ -142,7 +142,7 @@ def main():
 	root.mainloop()
 
 
-def callback(root,hostname, username, seed1, seed2):
+def showPassword(root,hostname, username, seed1, seed2):
 	if seed1 == "":
 		tkMessageBox.showerror("Invalid seed", "You have to provide a seed first")
 
