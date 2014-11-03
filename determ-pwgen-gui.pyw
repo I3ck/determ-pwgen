@@ -215,6 +215,8 @@ class MainWindow:
 		with open('accounts.json', 'w') as f:
 			json.dump(new_accounts, f, indent=4)
 
+		tkMessageBox.showinfo("Account removed", username + " @ " + hostname + " removed from accounts.json")
+
 
 if __name__ == '__main__':
 	mainWindow = MainWindow()
