@@ -121,20 +121,20 @@ class MainWindow:
 			accounts = json.load(f)
 
 
-		y = POSITIONS['accounts']['y']
+		self.y = POSITIONS['accounts']['y']
 		for account in accounts:
 			infoLabel = Label(self.root, text=account['username'] + " @ " + account['hostname'])
 
 			calcButton = Button(	self.root, text="get pw", width=SETTINGS['calc']['width'],
 									command=lambda hostname=account['hostname'], username=account['username'] : self.showPassword(hostname, username, seed1Entry.get(), seed2Entry.get()))
 
-			infoLabel.place(x=POSITIONS['info']['x'], y=y)
-			calcButton.place(x=POSITIONS['calc']['x'], y=y)
+			infoLabel.place(x=POSITIONS['info']['x'], y=self.y)
+			calcButton.place(x=POSITIONS['calc']['x'], y=self.y)
 
-			y += POSITIONS['accounts']['distance']
+			self.y += POSITIONS['accounts']['distance']
 
 		addButton = Button(	self.root, text="add", width=SETTINGS['add']['width'],
-							command=lambda : self.addAccount(hostnameEntry.get(), usernameEntry.get(), y))
+							command=lambda : self.addAccount(hostnameEntry.get(), usernameEntry.get()))
 
 		seed1Label.place(**POSITIONS['seed1Label'])
 		seed2Label.place(**POSITIONS['seed2Label'])
@@ -165,7 +165,7 @@ class MainWindow:
 			passwordDialog = PasswordDialog(self.root, hostname, username, pw)
 			self.root.wait_window(passwordDialog.top)
 
-	def addAccount(self,hostname, username, y):
+	def addAccount(self,hostname, username):
 
 		with open('accounts.json', 'r') as f:
 			accounts = json.load(f)
@@ -184,10 +184,10 @@ class MainWindow:
 		calcButton = Button(	self.root, text="get pw", width=SETTINGS['calc']['width'],
 								command=lambda hostname=hostname, username=username : showPassword(hostname, username, seed1Entry.get(), seed2Entry.get()))
 
-		infoLabel.place(x=POSITIONS['info']['x'], y=y)
-		calcButton.place(x=POSITIONS['calc']['x'], y=y)
+		infoLabel.place(x=POSITIONS['info']['x'], y=self.y)
+		calcButton.place(x=POSITIONS['calc']['x'], y=self.y)
 
-		y += POSITIONS['accounts']['distance']
+		self.y += POSITIONS['accounts']['distance']
 
 if __name__ == '__main__':
 	mainWindow = MainWindow()
