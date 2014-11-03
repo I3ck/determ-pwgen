@@ -1,7 +1,7 @@
-it should be possible to directly edit the .json from the gui (adding and removing accounts)
-
 ROUNDS should only be defined once ( currently both in gui and console file)
 
 add info box similar to console version to the gui version
 
 use floating positioning within the gui instead of the absolute positions
+
+when removing an account, update the GUI (message box can then be removed)
