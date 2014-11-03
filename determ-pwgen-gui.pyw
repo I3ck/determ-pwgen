@@ -177,7 +177,7 @@ class MainWindow:
 		accounts.append(new_account)
 
 		with open('accounts.json', 'w') as f:
-			json.dump(accounts, f)
+			json.dump(accounts, f, indent=4)
 
 		infoLabel = Label(self.root, text=username + " @ " + hostname)
 
