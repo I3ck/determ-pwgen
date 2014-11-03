@@ -115,12 +115,13 @@ class MainWindow:
 		hostnameEntry = Entry(self.root, **SETTINGS['hostnameEntry'])
 		usernameEntry = Entry(self.root, **SETTINGS['usernameEntry'])
 
-		calcButton = Button(	self.root, text="get pw", width=SETTINGS['calc']['width'],
-								command=lambda  : self.showPassword(hostnameEntry.get(), usernameEntry.get(), seed1Entry.get(), seed2Entry.get()))
+		calcButton = Button(self.root, text="get pw", width=SETTINGS['calc']['width'],
+			command=lambda  : self.showPassword(hostnameEntry.get(), usernameEntry.get(), seed1Entry.get(), seed2Entry.get()))
+
+		addButton = Button(self.root, text="add", width=SETTINGS['add']['width'],
+			command=lambda : self.addAccount(hostnameEntry.get(), usernameEntry.get()))
 
 		calcButton.place(x=POSITIONS['calc']['x'], y=POSITIONS['usernameLabel']['y'])
-
-
 
 
 		with open('accounts.json', 'r') as f:
@@ -131,11 +132,11 @@ class MainWindow:
 		for account in accounts:
 			infoLabel = Label(self.root, text=account['username'] + " @ " + account['hostname'])
 
-			calcButton = Button(	self.root, text="get pw", width=SETTINGS['calc']['width'],
-									command=lambda hostname=account['hostname'], username=account['username'] : self.showPassword(hostname, username, seed1Entry.get(), seed2Entry.get()))
+			calcButton = Button(self.root, text="get pw", width=SETTINGS['calc']['width'],
+				command=lambda hostname=account['hostname'], username=account['username'] : self.showPassword(hostname, username, seed1Entry.get(), seed2Entry.get()))
 
-			removeButton = Button(	self.root, text="remove", width=SETTINGS['remove']['width'],
-									command=lambda hostname=account['hostname'], username=account['username'] : self.removeAccount(hostname, username))
+			removeButton = Button(self.root, text="remove", width=SETTINGS['remove']['width'],
+				command=lambda hostname=account['hostname'], username=account['username'] : self.removeAccount(hostname, username))
 
 			infoLabel.place(x=POSITIONS['info']['x'], y=self.y)
 			calcButton.place(x=POSITIONS['calc']['x'], y=self.y)
@@ -143,8 +144,6 @@ class MainWindow:
 
 			self.y += POSITIONS['accounts']['distance']
 
-		addButton = Button(	self.root, text="add", width=SETTINGS['add']['width'],
-							command=lambda : self.addAccount(hostnameEntry.get(), usernameEntry.get()))
 
 		seed1Label.place(**POSITIONS['seed1Label'])
 		seed2Label.place(**POSITIONS['seed2Label'])
@@ -162,6 +161,7 @@ class MainWindow:
 
 		self.root.mainloop()
 
+
 	def showPassword(self,hostname, username, seed1, seed2):
 		if seed1 == "":
 			tkMessageBox.showerror("Invalid seed", "You have to provide a seed first")
@@ -175,15 +175,16 @@ class MainWindow:
 			passwordDialog = PasswordDialog(self.root, hostname, username, pw)
 			self.root.wait_window(passwordDialog.top)
 
+
 	def addAccount(self,hostname, username):
-
-		with open('accounts.json', 'r') as f:
-			accounts = json.load(f)
-
 		new_account = {
 			'hostname' : hostname,
 			'username' : username
 		}
+
+		with open('accounts.json', 'r') as f:
+			accounts = json.load(f)
+
 		accounts.append(new_account)
 
 		with open('accounts.json', 'w') as f:
@@ -201,10 +202,10 @@ class MainWindow:
 
 
 	def removeAccount(self, hostname, username):
+		new_accounts = []
+
 		with open('accounts.json', 'r') as f:
 			accounts = json.load(f)
-
-		new_accounts = []
 
 		for account in accounts:
 			if account['hostname'] == hostname and account['username'] == username:
