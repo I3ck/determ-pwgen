@@ -128,7 +128,7 @@ class MainWindow:
 			accounts = json.load(f)
 
 
-		self.y = POSITIONS['accounts']['y']
+		self.offset = POSITIONS['accounts']['y']
 		for account in accounts:
 			infoLabel = Label(self.root, text=account['username'] + " @ " + account['hostname'])
 
@@ -138,11 +138,11 @@ class MainWindow:
 			removeButton = Button(self.root, text="remove", width=SETTINGS['remove']['width'],
 				command=lambda hostname=account['hostname'], username=account['username'] : self.removeAccount(hostname, username))
 
-			infoLabel.place(x=POSITIONS['info']['x'], y=self.y)
-			calcButton.place(x=POSITIONS['calc']['x'], y=self.y)
-			removeButton.place(x=POSITIONS['remove']['x'], y=self.y)
+			infoLabel.place(x=POSITIONS['info']['x'], y=self.offset)
+			calcButton.place(x=POSITIONS['calc']['x'], y=self.offset)
+			removeButton.place(x=POSITIONS['remove']['x'], y=self.offset)
 
-			self.y += POSITIONS['accounts']['distance']
+			self.offset += POSITIONS['accounts']['distance']
 
 
 		seed1Label.place(**POSITIONS['seed1Label'])
@@ -195,10 +195,10 @@ class MainWindow:
 		calcButton = Button(	self.root, text="get pw", width=SETTINGS['calc']['width'],
 								command=lambda hostname=hostname, username=username : showPassword(hostname, username, seed1Entry.get(), seed2Entry.get()))
 
-		infoLabel.place(x=POSITIONS['info']['x'], y=self.y)
-		calcButton.place(x=POSITIONS['calc']['x'], y=self.y)
+		infoLabel.place(x=POSITIONS['info']['x'], y=self.offset)
+		calcButton.place(x=POSITIONS['calc']['x'], y=self.offset)
 
-		self.y += POSITIONS['accounts']['distance']
+		self.offset += POSITIONS['accounts']['distance']
 
 
 	def removeAccount(self, hostname, username):
