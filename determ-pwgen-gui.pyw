@@ -114,10 +114,8 @@ def main():
 
 	calcButton.place(x=POSITIONS['calc']['x'], y=POSITIONS['usernameLabel']['y'])
 
-	addButton = Button(	root, text="add", width=SETTINGS['add']['width'],
-						command=lambda : addAccount(hostnameEntry.get(), usernameEntry.get()))
 
-	addButton.place(x=POSITIONS['add']['x'], y=POSITIONS['usernameLabel']['y'])
+
 
 	with open('accounts.json', 'r') as f:
 		accounts = json.load(f)
@@ -135,6 +133,8 @@ def main():
 
 		y += POSITIONS['accounts']['distance']
 
+	addButton = Button(	root, text="add", width=SETTINGS['add']['width'],
+						command=lambda : addAccount(root, hostnameEntry.get(), usernameEntry.get(), y))
 
 	seed1Label.place(**POSITIONS['seed1Label'])
 	seed2Label.place(**POSITIONS['seed2Label'])
@@ -147,6 +147,8 @@ def main():
 
 	hostnameEntry.place(**POSITIONS['hostnameEntry'])
 	usernameEntry.place(**POSITIONS['usernameEntry'])
+
+	addButton.place(x=POSITIONS['add']['x'], y=POSITIONS['usernameLabel']['y'])
 
 	root.mainloop()
 
@@ -164,7 +166,7 @@ def showPassword(root,hostname, username, seed1, seed2):
 		passwordDialog = PasswordDialog(root, hostname, username, pw)
 		root.wait_window(passwordDialog.top)
 
-def addAccount(hostname, username):
+def addAccount(root,hostname, username, y):
 
 	with open('accounts.json', 'r') as f:
 		accounts = json.load(f)
@@ -177,6 +179,16 @@ def addAccount(hostname, username):
 
 	with open('accounts.json', 'w') as f:
 		json.dump(accounts, f)
+
+	infoLabel = Label(root, text=username + " @ " + hostname)
+
+	calcButton = Button(	root, text="get pw", width=SETTINGS['calc']['width'],
+							command=lambda hostname=hostname, username=username : showPassword(root,hostname, username, seed1Entry.get(), seed2Entry.get()))
+
+	infoLabel.place(x=POSITIONS['info']['x'], y=y)
+	calcButton.place(x=POSITIONS['calc']['x'], y=y)
+
+	y += POSITIONS['accounts']['distance']
 
 if __name__ == '__main__':
 	main()
