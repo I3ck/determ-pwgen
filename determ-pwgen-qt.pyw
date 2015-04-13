@@ -25,9 +25,14 @@ class MyForm(QtGui.QMainWindow):
     def add(self):
         username = self.ui.lineEditAddUsername.text()
         hostname = self.ui.lineEditAddHostname.text()
-        print "username: ", username
-        print "hostname: ", hostname
-        print "TODO add"
+
+        newUser = dict()
+        newUser["username"] = username
+        newUser["hostname"] = hostname
+
+        self.accounts.append(newUser)
+        
+        self.update_table()
 
 
     def load_accounts_file(self):
