@@ -23,8 +23,8 @@ class MyForm(QtGui.QMainWindow):
 
 
     def add(self):
-        username = self.ui.lineEditAddUsername.text()
-        hostname = self.ui.lineEditAddHostname.text()
+        username = str(self.ui.lineEditAddUsername.text())
+        hostname = str(self.ui.lineEditAddHostname.text())
 
         newUser = dict()
         newUser["username"] = username
@@ -33,6 +33,12 @@ class MyForm(QtGui.QMainWindow):
         self.accounts.append(newUser)
         
         self.update_table()
+        self.save_accounts_file()
+
+
+    def save_accounts_file(self):
+        with open('accounts.json', 'w') as f:
+            json.dump(self.accounts, f, indent=4)
 
 
     def load_accounts_file(self):
