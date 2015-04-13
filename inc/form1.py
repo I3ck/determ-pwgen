@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'inc/form1.ui'
 #
-# Created: Mon Apr 13 17:27:48 2015
+# Created: Mon Apr 13 22:31:50 2015
 #      by: PyQt4 UI code generator 4.11.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -113,6 +113,7 @@ class Ui_mainWindow(object):
 
     def retranslateUi(self, mainWindow):
         mainWindow.setWindowTitle(_translate("mainWindow", "determ-pwgen by I3ck", None))
+        self.tableWidgetAccounts.setSortingEnabled(True)
         self.labelSeed1.setText(_translate("mainWindow", "Enter Seed:", None))
         self.labelSeed2.setText(_translate("mainWindow", "Again:", None))
         self.labelAddUsername.setText(_translate("mainWindow", "Username: ", None))
