@@ -23,12 +23,10 @@ class MyForm(QtGui.QMainWindow):
 
 
     def add(self):
-        username = str(self.ui.lineEditAddUsername.text())
-        hostname = str(self.ui.lineEditAddHostname.text())
-
-        newUser = dict()
-        newUser["username"] = username
-        newUser["hostname"] = hostname
+        newUser = {
+            "username": str(self.ui.lineEditAddUsername.text()),
+            "hostname": str(self.ui.lineEditAddHostname.text())
+        }
 
         self.accounts.append(newUser)
         
