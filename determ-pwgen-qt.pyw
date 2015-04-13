@@ -12,6 +12,10 @@ class MyForm(QtGui.QMainWindow):
         self.ui.pushButtonAdd.clicked.connect(self.add)
 
     def add(self):
+        username = self.ui.lineEditAddUsername.text()
+        hostname = self.ui.lineEditAddHostname.text()
+        print "username: ", username
+        print "hostname: ", hostname
         print "TODO add"
 
 
