@@ -28,10 +28,11 @@ class MyForm(QtGui.QMainWindow):
             "hostname": str(self.ui.lineEditAddHostname.text())
         }
 
-        self.accounts.append(newUser)
+        if newUser["username"] != "" and newUser["hostname"] != "":
+            self.accounts.append(newUser)
         
-        self.update_table()
-        self.save_accounts_file()
+            self.update_table()
+            self.save_accounts_file()
 
 
     def save_accounts_file(self):
