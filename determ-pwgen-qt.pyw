@@ -15,9 +15,9 @@ class MyForm(QtGui.QMainWindow):
         self.ui.pushButtonAdd.clicked.connect(self.add)
         self.ui.tableWidgetAccounts.cellClicked.connect(self.generate)
 
-        COLUMNS = 3
-        self.ui.tableWidgetAccounts.setColumnCount(COLUMNS)
-        self.ui.tableWidgetAccounts.setHorizontalHeaderLabels(["username", "hostname", "generate"])
+        tableColumns = ["username", "hostname"]
+        self.ui.tableWidgetAccounts.setColumnCount(len(tableColumns))
+        self.ui.tableWidgetAccounts.setHorizontalHeaderLabels(tableColumns)
 
         self.load_accounts_file()
         self.update_table()
