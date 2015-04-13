@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'inc/form1.ui'
 #
-# Created: Mon Apr 13 17:11:54 2015
+# Created: Mon Apr 13 17:27:48 2015
 #      by: PyQt4 UI code generator 4.11.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -40,9 +40,11 @@ class Ui_mainWindow(object):
         self.line_2.setFrameShape(QtGui.QFrame.HLine)
         self.line_2.setFrameShadow(QtGui.QFrame.Sunken)
         self.line_2.setObjectName(_fromUtf8("line_2"))
-        self.tableViewAccounts = QtGui.QTableView(self.centralwidget)
-        self.tableViewAccounts.setGeometry(QtCore.QRect(10, 190, 781, 371))
-        self.tableViewAccounts.setObjectName(_fromUtf8("tableViewAccounts"))
+        self.tableWidgetAccounts = QtGui.QTableWidget(self.centralwidget)
+        self.tableWidgetAccounts.setGeometry(QtCore.QRect(10, 190, 781, 371))
+        self.tableWidgetAccounts.setObjectName(_fromUtf8("tableWidgetAccounts"))
+        self.tableWidgetAccounts.setColumnCount(0)
+        self.tableWidgetAccounts.setRowCount(0)
         self.layoutWidget = QtGui.QWidget(self.centralwidget)
         self.layoutWidget.setGeometry(QtCore.QRect(50, 20, 203, 52))
         self.layoutWidget.setObjectName(_fromUtf8("layoutWidget"))
