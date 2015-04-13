@@ -3,6 +3,10 @@ import json
 from PyQt4 import *
 
 from inc.form1 import *
+from inc.DetermPwgen import *
+
+ROUNDS = 1000000
+
 
 class MyForm(QtGui.QMainWindow):
     def __init__(self, parent=None):
@@ -37,10 +41,16 @@ class MyForm(QtGui.QMainWindow):
 
 
     def generate(self, row, column):
-        print "row: ",row
-        print "column: ", column
-  
+        username  = str(self.ui.tableWidgetAccounts.item(row, 0).text())
+        hostname = str(self.ui.tableWidgetAccounts.item(row, 1).text())
 
+        seed = str(self.ui.lineEditSeed1.text())  # todo check wheter Seed1 and Seed2 match
+
+        determPwgen = DetermPwgen(seed)
+        pw = determPwgen.generate_password(hostname, username, ROUNDS)
+
+        print pw
+  
 
     def save_accounts_file(self):
         with open('accounts.json', 'w') as f:
