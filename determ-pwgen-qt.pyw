@@ -12,9 +12,7 @@ class MyForm(QtGui.QMainWindow):
         
         self.ui.pushButtonAdd.clicked.connect(self.add)
 
-        ROWS = 10
         COLUMNS = 3
-        self.ui.tableWidgetAccounts.setRowCount(ROWS)
         self.ui.tableWidgetAccounts.setColumnCount(COLUMNS)
         self.ui.tableWidgetAccounts.setHorizontalHeaderLabels(["username", "hostname", "generate"])
 
@@ -32,6 +30,8 @@ class MyForm(QtGui.QMainWindow):
     def load_accounts_file(self):
         with open("accounts.json", "r") as f:
             accounts = json.load(f)
+
+        self.ui.tableWidgetAccounts.setRowCount(len(accounts))
 
         for row, account in enumerate(accounts):
             widgetUsername = QtGui.QTableWidgetItem(account["username"])
