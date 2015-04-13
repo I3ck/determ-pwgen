@@ -53,7 +53,7 @@
      </rect>
     </property>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>50</x>
@@ -75,9 +75,6 @@
        <property name="echoMode">
         <enum>QLineEdit::Password</enum>
        </property>
-       <property name="clearButtonEnabled">
-        <bool>false</bool>
-       </property>
       </widget>
      </item>
      <item row="1" column="0">
@@ -96,13 +93,13 @@
      </item>
     </layout>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>40</x>
       <y>120</y>
       <width>474</width>
-      <height>24</height>
+      <height>26</height>
      </rect>
     </property>
     <layout class="QHBoxLayout" name="horizontalLayout">
@@ -135,16 +132,9 @@
      </item>
     </layout>
    </widget>
-   <zorder>labelSeed2</zorder>
-   <zorder>lineEditSeed2</zorder>
-   <zorder>labelSeed1</zorder>
-   <zorder>lineEditSeed1</zorder>
-   <zorder>pushButtonAdd</zorder>
+   <zorder>layoutWidget</zorder>
+   <zorder>layoutWidget</zorder>
    <zorder>line</zorder>
-   <zorder>labelAddUsername</zorder>
-   <zorder>labelAddHostname</zorder>
-   <zorder>lineEditAddUsername</zorder>
-   <zorder>lineEditAddHostname</zorder>
    <zorder>line_2</zorder>
    <zorder>tableViewAccounts</zorder>
   </widget>

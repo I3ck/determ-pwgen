@@ -8,6 +8,11 @@ class MyForm(QtGui.QMainWindow):
         QtGui.QWidget.__init__(self, parent)
         self.ui = Ui_mainWindow()
         self.ui.setupUi(self)
+        
+        self.ui.pushButtonAdd.clicked.connect(self.add)
+
+    def add(self):
+        print "TODO add"
 
 
 if __name__ == "__main__":
