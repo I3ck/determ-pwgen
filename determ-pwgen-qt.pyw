@@ -13,6 +13,7 @@ class MyForm(QtGui.QMainWindow):
         self.ui.setupUi(self)
         
         self.ui.pushButtonAdd.clicked.connect(self.add)
+        self.ui.tableWidgetAccounts.cellClicked.connect(self.generate)
 
         COLUMNS = 3
         self.ui.tableWidgetAccounts.setColumnCount(COLUMNS)
@@ -33,6 +34,12 @@ class MyForm(QtGui.QMainWindow):
         
             self.update_table()
             self.save_accounts_file()
+
+
+    def generate(self, row, column):
+        print "row: ",row
+        print "column: ", column
+  
 
 
     def save_accounts_file(self):
