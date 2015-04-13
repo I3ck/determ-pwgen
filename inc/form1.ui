@@ -44,12 +44,15 @@
     </property>
    </widget>
    <widget class="QTableWidget" name="tableWidgetAccounts">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>10</x>
       <y>190</y>
       <width>781</width>
-      <height>371</height>
+      <height>341</height>
      </rect>
     </property>
     <property name="sortingEnabled">
@@ -135,11 +138,34 @@
      </item>
     </layout>
    </widget>
+   <widget class="QLabel" name="labelGenerating">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>540</y>
+      <width>171</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>9</pointsize>
+      <italic>true</italic>
+     </font>
+    </property>
+    <property name="text">
+     <string>generating password ...</string>
+    </property>
+   </widget>
    <zorder>layoutWidget</zorder>
    <zorder>layoutWidget</zorder>
    <zorder>line</zorder>
    <zorder>line_2</zorder>
    <zorder>tableWidgetAccounts</zorder>
+   <zorder>labelGenerating</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">

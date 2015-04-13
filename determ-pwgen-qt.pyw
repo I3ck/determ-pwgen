@@ -23,6 +23,8 @@ class MyForm(QtGui.QMainWindow):
         self.ui.tableWidgetAccounts.setColumnCount(len(tableColumns))
         self.ui.tableWidgetAccounts.setHorizontalHeaderLabels(tableColumns)
 
+        self.ui.labelGenerating.hide()
+
         self.load_accounts_file()
         self.update_table()
 
@@ -41,13 +43,16 @@ class MyForm(QtGui.QMainWindow):
 
 
     def generate(self, row, column):
+        self.ui.labelGenerating.show()  # todo not working yet, has to happen in another thread (or the pwgeneration)
         username  = str(self.ui.tableWidgetAccounts.item(row, 0).text())
         hostname = str(self.ui.tableWidgetAccounts.item(row, 1).text())
 
         seed = str(self.ui.lineEditSeed1.text())  # todo check wheter Seed1 and Seed2 match
 
         determPwgen = DetermPwgen(seed)
+
         pw = determPwgen.generate_password(hostname, username, ROUNDS)
+        self.ui.labelGenerating.hide()
 
         print pw
   

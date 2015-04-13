@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'inc/form1.ui'
 #
-# Created: Mon Apr 13 22:31:50 2015
+# Created: Mon Apr 13 23:02:08 2015
 #      by: PyQt4 UI code generator 4.11.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -41,7 +41,8 @@ class Ui_mainWindow(object):
         self.line_2.setFrameShadow(QtGui.QFrame.Sunken)
         self.line_2.setObjectName(_fromUtf8("line_2"))
         self.tableWidgetAccounts = QtGui.QTableWidget(self.centralwidget)
-        self.tableWidgetAccounts.setGeometry(QtCore.QRect(10, 190, 781, 371))
+        self.tableWidgetAccounts.setEnabled(True)
+        self.tableWidgetAccounts.setGeometry(QtCore.QRect(10, 190, 781, 341))
         self.tableWidgetAccounts.setObjectName(_fromUtf8("tableWidgetAccounts"))
         self.tableWidgetAccounts.setColumnCount(0)
         self.tableWidgetAccounts.setRowCount(0)
@@ -86,6 +87,14 @@ class Ui_mainWindow(object):
         self.pushButtonAdd = QtGui.QPushButton(self.layoutWidget1)
         self.pushButtonAdd.setObjectName(_fromUtf8("pushButtonAdd"))
         self.horizontalLayout.addWidget(self.pushButtonAdd)
+        self.labelGenerating = QtGui.QLabel(self.centralwidget)
+        self.labelGenerating.setEnabled(True)
+        self.labelGenerating.setGeometry(QtCore.QRect(10, 540, 171, 16))
+        font = QtGui.QFont()
+        font.setPointSize(9)
+        font.setItalic(True)
+        self.labelGenerating.setFont(font)
+        self.labelGenerating.setObjectName(_fromUtf8("labelGenerating"))
         mainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtGui.QMenuBar(mainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 800, 19))
@@ -119,6 +128,7 @@ class Ui_mainWindow(object):
         self.labelAddUsername.setText(_translate("mainWindow", "Username: ", None))
         self.labelAddHostname.setText(_translate("mainWindow", "@ Hostname:", None))
         self.pushButtonAdd.setText(_translate("mainWindow", "Add", None))
+        self.labelGenerating.setText(_translate("mainWindow", "generating password ...", None))
         self.menuFile.setTitle(_translate("mainWindow", "File", None))
         self.actionLoad_accounts.setText(_translate("mainWindow", "import ...", None))
         self.actionSave.setText(_translate("mainWindow", "save", None))
