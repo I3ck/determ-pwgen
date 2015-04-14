@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'inc/form1.ui'
 #
-# Created: Tue Apr 14 18:59:50 2015
+# Created: Tue Apr 14 19:04:54 2015
 #      by: PyQt4 UI code generator 4.11.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -89,22 +89,22 @@ class Ui_mainWindow(object):
         self.horizontalLayout.addWidget(self.pushButtonAdd)
         self.labelGenerating = QtGui.QLabel(self.centralwidget)
         self.labelGenerating.setEnabled(True)
-        self.labelGenerating.setGeometry(QtCore.QRect(10, 540, 171, 16))
+        self.labelGenerating.setGeometry(QtCore.QRect(10, 540, 781, 16))
         font = QtGui.QFont()
         font.setPointSize(9)
         font.setItalic(True)
         self.labelGenerating.setFont(font)
         self.labelGenerating.setObjectName(_fromUtf8("labelGenerating"))
-        self.widget = QtGui.QWidget(self.centralwidget)
-        self.widget.setGeometry(QtCore.QRect(420, 200, 361, 42))
-        self.widget.setObjectName(_fromUtf8("widget"))
-        self.verticalLayout = QtGui.QVBoxLayout(self.widget)
+        self.layoutWidget2 = QtGui.QWidget(self.centralwidget)
+        self.layoutWidget2.setGeometry(QtCore.QRect(420, 200, 361, 42))
+        self.layoutWidget2.setObjectName(_fromUtf8("layoutWidget2"))
+        self.verticalLayout = QtGui.QVBoxLayout(self.layoutWidget2)
         self.verticalLayout.setMargin(0)
         self.verticalLayout.setObjectName(_fromUtf8("verticalLayout"))
-        self.labelInfo = QtGui.QLabel(self.widget)
+        self.labelInfo = QtGui.QLabel(self.layoutWidget2)
         self.labelInfo.setObjectName(_fromUtf8("labelInfo"))
         self.verticalLayout.addWidget(self.labelInfo)
-        self.lineEditPassword = QtGui.QLineEdit(self.widget)
+        self.lineEditPassword = QtGui.QLineEdit(self.layoutWidget2)
         self.lineEditPassword.setEnabled(False)
         self.lineEditPassword.setObjectName(_fromUtf8("lineEditPassword"))
         self.verticalLayout.addWidget(self.lineEditPassword)

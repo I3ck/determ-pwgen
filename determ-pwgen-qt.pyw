@@ -45,11 +45,14 @@ class MyForm(QtGui.QMainWindow):
 
 
     def generate(self, row, column):
-        self.ui.labelGenerating.show()
         username  = str(self.ui.tableWidgetAccounts.item(row, 0).text())
         hostname = str(self.ui.tableWidgetAccounts.item(row, 1).text())
 
         seed = str(self.ui.lineEditSeed1.text())  # todo check wheter Seed1 and Seed2 match
+
+
+        self.ui.labelGenerating.show()
+        self.ui.labelGenerating.setText("generating password for " + username + "@" + hostname + "...")
 
         self.genericThread = GenericThread(self.generate_bg, seed, hostname, username)
         self.genericThread.start()

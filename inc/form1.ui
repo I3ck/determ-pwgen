@@ -146,7 +146,7 @@
      <rect>
       <x>10</x>
       <y>540</y>
-      <width>171</width>
+      <width>781</width>
       <height>16</height>
      </rect>
     </property>
@@ -160,7 +160,7 @@
      <string>generating password ...</string>
     </property>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>420</x>
@@ -188,12 +188,11 @@
    </widget>
    <zorder>layoutWidget</zorder>
    <zorder>layoutWidget</zorder>
+   <zorder>layoutWidget</zorder>
    <zorder>line</zorder>
    <zorder>line_2</zorder>
    <zorder>tableWidgetAccounts</zorder>
    <zorder>labelGenerating</zorder>
-   <zorder>lineEditPassword</zorder>
-   <zorder>labelInfo</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
