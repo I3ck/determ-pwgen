@@ -10,25 +10,39 @@ ROUNDS = 1000000
 
 class MyForm(QtGui.QMainWindow):
     def __init__(self, parent=None):
+        QtGui.QWidget.__init__(self, parent)
         self.accounts = list()
 
-        QtGui.QWidget.__init__(self, parent)
         self.ui = Ui_mainWindow()
         self.ui.setupUi(self)
+
+        self.init_table()
         
-        self.ui.pushButtonAdd.clicked.connect(self.add)
-        self.ui.tableWidgetAccounts.cellClicked.connect(self.generate)
+        self.init_hide_widgets()
 
-        tableColumns = ["username", "hostname"]
-        self.ui.tableWidgetAccounts.setColumnCount(len(tableColumns))
-        self.ui.tableWidgetAccounts.setHorizontalHeaderLabels(tableColumns)
+        self.init_connections()
 
+        self.load_accounts_file()
+
+        self.update_table()
+    
+
+    def init_hide_widgets(self):
         self.ui.labelGenerating.hide()
         self.ui.lineEditPassword.hide()
         self.ui.labelInfo.hide()
+    
 
-        self.load_accounts_file()
-        self.update_table()
+    def init_connections(self):
+        self.ui.pushButtonAdd.clicked.connect(self.add)
+
+        self.ui.tableWidgetAccounts.cellClicked.connect(self.generate)
+
+
+    def init_table(self):
+        tableColumns = ["username", "hostname"]
+        self.ui.tableWidgetAccounts.setColumnCount(len(tableColumns))
+        self.ui.tableWidgetAccounts.setHorizontalHeaderLabels(tableColumns)
 
 
     def add(self):
