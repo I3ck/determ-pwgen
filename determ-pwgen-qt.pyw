@@ -43,12 +43,17 @@ class MyForm(QtGui.QMainWindow):
 
 
     def generate(self, row, column):
-        self.ui.labelGenerating.show()  # todo not working yet, has to happen in another thread (or the pwgeneration)
+        self.ui.labelGenerating.show()
         username  = str(self.ui.tableWidgetAccounts.item(row, 0).text())
         hostname = str(self.ui.tableWidgetAccounts.item(row, 1).text())
 
         seed = str(self.ui.lineEditSeed1.text())  # todo check wheter Seed1 and Seed2 match
 
+        self.genericThread = GenericThread(self.generate_bg, seed, hostname, username)
+        self.genericThread.start()
+
+
+    def generate_bg(self,seed, hostname, username):
         determPwgen = DetermPwgen(seed)
 
         pw = determPwgen.generate_password(hostname, username, ROUNDS)
@@ -78,7 +83,20 @@ class MyForm(QtGui.QMainWindow):
             self.ui.tableWidgetAccounts.setItem(row, 0, widgetUsername)
             self.ui.tableWidgetAccounts.setItem(row, 1, widgetHostname)
             self.ui.tableWidgetAccounts.setItem(row, 2, widgetGenerate)
-            
+
+class GenericThread(QtCore.QThread):
+    def __init__(self, function, *args, **kwargs):
+        QtCore.QThread.__init__(self)
+        self.function = function
+        self.args = args
+        self.kwargs = kwargs
+ 
+    def __del__(self):
+        self.wait()
+ 
+    def run(self):
+        self.function(*self.args,**self.kwargs)
+        return            
 
 
 if __name__ == "__main__":
