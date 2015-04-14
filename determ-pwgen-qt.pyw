@@ -57,6 +57,7 @@ class MyForm(QtGui.QMainWindow):
             self.update_table()
             self.save_accounts_file()
 
+
     def notify(self, text):
         self.ui.labelGenerating.show()
         self.ui.labelGenerating.setText(text)
@@ -67,15 +68,23 @@ class MyForm(QtGui.QMainWindow):
 
 
     def generate(self, row, column):
-        username  = str(self.ui.tableWidgetAccounts.item(row, 0).text())
-        hostname = str(self.ui.tableWidgetAccounts.item(row, 1).text())
+        seed1 = str(self.ui.lineEditSeed1.text())
+        seed2 = str(self.ui.lineEditSeed2.text())
 
-        seed = str(self.ui.lineEditSeed1.text())  # todo check wheter Seed1 and Seed2 match
+        if seed1 == "":
+            self.notify("Seed can't be empty. Please enter your seed / password")
 
-        self.notify("generating password for " + username + "@" + hostname + "...")
+        elif seed1 != seed2:
+            self.notify("Seeds don't match, please re-type them")
+        
+        else:
+            username  = str(self.ui.tableWidgetAccounts.item(row, 0).text())
+            hostname = str(self.ui.tableWidgetAccounts.item(row, 1).text())
 
-        self.genericThread = GenericThread(self.generate_bg, seed, hostname, username)
-        self.genericThread.start()
+            self.notify("generating password for " + username + "@" + hostname + "...")
+
+            self.genericThread = GenericThread(self.generate_bg, seed1, hostname, username)
+            self.genericThread.start()
 
 
     def generate_bg(self,seed, hostname, username):
@@ -90,8 +99,6 @@ class MyForm(QtGui.QMainWindow):
 
         self.ui.labelInfo.setText("password for " + username + "@" + hostname + ":")
         self.ui.lineEditPassword.setText(pw)
-
-        print pw
   
 
     def save_accounts_file(self):
@@ -110,11 +117,10 @@ class MyForm(QtGui.QMainWindow):
         for row, account in enumerate(self.accounts):
             widgetUsername = QtGui.QTableWidgetItem(account["username"])
             widgetHostname = QtGui.QTableWidgetItem(account["hostname"])
-            widgetGenerate = QtGui.QTableWidgetItem("generate")
 
             self.ui.tableWidgetAccounts.setItem(row, 0, widgetUsername)
             self.ui.tableWidgetAccounts.setItem(row, 1, widgetHostname)
-            self.ui.tableWidgetAccounts.setItem(row, 2, widgetGenerate)
+
 
 class GenericThread(QtCore.QThread):
     def __init__(self, function, *args, **kwargs):
