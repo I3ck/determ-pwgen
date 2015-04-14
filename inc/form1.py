@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'inc/form1.ui'
 #
-# Created: Tue Apr 14 19:04:54 2015
+# Created: Tue Apr 14 19:27:31 2015
 #      by: PyQt4 UI code generator 4.11.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -112,8 +112,6 @@ class Ui_mainWindow(object):
         self.menubar = QtGui.QMenuBar(mainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 800, 19))
         self.menubar.setObjectName(_fromUtf8("menubar"))
-        self.menuFile = QtGui.QMenu(self.menubar)
-        self.menuFile.setObjectName(_fromUtf8("menuFile"))
         mainWindow.setMenuBar(self.menubar)
         self.statusbar = QtGui.QStatusBar(mainWindow)
         self.statusbar.setObjectName(_fromUtf8("statusbar"))
@@ -124,11 +122,6 @@ class Ui_mainWindow(object):
         self.actionSave.setObjectName(_fromUtf8("actionSave"))
         self.actionSave_as = QtGui.QAction(mainWindow)
         self.actionSave_as.setObjectName(_fromUtf8("actionSave_as"))
-        self.menuFile.addAction(self.actionLoad_accounts)
-        self.menuFile.addSeparator()
-        self.menuFile.addAction(self.actionSave)
-        self.menuFile.addAction(self.actionSave_as)
-        self.menubar.addAction(self.menuFile.menuAction())
 
         self.retranslateUi(mainWindow)
         QtCore.QMetaObject.connectSlotsByName(mainWindow)
@@ -143,7 +136,6 @@ class Ui_mainWindow(object):
         self.pushButtonAdd.setText(_translate("mainWindow", "Add", None))
         self.labelGenerating.setText(_translate("mainWindow", "generating password ...", None))
         self.labelInfo.setText(_translate("mainWindow", "TextLabel", None))
-        self.menuFile.setTitle(_translate("mainWindow", "File", None))
         self.actionLoad_accounts.setText(_translate("mainWindow", "import ...", None))
         self.actionSave.setText(_translate("mainWindow", "save", None))
         self.actionSave_as.setText(_translate("mainWindow", "save as ...", None))
