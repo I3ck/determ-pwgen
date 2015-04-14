@@ -16,10 +16,6 @@ add LICENSE text to all source code
 
 update LICENSE text to 2014 - 2015
 
-add screenshots for the qt version
-
 add a label to qt version which explains that one has to click table rows to show the password
 
 properly resize the table columns or the table itself
-
-password field has to be editable

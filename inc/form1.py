@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'inc/form1.ui'
 #
-# Created: Tue Apr 14 19:27:31 2015
+# Created: Tue Apr 14 20:36:33 2015
 #      by: PyQt4 UI code generator 4.11.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -105,7 +105,8 @@ class Ui_mainWindow(object):
         self.labelInfo.setObjectName(_fromUtf8("labelInfo"))
         self.verticalLayout.addWidget(self.labelInfo)
         self.lineEditPassword = QtGui.QLineEdit(self.layoutWidget2)
-        self.lineEditPassword.setEnabled(False)
+        self.lineEditPassword.setEnabled(True)
+        self.lineEditPassword.setReadOnly(True)
         self.lineEditPassword.setObjectName(_fromUtf8("lineEditPassword"))
         self.verticalLayout.addWidget(self.lineEditPassword)
         mainWindow.setCentralWidget(self.centralwidget)
