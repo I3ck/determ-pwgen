@@ -22,6 +22,12 @@ Generated passwords are now shorter, by using both lower- and uppercase characte
 Please use version 1 to recover the old passwords and move to version 2.  
 
 
+SETUP
+=====
+To run the console version simply get Python 2.7  
+To run the qt-gui version, additionaly install PyQt4
+
+
 FAQ
 ===
 
