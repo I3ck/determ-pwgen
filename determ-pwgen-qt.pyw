@@ -28,7 +28,7 @@ class MyForm(QtGui.QMainWindow):
     
 
     def init_hide_widgets(self):
-        self.ui.labelGenerating.hide()
+        self.hide_notify()
         self.ui.lineEditPassword.hide()
         self.ui.labelInfo.hide()
     
@@ -57,6 +57,14 @@ class MyForm(QtGui.QMainWindow):
             self.update_table()
             self.save_accounts_file()
 
+    def notify(self, text):
+        self.ui.labelGenerating.show()
+        self.ui.labelGenerating.setText(text)
+
+    
+    def hide_notify(self):
+        self.ui.labelGenerating.hide()
+
 
     def generate(self, row, column):
         username  = str(self.ui.tableWidgetAccounts.item(row, 0).text())
@@ -64,9 +72,7 @@ class MyForm(QtGui.QMainWindow):
 
         seed = str(self.ui.lineEditSeed1.text())  # todo check wheter Seed1 and Seed2 match
 
-
-        self.ui.labelGenerating.show()
-        self.ui.labelGenerating.setText("generating password for " + username + "@" + hostname + "...")
+        self.notify("generating password for " + username + "@" + hostname + "...")
 
         self.genericThread = GenericThread(self.generate_bg, seed, hostname, username)
         self.genericThread.start()
@@ -76,7 +82,8 @@ class MyForm(QtGui.QMainWindow):
         determPwgen = DetermPwgen(seed)
 
         pw = determPwgen.generate_password(hostname, username, ROUNDS)
-        self.ui.labelGenerating.hide()
+        
+        self.hide_notify()
 
         self.ui.labelInfo.show()
         self.ui.lineEditPassword.show()
