@@ -24,6 +24,8 @@ class MyForm(QtGui.QMainWindow):
         self.ui.tableWidgetAccounts.setHorizontalHeaderLabels(tableColumns)
 
         self.ui.labelGenerating.hide()
+        self.ui.lineEditPassword.hide()
+        self.ui.labelInfo.hide()
 
         self.load_accounts_file()
         self.update_table()
@@ -58,6 +60,12 @@ class MyForm(QtGui.QMainWindow):
 
         pw = determPwgen.generate_password(hostname, username, ROUNDS)
         self.ui.labelGenerating.hide()
+
+        self.ui.labelInfo.show()
+        self.ui.lineEditPassword.show()
+
+        self.ui.labelInfo.setText("password for " + username + "@" + hostname + ":")
+        self.ui.lineEditPassword.setText(pw)
 
         print pw
   

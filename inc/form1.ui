@@ -51,7 +51,7 @@
      <rect>
       <x>10</x>
       <y>190</y>
-      <width>781</width>
+      <width>391</width>
       <height>341</height>
      </rect>
     </property>
@@ -160,12 +160,40 @@
      <string>generating password ...</string>
     </property>
    </widget>
+   <widget class="QWidget" name="">
+    <property name="geometry">
+     <rect>
+      <x>420</x>
+      <y>200</y>
+      <width>361</width>
+      <height>42</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <item>
+      <widget class="QLabel" name="labelInfo">
+       <property name="text">
+        <string>TextLabel</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="lineEditPassword">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
    <zorder>layoutWidget</zorder>
    <zorder>layoutWidget</zorder>
    <zorder>line</zorder>
    <zorder>line_2</zorder>
    <zorder>tableWidgetAccounts</zorder>
    <zorder>labelGenerating</zorder>
+   <zorder>lineEditPassword</zorder>
+   <zorder>labelInfo</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">

@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'inc/form1.ui'
 #
-# Created: Mon Apr 13 23:02:08 2015
+# Created: Tue Apr 14 18:59:50 2015
 #      by: PyQt4 UI code generator 4.11.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -42,7 +42,7 @@ class Ui_mainWindow(object):
         self.line_2.setObjectName(_fromUtf8("line_2"))
         self.tableWidgetAccounts = QtGui.QTableWidget(self.centralwidget)
         self.tableWidgetAccounts.setEnabled(True)
-        self.tableWidgetAccounts.setGeometry(QtCore.QRect(10, 190, 781, 341))
+        self.tableWidgetAccounts.setGeometry(QtCore.QRect(10, 190, 391, 341))
         self.tableWidgetAccounts.setObjectName(_fromUtf8("tableWidgetAccounts"))
         self.tableWidgetAccounts.setColumnCount(0)
         self.tableWidgetAccounts.setRowCount(0)
@@ -95,6 +95,19 @@ class Ui_mainWindow(object):
         font.setItalic(True)
         self.labelGenerating.setFont(font)
         self.labelGenerating.setObjectName(_fromUtf8("labelGenerating"))
+        self.widget = QtGui.QWidget(self.centralwidget)
+        self.widget.setGeometry(QtCore.QRect(420, 200, 361, 42))
+        self.widget.setObjectName(_fromUtf8("widget"))
+        self.verticalLayout = QtGui.QVBoxLayout(self.widget)
+        self.verticalLayout.setMargin(0)
+        self.verticalLayout.setObjectName(_fromUtf8("verticalLayout"))
+        self.labelInfo = QtGui.QLabel(self.widget)
+        self.labelInfo.setObjectName(_fromUtf8("labelInfo"))
+        self.verticalLayout.addWidget(self.labelInfo)
+        self.lineEditPassword = QtGui.QLineEdit(self.widget)
+        self.lineEditPassword.setEnabled(False)
+        self.lineEditPassword.setObjectName(_fromUtf8("lineEditPassword"))
+        self.verticalLayout.addWidget(self.lineEditPassword)
         mainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtGui.QMenuBar(mainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 800, 19))
@@ -129,6 +142,7 @@ class Ui_mainWindow(object):
         self.labelAddHostname.setText(_translate("mainWindow", "@ Hostname:", None))
         self.pushButtonAdd.setText(_translate("mainWindow", "Add", None))
         self.labelGenerating.setText(_translate("mainWindow", "generating password ...", None))
+        self.labelInfo.setText(_translate("mainWindow", "TextLabel", None))
         self.menuFile.setTitle(_translate("mainWindow", "File", None))
         self.actionLoad_accounts.setText(_translate("mainWindow", "import ...", None))
         self.actionSave.setText(_translate("mainWindow", "save", None))
