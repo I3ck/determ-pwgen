@@ -10,22 +10,24 @@ Version 3
 =========
 
 
-Version 2 => 3
---------------
-all passwords are compatible with version 3  
-now using Qt for the gui
+Changes version 2 to 3
+----------------------
+- All passwords are compatible with version 3  
+- Now using Qt for the gui
 
 
-Version 1 => 2
---------------
-Generated passwords are now shorter, by using both lower- and uppercase characters (and different from version 1).
-Please use version 1 to recover the old passwords and move to version 2.  
+Changes version 1 to 2
+----------------------
+- Generated passwords are now shorter, by using both lower- and uppercase characters (and different from version 1).
+- Please use version 1 to recover the old passwords and move to version 2.  
 
 
-SETUP
+Usage
 =====
-To run the console version simply get Python 2.7  
-To run the qt-gui version, additionaly install PyQt4
+To run the console version simply get `Python 2.7` from https://www.python.org/downloads/ and run `python2 determ-pwgen-console.py`  
+To run the Qt-gui version you'll have to get `PyQt4` from http://www.riverbankcomputing.co.uk/software/pyqt/download  
+and run `python2 determ-pwgen-qt.pyw`  
+or double-click the `determ-pwgen-qt.pyw` depending on your OS.
 
 
 FAQ
@@ -63,10 +65,10 @@ How does this work?
 determ-pwgem uses a hashing function to generate your passwords  
 even the smallest change within the input of a hash function results in a totally different output:  
 
-sha256("This is your input") => 99ae620e26453eb71eaf55be65a337651e0e4f8eff85a8ea60b7196d8db422b9    
-sha256("this is your input") => 8d031674ce8b92785b8e9dc6fed81745982f98b342d4d65429f9be397d4f1132  
+`sha256("This is your input") => 99ae620e26453eb71eaf55be65a337651e0e4f8eff85a8ea60b7196d8db422b9    `  
+`sha256("this is your input") => 8d031674ce8b92785b8e9dc6fed81745982f98b342d4d65429f9be397d4f1132  `
 
-Also it's impossible to reverse the function. By knowing the output, one can not calculate the input. 
+Also it's impossible to reverse the function. By knowing the output, one can not calculate the input.
 
 ### Usage within determ-pwgen
 
@@ -77,17 +79,19 @@ This is the **only** thing you have to remember
 To generate a password, the user now simply provides the hostname and username that is used  
 determ-pwgen now generates a unique password for every hostname + username combination that the user provides  
 
-determ-pwgen now does something similar to:    
-hash(seed + hostname + username) 
+determ-pwgen now does something similar to:
+`hash(seed + hostname + username)`
 
-seed = "asuihdatzwgqe", hostname = "google", and username = "myName"  
-hash("asuihdatzwgqegooglemyName")  
+
+`seed = "asuihdatzwgqe", hostname = "google", and username = "myName"`  
+`hash("asuihdatzwgqegooglemyName")`
+
 
 
 To demonstrate the changes when using another username, once again sha256 is used:  
 
-sha256("asuihdatzwgqegooglemyName") => 0cdee0898a8f8ef25c0d18ea72da4d637953903dcaf1dcc5724aafdca07a4e88  
-sha256("asuihdatzwgqegooglemyName2") => a2e34c47bef2ee7d2a93ba9635f88d5dbbbb0eb1c77084602c926c6782cce3b5  
+`sha256("asuihdatzwgqegooglemyName") => 0cdee0898a8f8ef25c0d18ea72da4d637953903dcaf1dcc5724aafdca07a4e88`
+`sha256("asuihdatzwgqegooglemyName2") => a2e34c47bef2ee7d2a93ba9635f88d5dbbbb0eb1c77084602c926c6782cce3b5`
 
 That way the user only has to remember the seed and can generate any number of passwords from it  
 if someone manages to steal the password of "myName", "myName2"'s password would still be save
