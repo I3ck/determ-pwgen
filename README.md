@@ -3,7 +3,21 @@ determ-pwgen
 
 A deterministic password generator
 
-You'll only have to remember one password / seed and can use it to generate a unique password for many websites or programs
+You'll only have to remember one password / seed and can use it to generate a unique password for many websites or programs  
+
+The GUI
+-------
+![alt tag](https://raw.githubusercontent.com/I3ck/determ-pwgen/master/img/gui-example-1.png)  
+![alt tag](https://raw.githubusercontent.com/I3ck/determ-pwgen/master/img/gui-example-2.png)  
+no, I didn't use my seed there ;)  
+
+The cli
+-------
+![alt tag](https://raw.githubusercontent.com/I3ck/determ-pwgen/master/img/cli-example-1.png)  
+![alt tag](https://raw.githubusercontent.com/I3ck/determ-pwgen/master/img/cli-example-2.png)  
+no, I didn't use my seed there ;)  
+
+
 
 
 Version 3
