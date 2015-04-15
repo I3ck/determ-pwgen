@@ -2,11 +2,7 @@ add info box similar to console version to the gui version
 
 use floating positioning within the gui instead of the absolute positions
 
-when removing an account, update the GUI (message box can then be removed)
-
 allow import / export of accounts in qt version
-
-add a label to qt version which explains that one has to click table rows to show the password
 
 properly resize the table columns or the table itself
 
