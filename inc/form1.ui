@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>624</width>
+    <height>658</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -20,9 +20,9 @@
    <widget class="Line" name="line">
     <property name="geometry">
      <rect>
-      <x>7</x>
-      <y>90</y>
-      <width>781</width>
+      <x>-3</x>
+      <y>80</y>
+      <width>821</width>
       <height>20</height>
      </rect>
     </property>
@@ -33,9 +33,9 @@
    <widget class="Line" name="line_2">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>150</y>
-      <width>781</width>
+      <x>-10</x>
+      <y>160</y>
+      <width>831</width>
       <height>20</height>
      </rect>
     </property>
@@ -50,9 +50,9 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>190</y>
-      <width>391</width>
-      <height>341</height>
+      <y>220</y>
+      <width>601</width>
+      <height>361</height>
      </rect>
     </property>
     <property name="sortingEnabled">
@@ -62,9 +62,9 @@
    <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
-      <x>50</x>
+      <x>20</x>
       <y>20</y>
-      <width>203</width>
+      <width>291</width>
       <height>52</height>
      </rect>
     </property>
@@ -102,8 +102,8 @@
    <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
-      <x>40</x>
-      <y>120</y>
+      <x>20</x>
+      <y>180</y>
       <width>474</width>
       <height>26</height>
      </rect>
@@ -145,9 +145,9 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>540</y>
+      <y>596</y>
       <width>781</width>
-      <height>16</height>
+      <height>20</height>
      </rect>
     </property>
     <property name="font">
@@ -157,16 +157,16 @@
      </font>
     </property>
     <property name="text">
-     <string>generating password ...</string>
+     <string>NOTIFY</string>
     </property>
    </widget>
    <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
-      <x>420</x>
-      <y>200</y>
-      <width>361</width>
-      <height>42</height>
+      <x>20</x>
+      <y>110</y>
+      <width>391</width>
+      <height>43</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout">
@@ -196,14 +196,15 @@
    <zorder>line_2</zorder>
    <zorder>tableWidgetAccounts</zorder>
    <zorder>labelGenerating</zorder>
+   <zorder>lineEditPassword</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>800</width>
-     <height>19</height>
+     <width>624</width>
+     <height>22</height>
     </rect>
    </property>
   </widget>

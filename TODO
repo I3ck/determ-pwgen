@@ -15,3 +15,7 @@ properly resize the table columns or the table itself
 make table columns read only or fire proper events which update the accounts.json
 
 update screenshots
+
+disable the table while seed hasn't been entered
+
+create a howto tutorial for the gui once its pretty much finished
