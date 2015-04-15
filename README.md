@@ -13,8 +13,50 @@ no, I didn't use my seed there ;)
 
 The cli
 -------
-![alt tag](https://raw.githubusercontent.com/I3ck/determ-pwgen/master/img/cli-example-1.png)  
-![alt tag](https://raw.githubusercontent.com/I3ck/determ-pwgen/master/img/cli-example-2.png)  
+```
+ ___________________________________________________________________
+| determ-pwgen created by I3ck (Martin Buck)                        |
+| https://github.com/I3ck/determ-pwgen                              |
+| licensed under the MIT License (see LICENSE file)                 |
+| use determ-pwgen-qt.pyw for a graphical user interface            |
+|___________________________________________________________________|
+
+
+Enter the following:
+
+password:
+```
+after entering your password, hostname and username:  
+```
+ ___________________________________________________________________
+| determ-pwgen created by I3ck (Martin Buck)                        |
+| https://github.com/I3ck/determ-pwgen                              |
+| licensed under the MIT License (see LICENSE file)                 |
+| use determ-pwgen-qt.pyw for a graphical user interface            |
+|___________________________________________________________________|
+
+
+Enter the following:
+
+password:
+Re-enter password:
+
+Main Menu:
+
+1. Input host and usernames by hand.
+2. Use accounts.json
+Make a selection: 1
+
+
+Please enter the domain or name of the program (e.g. google or outlook): github
+Please enter your username for github: I3ck
+
+I3ck @ github:
+bZEEagyeplME04hqFxxA6vSwSffwL5/1hviZa4H8JwI=
+
+
+Please enter the domain or name of the program (e.g. google or outlook):
+```
 no, I didn't use my seed there ;)  
 
 
