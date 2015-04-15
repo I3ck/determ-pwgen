@@ -171,6 +171,9 @@ class MyForm(QtGui.QMainWindow):
             widgetGenerate = QtGui.QTableWidgetItem("click")
             widgetDelete = QtGui.QTableWidgetItem("click")
 
+            widgetGenerate.setTextAlignment(QtCore.Qt.AlignCenter)
+            widgetDelete.setTextAlignment(QtCore.Qt.AlignCenter)
+
             self.ui.tableWidgetAccounts.setItem(row, 0, widgetUsername)
             self.ui.tableWidgetAccounts.setItem(row, 1, widgetHostname)
             self.ui.tableWidgetAccounts.setItem(row, 2, widgetGenerate)
