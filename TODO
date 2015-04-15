@@ -4,8 +4,6 @@ use floating positioning within the gui instead of the absolute positions
 
 when removing an account, update the GUI (message box can then be removed)
 
-qt version sometimes crashes (currently only on linux)
-
 allow import / export of accounts in qt version
 
 add a label to qt version which explains that one has to click table rows to show the password

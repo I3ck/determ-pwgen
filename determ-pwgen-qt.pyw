@@ -25,6 +25,7 @@ class MyForm(QtGui.QMainWindow):
     def __init__(self, parent=None):
         QtGui.QWidget.__init__(self, parent)
         self.accounts = list()
+        self.generatedData = dict()
 
         self.tableColumns = ["Username", "Hostname", "generate", "delete"]
 
@@ -122,13 +123,24 @@ class MyForm(QtGui.QMainWindow):
             self.notify("generating password for " + username + "@" + hostname + "...")
 
             self.genericThread = GenericThread(self.generate_bg, seed1, hostname, username)
+            self.connect(self.genericThread, self.genericThread.signal, self.generate_done)
             self.genericThread.start()
 
 
     def generate_bg(self,seed, hostname, username):
         determPwgen = DetermPwgen(seed)
-
+        
         pw = determPwgen.generate_password(hostname, username, settings.ROUNDS)
+
+        self.generatedData["hostname"] = hostname
+        self.generatedData["username"] = username
+        self.generatedData["pw"] = pw
+
+
+    def generate_done(self):
+        hostname = self.generatedData["hostname"]
+        username = self.generatedData["username"]
+        pw = self.generatedData["pw"]
 
         self.hide_notify()
 
@@ -168,6 +180,7 @@ class MyForm(QtGui.QMainWindow):
 class GenericThread(QtCore.QThread):
     def __init__(self, function, *args, **kwargs):
         QtCore.QThread.__init__(self)
+        self.signal = QtCore.SIGNAL("signal")
         self.function = function
         self.args = args
         self.kwargs = kwargs
@@ -176,7 +189,8 @@ class GenericThread(QtCore.QThread):
         self.wait()
 
     def run(self):
-        self.function(*self.args,**self.kwargs)
+        result = self.function(*self.args,**self.kwargs)
+        self.emit(self.signal, result)
         return
 
 
