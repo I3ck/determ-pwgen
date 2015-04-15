@@ -4,8 +4,7 @@ from PyQt4 import *
 
 from inc.form1 import *
 from inc.DetermPwgen import *
-
-ROUNDS = 1000000
+import inc.settings as settings
 
 
 class MyForm(QtGui.QMainWindow):
@@ -115,7 +114,7 @@ class MyForm(QtGui.QMainWindow):
     def generate_bg(self,seed, hostname, username):
         determPwgen = DetermPwgen(seed)
 
-        pw = determPwgen.generate_password(hostname, username, ROUNDS)
+        pw = determPwgen.generate_password(hostname, username, settings.ROUNDS)
 
         self.hide_notify()
 
@@ -127,13 +126,13 @@ class MyForm(QtGui.QMainWindow):
 
 
     def save_accounts_file(self):
-        with open('accounts.json', 'w') as f:
+        with open(settings.PATH_ACCOUNTS_FILE, 'w') as f:
             json.dump(self.accounts, f, indent=4)
-        self.notify("Changes written to accounts.json")
+        self.notify("Changes written to " + settings.PATH_ACCOUNTS_FILE)
 
 
     def load_accounts_file(self):
-        with open("accounts.json", "r") as f:
+        with open(settings.PATH_ACCOUNTS_FILE, "r") as f:
             self.accounts = json.load(f)
 
 

@@ -1,5 +1,3 @@
-ROUNDS should only be defined once ( currently both in gui and console file)
-
 add info box similar to console version to the gui version
 
 use floating positioning within the gui instead of the absolute positions
@@ -17,7 +15,5 @@ add a label to qt version which explains that one has to click table rows to sho
 properly resize the table columns or the table itself
 
 make table columns read only or fire proper events which update the accounts.json
-
-make accounts.json a variable
 
 update screenshots

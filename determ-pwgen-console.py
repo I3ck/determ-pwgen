@@ -1,7 +1,6 @@
 import getpass, json
 from inc.DetermPwgen import *
-
-ROUNDS = 1000000
+import inc.settings as settings
 
 def welcome_banner():
 	print("\n")
@@ -10,7 +9,7 @@ def welcome_banner():
 	print "+ https://github.com/I3ck/determ-pwgen                              *"
 	print "* licensed under the MIT License                                    *"
 	print "* version2 (use version1 if you already generated passwords with it)*"
-	print "* using " + str(ROUNDS) + " rounds of sha256                                    *"
+	print "* using " + str(settings.ROUNDS) + " rounds of sha256                                    *"
 	print "*********************************************************************"
 	print("\n")
 
@@ -25,7 +24,7 @@ def use_user_input(seed):
 		hostname = raw_input('\n\nPlease enter the domain or name of the program (e.g. google or outlook): ')
 		username = raw_input('Please enter your username for ' + hostname + ': ')
 
-		pw = determPwgen.generate_password(hostname, username, ROUNDS)
+		pw = determPwgen.generate_password(hostname, username, settings.ROUNDS)
 
 		print "\n" + get_print_string(hostname, username, pw)
 
@@ -33,11 +32,11 @@ def use_user_input(seed):
 def use_json_file(seed):
 	determPwgen = DetermPwgen(seed)
 
-	with open('accounts.json', 'r') as f:
+	with open(settings.PATH_ACCOUNTS_FILE, 'r') as f:
 		accounts = json.load(f)
 
 	for account in accounts:
-		pw = determPwgen.generate_password(account['hostname'], account['username'], ROUNDS)
+		pw = determPwgen.generate_password(account['hostname'], account['username'], settings.ROUNDS)
 		print "\n" + get_print_string(account['hostname'], account['username'], pw)
 
 
@@ -55,7 +54,7 @@ def main():
 
 		while True:
 			print("\nMain Menu: ")
-			mode = raw_input('\n1. Input host and usernames by hand.\n2. Use accounts.json\nMake a selection: ')
+			mode = raw_input('\n1. Input host and usernames by hand.\n2. Use ' + settings.PATH_ACCOUNTS_FILE + '\nMake a selection: ')
 			if mode == "1":
 				use_user_input(seed)
 				break
