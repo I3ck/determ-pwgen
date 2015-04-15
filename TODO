@@ -6,9 +6,7 @@ use floating positioning within the gui instead of the absolute positions
 
 when removing an account, update the GUI (message box can then be removed)
 
-qt version sometimes crashes
-
-allow deletion of accounts in qt version
+qt version sometimes crashes (currently only on linux)
 
 allow import / export of accounts in qt version
 
@@ -19,3 +17,9 @@ update LICENSE text to 2014 - 2015
 add a label to qt version which explains that one has to click table rows to show the password
 
 properly resize the table columns or the table itself
+
+make table columns read only or fire proper events which update the accounts.json
+
+make accounts.json a variable
+
+update screenshots

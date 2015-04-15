@@ -20,8 +20,8 @@ no, I didn't use my seed there ;)
 
 
 
-Version 3
-=========
+Version 3.1.0
+=============
 
 
 Changes version 2 to 3
