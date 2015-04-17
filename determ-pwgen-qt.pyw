@@ -88,7 +88,7 @@ class MyForm(QtGui.QMainWindow):
                 self.ui.labelInfo.hide()
                 self.ui.lineEditPassword.hide()
 
-                self.genericThread = GenericThread(self.generate_bg, seed1, hostname, username)
+                self.generic_thread = GenericThread(self.generate_bg, seed1, hostname, username)
                 self.connect(self.genericThread, self.genericThread.signal, self.generate_done)
                 self.genericThread.start()
 
@@ -136,7 +136,7 @@ class MyForm(QtGui.QMainWindow):
             self.notify("Seeds don't match, please re-type them")
 
         else:
-            username  = str(self.ui.tableWidgetAccounts.item(row, 0).text())
+            username = str(self.ui.tableWidgetAccounts.item(row, 0).text())
             hostname = str(self.ui.tableWidgetAccounts.item(row, 1).text())
 
             self.notify("generating password for " + username + "@" + hostname + "...")
@@ -144,14 +144,14 @@ class MyForm(QtGui.QMainWindow):
             self.ui.labelInfo.hide()
             self.ui.lineEditPassword.hide()
 
-            self.genericThread = GenericThread(self.generate_bg, seed1, hostname, username)
+            self.generic_thread = GenericThread(self.generate_bg, seed1, hostname, username)
             self.connect(self.genericThread, self.genericThread.signal, self.generate_done)
             self.genericThread.start()
 
-    def generate_bg(self,seed, hostname, username):
-        determPwgen = DetermPwgen(seed)
+    def generate_bg(self, seed, hostname, username):
+        determ_pwgen = DetermPwgen(seed)
         
-        pw = determPwgen.generate_password(hostname, username, settings.ROUNDS)
+        pw = determ_pwgen.generate_password(hostname, username, settings.ROUNDS)
 
         self.generatedData["hostname"] = hostname
         self.generatedData["username"] = username
@@ -183,18 +183,18 @@ class MyForm(QtGui.QMainWindow):
         self.ui.tableWidgetAccounts.setRowCount(len(self.accounts))
 
         for row, account in enumerate(self.accounts):
-            widgetUsername = QtGui.QTableWidgetItem(account["username"])
-            widgetHostname = QtGui.QTableWidgetItem(account["hostname"])
-            widgetGenerate = QtGui.QTableWidgetItem("click")
-            widgetRemove = QtGui.QTableWidgetItem("click")
+            widget_username = QtGui.QTableWidgetItem(account["username"])
+            widget_hostname = QtGui.QTableWidgetItem(account["hostname"])
+            widget_generate = QtGui.QTableWidgetItem("click")
+            widget_remove = QtGui.QTableWidgetItem("click")
 
-            widgetGenerate.setTextAlignment(QtCore.Qt.AlignCenter)
-            widgetRemove.setTextAlignment(QtCore.Qt.AlignCenter)
+            widget_generate.setTextAlignment(QtCore.Qt.AlignCenter)
+            widget_remove.setTextAlignment(QtCore.Qt.AlignCenter)
 
-            self.ui.tableWidgetAccounts.setItem(row, 0, widgetUsername)
-            self.ui.tableWidgetAccounts.setItem(row, 1, widgetHostname)
-            self.ui.tableWidgetAccounts.setItem(row, 2, widgetGenerate)
-            self.ui.tableWidgetAccounts.setItem(row, 3, widgetRemove)
+            self.ui.tableWidgetAccounts.setItem(row, 0, widget_username)
+            self.ui.tableWidgetAccounts.setItem(row, 1, widget_hostname)
+            self.ui.tableWidgetAccounts.setItem(row, 2, widget_generate)
+            self.ui.tableWidgetAccounts.setItem(row, 3, widget_remove)
 
 
 class GenericThread(QtCore.QThread):
@@ -209,7 +209,7 @@ class GenericThread(QtCore.QThread):
         self.wait()
 
     def run(self):
-        result = self.function(*self.args,**self.kwargs)
+        result = self.function(*self.args, **self.kwargs)
         self.emit(self.signal, result)
         return
 
