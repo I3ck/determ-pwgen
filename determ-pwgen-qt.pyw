@@ -42,12 +42,10 @@ class MyForm(QtGui.QMainWindow):
 
         self.update_table()
 
-
     def init_hide_widgets(self):
         self.hide_notify()
         self.ui.lineEditPassword.hide()
         self.ui.labelInfo.hide()
-
 
     def init_connections(self):
         self.ui.pushButtonAdd.clicked.connect(self.add)
@@ -55,20 +53,18 @@ class MyForm(QtGui.QMainWindow):
 
         self.ui.tableWidgetAccounts.cellClicked.connect(self.click_table)
 
-
     def init_table(self):
         self.ui.tableWidgetAccounts.setColumnCount(len(self.tableColumns))
         self.ui.tableWidgetAccounts.setHorizontalHeaderLabels(self.tableColumns)
 
-
     def add(self):
-        newUser = {
+        newuser = {
             "username": str(self.ui.lineEditAddUsername.text()),
             "hostname": str(self.ui.lineEditAddHostname.text())
         }
 
-        if newUser["username"] != "" and newUser["hostname"] != "":
-            self.accounts.append(newUser)
+        if newuser["username"] != "" and newuser["hostname"] != "":
+            self.accounts.append(newuser)
 
             self.update_table()
             self.save_accounts_file()
@@ -116,14 +112,13 @@ class MyForm(QtGui.QMainWindow):
         else:
             self.notify("Either click remove or generate")
 
-
     def remove(self, row):
-        username  = str(self.ui.tableWidgetAccounts.item(row, 0).text())
+        username = str(self.ui.tableWidgetAccounts.item(row, 0).text())
         hostname = str(self.ui.tableWidgetAccounts.item(row, 1).text())
         reply = QtGui.QMessageBox.question(self,
-            "Are you sure?",
-            "Are you sure you want to remove " + username + "@" + hostname,
-            QtGui.QMessageBox.Yes | QtGui.QMessageBox.No, QtGui.QMessageBox.No)
+                                           "Are you sure?",
+                                           "Are you sure you want to remove " + username + "@" + hostname,
+                                           QtGui.QMessageBox.Yes | QtGui.QMessageBox.No, QtGui.QMessageBox.No)
 
         if reply == QtGui.QMessageBox.Yes:
             del(self.accounts[row])
