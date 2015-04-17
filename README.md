@@ -81,7 +81,7 @@ Changes version 1 to 2
 Usage
 =====
 To run the console version simply get `Python 2.7` from https://www.python.org/downloads/ and run `python2 determ-pwgen-console.py`  
-To run the Qt-gui version you'll have to get `PyQt4` from http://www.riverbankcomputing.co.uk/software/pyqt/download  
+To run the Qt-gui version you'll have to get `PyQt4` for python2 from http://www.riverbankcomputing.co.uk/software/pyqt/download  
 and run `python2 determ-pwgen-qt.pyw`  
 or double-click the `determ-pwgen-qt.pyw` depending on your OS.
 
