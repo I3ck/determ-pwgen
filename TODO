@@ -12,8 +12,6 @@ disable the table while seed hasn't been entered
 
 create a howto tutorial for the gui once its pretty much finished
 
-rename password to seed in cli version
-
 improve qt source code readability
 
 make everything work in py3 aswell
@@ -31,3 +29,5 @@ the cli version should have another mode, where all accounts in accounts.json ar
 [2] tooo@hest
 [3] tree@forest
 etc. where the user then can specify which one to generate by typing the number
+
+cli version also needs checks for the case where seed1 or 2 are empty

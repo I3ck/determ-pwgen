@@ -36,13 +36,19 @@ def get_print_string(hostname, username, pw):
 def use_user_input(seed):
     determ_pwgen = DetermPwgen(seed)
 
+    print "\n\nEnter the username and hostname you want to generate a password for:"
+
     while True:
-        hostname = raw_input('\n\nPlease enter the domain or name of the program (e.g. google or outlook): ')
-        username = raw_input('Please enter your username for ' + hostname + ': ')
+        username = raw_input("\nUsername: ")
+        hostname = raw_input("Hostname: ")
+
 
         pw = determ_pwgen.generate_password(hostname, username, settings.ROUNDS)
 
-        print "\n" + get_print_string(hostname, username, pw)
+        print ""
+        print "--------------------------------------------------------------------------------"
+        print get_print_string(hostname, username, pw)
+        print "--------------------------------------------------------------------------------"
 
 
 def use_json_file(seed):
@@ -61,12 +67,12 @@ def main():
 
     try:
         while True:
-            print("Enter the following: \n")
-            seed = getpass.getpass('password: ')
-            seed2 = getpass.getpass('Re-enter password: ')
+            print "\nEnter your seed:"
+            seed = getpass.getpass('Seed: ')
+            seed2 = getpass.getpass('Again: ')
             if seed == seed2:
                 break
-            print "passwords don't match, please try again"
+            print "Seeds don't match, please try again."
 
         while True:
             print "\nSelect usage mode:"
@@ -81,10 +87,10 @@ def main():
                 use_user_input(seed)
                 break
             else:
-                print "unknown mode, please try again"
+                print "Unknown mode, please try again"
 
     except KeyboardInterrupt:
-        print "program exiting"
+        print "\ndeterm-pwgen exiting"
 
 
 if __name__ == '__main__':
