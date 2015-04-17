@@ -29,5 +29,11 @@ the cli version should have another mode, where all accounts in accounts.json ar
 [2] tooo@hest
 [3] tree@forest
 etc. where the user then can specify which one to generate by typing the number
+add leading white spaces there
+[  1] a
+[530] b
 
 cli version also needs checks for the case where seed1 or 2 are empty
+
+if there's ever a new version which generates other passwords,
+add a determ-pwgen specific seed which contains e.g. "determ-pwgen...RANDOM_DATA"
