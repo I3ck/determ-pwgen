@@ -27,7 +27,7 @@ class MyForm(QtGui.QMainWindow):
         self.accounts = list()
         self.generatedData = dict()
 
-        self.tableColumns = ["Username", "Hostname", "generate", "delete"]
+        self.tableColumns = ["Username", "Hostname", "generate", "remove"]
 
         self.ui = Ui_mainWindow()
         self.ui.setupUi(self)
@@ -111,19 +111,19 @@ class MyForm(QtGui.QMainWindow):
         if self.tableColumns[column] == "generate":
             self.generate(row)
 
-        elif self.tableColumns[column] == "delete":
-            self.delete(row)
+        elif self.tableColumns[column] == "remove":
+            self.remove(row)
 
         else:
-            self.notify("Either click delete or generate")
+            self.notify("Either click remove or generate")
 
 
-    def delete(self, row):
+    def remove(self, row):
         username  = str(self.ui.tableWidgetAccounts.item(row, 0).text())
         hostname = str(self.ui.tableWidgetAccounts.item(row, 1).text())
         reply = QtGui.QMessageBox.question(self,
             "Are you sure?",
-            "Are you sure you want to delete " + username + "@" + hostname,
+            "Are you sure you want to remove " + username + "@" + hostname,
             QtGui.QMessageBox.Yes | QtGui.QMessageBox.No, QtGui.QMessageBox.No)
 
         if reply == QtGui.QMessageBox.Yes:
@@ -195,15 +195,15 @@ class MyForm(QtGui.QMainWindow):
             widgetUsername = QtGui.QTableWidgetItem(account["username"])
             widgetHostname = QtGui.QTableWidgetItem(account["hostname"])
             widgetGenerate = QtGui.QTableWidgetItem("click")
-            widgetDelete = QtGui.QTableWidgetItem("click")
+            widgetRemove = QtGui.QTableWidgetItem("click")
 
             widgetGenerate.setTextAlignment(QtCore.Qt.AlignCenter)
-            widgetDelete.setTextAlignment(QtCore.Qt.AlignCenter)
+            widgetRemove.setTextAlignment(QtCore.Qt.AlignCenter)
 
             self.ui.tableWidgetAccounts.setItem(row, 0, widgetUsername)
             self.ui.tableWidgetAccounts.setItem(row, 1, widgetHostname)
             self.ui.tableWidgetAccounts.setItem(row, 2, widgetGenerate)
-            self.ui.tableWidgetAccounts.setItem(row, 3, widgetDelete)
+            self.ui.tableWidgetAccounts.setItem(row, 3, widgetRemove)
 
 
 class GenericThread(QtCore.QThread):

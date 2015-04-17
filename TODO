@@ -18,8 +18,6 @@ improve qt source code readability
 
 make everything work in py3 aswell
 
-rename delete to remove
-
 make table rows / cells read only
 
 improve generate codebase (some parts used multiple times / naming of methods not too great)
