@@ -12,7 +12,8 @@
 """
 
 
-import getpass, json
+import getpass
+import json
 from inc.DetermPwgen import *
 import inc.settings as settings
 
@@ -33,25 +34,25 @@ def get_print_string(hostname, username, pw):
 
 
 def use_user_input(seed):
-    determPwgen = DetermPwgen(seed)
+    determ_pwgen = DetermPwgen(seed)
 
     while True:
         hostname = raw_input('\n\nPlease enter the domain or name of the program (e.g. google or outlook): ')
         username = raw_input('Please enter your username for ' + hostname + ': ')
 
-        pw = determPwgen.generate_password(hostname, username, settings.ROUNDS)
+        pw = determ_pwgen.generate_password(hostname, username, settings.ROUNDS)
 
         print "\n" + get_print_string(hostname, username, pw)
 
 
 def use_json_file(seed):
-    determPwgen = DetermPwgen(seed)
+    determ_pwgen = DetermPwgen(seed)
 
     with open(settings.PATH_ACCOUNTS_FILE, 'r') as f:
         accounts = json.load(f)
 
     for account in accounts:
-        pw = determPwgen.generate_password(account['hostname'], account['username'], settings.ROUNDS)
+        pw = determ_pwgen.generate_password(account['hostname'], account['username'], settings.ROUNDS)
         print "\n" + get_print_string(account['hostname'], account['username'], pw)
 
 

@@ -23,3 +23,11 @@ make table rows / cells read only
 improve generate codebase (some parts used multiple times / naming of methods not too great)
 
 update screenshots to show the new generate button
+
+the readme needs a rework
+
+the cli version should have another mode, where all accounts in accounts.json are listed with numbers
+[1] one@host
+[2] tooo@hest
+[3] tree@forest
+etc. where the user then can specify which one to generate by typing the number
