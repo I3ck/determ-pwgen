@@ -73,7 +73,6 @@ class MyForm(QtGui.QMainWindow):
             self.update_table()
             self.save_accounts_file()
 
-
     def generate_directly(self):
         username = str(self.ui.lineEditAddUsername.text())
         hostname = str(self.ui.lineEditAddHostname.text())
@@ -90,6 +89,8 @@ class MyForm(QtGui.QMainWindow):
 
             else:
                 self.notify("generating password for " + username + "@" + hostname + "...")
+                self.ui.labelInfo.hide()
+                self.ui.lineEditPassword.hide()
 
                 self.genericThread = GenericThread(self.generate_bg, seed1, hostname, username)
                 self.connect(self.genericThread, self.genericThread.signal, self.generate_done)
@@ -98,11 +99,9 @@ class MyForm(QtGui.QMainWindow):
         else:
             self.notify("Please enter a username and hostname")
 
-
     def notify(self, text):
         self.ui.labelGenerating.show()
         self.ui.labelGenerating.setText(text)
-
 
     def hide_notify(self):
         self.ui.labelGenerating.hide()
@@ -131,7 +130,6 @@ class MyForm(QtGui.QMainWindow):
             self.save_accounts_file()
             self.update_table()
 
-
     def generate(self, row):
         seed1 = str(self.ui.lineEditSeed1.text())
         seed2 = str(self.ui.lineEditSeed2.text())
@@ -148,10 +146,12 @@ class MyForm(QtGui.QMainWindow):
 
             self.notify("generating password for " + username + "@" + hostname + "...")
 
+            self.ui.labelInfo.hide()
+            self.ui.lineEditPassword.hide()
+
             self.genericThread = GenericThread(self.generate_bg, seed1, hostname, username)
             self.connect(self.genericThread, self.genericThread.signal, self.generate_done)
             self.genericThread.start()
-
 
     def generate_bg(self,seed, hostname, username):
         determPwgen = DetermPwgen(seed)
@@ -161,7 +161,6 @@ class MyForm(QtGui.QMainWindow):
         self.generatedData["hostname"] = hostname
         self.generatedData["username"] = username
         self.generatedData["pw"] = pw
-
 
     def generate_done(self):
         hostname = self.generatedData["hostname"]
@@ -176,17 +175,14 @@ class MyForm(QtGui.QMainWindow):
         self.ui.labelInfo.setText("password for " + username + "@" + hostname + ":")
         self.ui.lineEditPassword.setText(pw)
 
-
     def save_accounts_file(self):
         with open(settings.PATH_ACCOUNTS_FILE, 'w') as f:
             json.dump(self.accounts, f, indent=4)
         self.notify("Changes written to " + settings.PATH_ACCOUNTS_FILE)
 
-
     def load_accounts_file(self):
         with open(settings.PATH_ACCOUNTS_FILE, "r") as f:
             self.accounts = json.load(f)
-
 
     def update_table(self):
         self.ui.tableWidgetAccounts.setRowCount(len(self.accounts))
