@@ -14,8 +14,6 @@ create a howto tutorial for the gui once its pretty much finished
 
 rename password to seed in cli version
 
-add a "generate" button next to the add button to directly generate passwords without adding them
-
 improve qt source code readability
 
 make everything work in py3 aswell
@@ -23,3 +21,7 @@ make everything work in py3 aswell
 rename delete to remove
 
 make table rows / cells read only
+
+improve generate codebase (some parts used multiple times / naming of methods not too great)
+
+update screenshots to show the new generate button

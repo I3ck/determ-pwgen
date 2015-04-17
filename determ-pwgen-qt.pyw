@@ -51,6 +51,7 @@ class MyForm(QtGui.QMainWindow):
 
     def init_connections(self):
         self.ui.pushButtonAdd.clicked.connect(self.add)
+        self.ui.pushButtonGenerate.clicked.connect(self.generate_directly)
 
         self.ui.tableWidgetAccounts.cellClicked.connect(self.click_table)
 
@@ -71,6 +72,31 @@ class MyForm(QtGui.QMainWindow):
 
             self.update_table()
             self.save_accounts_file()
+
+
+    def generate_directly(self):
+        username = str(self.ui.lineEditAddUsername.text())
+        hostname = str(self.ui.lineEditAddHostname.text())
+
+        if username != "" and hostname != "":
+            seed1 = str(self.ui.lineEditSeed1.text())
+            seed2 = str(self.ui.lineEditSeed2.text())
+
+            if seed1 == "":
+                self.notify("Seed can't be empty. Please enter your seed / password")
+
+            elif seed1 != seed2:
+                self.notify("Seeds don't match, please re-type them")
+
+            else:
+                self.notify("generating password for " + username + "@" + hostname + "...")
+
+                self.genericThread = GenericThread(self.generate_bg, seed1, hostname, username)
+                self.connect(self.genericThread, self.genericThread.signal, self.generate_done)
+                self.genericThread.start()
+
+        else:
+            self.notify("Please enter a username and hostname")
 
 
     def notify(self, text):
