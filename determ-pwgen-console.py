@@ -18,7 +18,7 @@ from inc.DetermPwgen import *
 import inc.settings as settings
 
 
-def welcome_banner():
+def print_welcome_banner():
     print("\n")
     print " ___________________________________________________________________ "
     print "| determ-pwgen created by I3ck (Martin Buck)                        |"
@@ -57,7 +57,7 @@ def use_json_file(seed):
 
 
 def main():
-    welcome_banner()
+    print_welcome_banner()
 
     try:
         while True:
@@ -69,8 +69,10 @@ def main():
             print "passwords don't match, please try again"
 
         while True:
-            print("\nMain Menu: ")
-            mode = raw_input('\n1. Input host and usernames by hand.\n2. Use ' + settings.PATH_ACCOUNTS_FILE + '\nMake a selection: ')
+            print "\nSelect usage mode:"
+            print "[1] Input host- and username directly"
+            print "[2] Use " + settings.PATH_ACCOUNTS_FILE
+            mode = raw_input(">")
             if mode == "1":
                 use_user_input(seed)
                 break
