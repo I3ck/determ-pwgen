@@ -18,6 +18,9 @@ from inc.DetermPwgen import *
 import inc.settings as settings
 
 
+PROMPT = "> "
+
+
 def print_welcome_banner():
     print("\n")
     print " ___________________________________________________________________ "
@@ -63,7 +66,7 @@ def use_json_file(seed):
     print "Type the number of the account you want to generate the password for"
     print "(-1 to abort)"
     while True:
-        index = int(raw_input(">"))
+        index = int(raw_input(PROMPT))
         if index == -1:
             break
         if 0 <= index < len(accounts):
@@ -88,7 +91,7 @@ def main():
             print "\nSelect usage mode:"
             print "[1] Input host- and username directly"
             print "[2] Use " + settings.PATH_ACCOUNTS_FILE
-            mode = raw_input(">")
+            mode = raw_input(PROMPT)
             if mode == "1":
                 use_user_input(seed)
                 break
