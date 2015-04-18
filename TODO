@@ -34,3 +34,5 @@ cli version also needs checks for the case where seed1 or 2 are empty
 
 if there's ever a new version which generates other passwords,
 add a determ-pwgen specific seed which contains e.g. "determ-pwgen...RANDOM_DATA"
+
+update the cli information in README

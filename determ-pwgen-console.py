@@ -29,8 +29,10 @@ def print_welcome_banner():
     print("\n")
 
 
-def get_print_string(hostname, username, pw):
-    return username + " @ " + hostname + ":\n" + pw
+def print_result(hostname, username, pw):
+    print "--------------------------------------------------------------------------------"
+    print username + " @ " + hostname + ":\n" + pw
+    print "--------------------------------------------------------------------------------"
 
 
 def use_user_input(seed):
@@ -45,10 +47,7 @@ def use_user_input(seed):
 
         pw = determ_pwgen.generate_password(hostname, username, settings.ROUNDS)
 
-        print ""
-        print "--------------------------------------------------------------------------------"
-        print get_print_string(hostname, username, pw)
-        print "--------------------------------------------------------------------------------"
+        print_result(hostname, username, pw)
 
 
 def use_json_file(seed):
@@ -57,18 +56,20 @@ def use_json_file(seed):
     with open(settings.PATH_ACCOUNTS_FILE, 'r') as f:
         accounts = json.load(f)
 
+    print ""
     for i, account in enumerate(accounts):
         print "[" + str(i) + "]" + " " + account["username"] + "@" + account["hostname"]
 
-    print "Type the number of the account you want to generate the password for (-1 to abort)"
+    print "Type the number of the account you want to generate the password for"
+    print "(-1 to abort)"
     while True:
         index = int(raw_input(">"))
         if index == -1:
             break
         if 0 <= index < len(accounts):
             account = accounts[index]
-            pw = determ_pwgen.generate_password(account['hostname'], account['username'], settings.ROUNDS)
-            print "\n" + get_print_string(account['hostname'], account['username'], pw)
+            pw = determ_pwgen.generate_password(account["hostname"], account["username"], settings.ROUNDS)
+            print_result(account["hostname"], account["username"], pw)
 
 
 def main():
