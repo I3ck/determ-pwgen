@@ -57,9 +57,18 @@ def use_json_file(seed):
     with open(settings.PATH_ACCOUNTS_FILE, 'r') as f:
         accounts = json.load(f)
 
-    for account in accounts:
-        pw = determ_pwgen.generate_password(account['hostname'], account['username'], settings.ROUNDS)
-        print "\n" + get_print_string(account['hostname'], account['username'], pw)
+    for i, account in enumerate(accounts):
+        print "[" + str(i) + "]" + " " + account["username"] + "@" + account["hostname"]
+
+    print "Type the number of the account you want to generate the password for (-1 to abort)"
+    while True:
+        index = int(raw_input(">"))
+        if index == -1:
+            break
+        if 0 <= index < len(accounts):
+            account = accounts[index]
+            pw = determ_pwgen.generate_password(account['hostname'], account['username'], settings.ROUNDS)
+            print "\n" + get_print_string(account['hostname'], account['username'], pw)
 
 
 def main():
