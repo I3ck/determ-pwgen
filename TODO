@@ -28,8 +28,6 @@ add leading white spaces to accounts file mode there
 [  1] a
 [530] b
 
-make it possible to add / remove accounts in cli version
-
 cli version also needs checks for the case where seed1 or 2 are empty
 
 if there's ever a new version which generates other passwords,

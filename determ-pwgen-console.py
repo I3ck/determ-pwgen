@@ -59,6 +59,7 @@ def use_json_file(seed):
         accounts = json.load(f)
 
     print ""
+    print "Edit " + settings.PATH_ACCOUNTS_FILE + " to add or remove accounts"
     for i, account in enumerate(accounts):
         print "[" + str(i) + "]" + " " + account["username"] + "@" + account["hostname"]
 
