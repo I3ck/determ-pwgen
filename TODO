@@ -24,10 +24,6 @@ update screenshots to show the new generate button
 
 the readme needs a rework
 
-add leading white spaces to accounts file mode there
-[  1] a
-[530] b
-
 cli version also needs checks for the case where seed1 or 2 are empty
 
 if there's ever a new version which generates other passwords,

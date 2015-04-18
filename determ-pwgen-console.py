@@ -61,7 +61,7 @@ def use_json_file(seed):
     print ""
     print "Edit " + settings.PATH_ACCOUNTS_FILE + " to add or remove accounts"
     for i, account in enumerate(accounts):
-        print "[" + str(i) + "]" + " " + account["username"] + "@" + account["hostname"]
+        print "[" + str(i).rjust(5) + "]" + " " + account["username"] + "@" + account["hostname"]
 
     print "Type the number of the account you want to generate the password for"
     print "(-1 to abort)"
