@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'inc/form1.ui'
 #
-# Created: Fri Apr 17 16:02:02 2015
+# Created: Sat Apr 18 15:00:30 2015
 #      by: PyQt4 UI code generator 4.11.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -75,7 +75,7 @@ class Ui_mainWindow(object):
         self.labelGenerating.setFont(font)
         self.labelGenerating.setObjectName(_fromUtf8("labelGenerating"))
         self.layoutWidget1 = QtGui.QWidget(self.centralwidget)
-        self.layoutWidget1.setGeometry(QtCore.QRect(20, 110, 391, 43))
+        self.layoutWidget1.setGeometry(QtCore.QRect(20, 110, 391, 44))
         self.layoutWidget1.setObjectName(_fromUtf8("layoutWidget1"))
         self.verticalLayout = QtGui.QVBoxLayout(self.layoutWidget1)
         self.verticalLayout.setMargin(0)
@@ -88,31 +88,31 @@ class Ui_mainWindow(object):
         self.lineEditPassword.setReadOnly(True)
         self.lineEditPassword.setObjectName(_fromUtf8("lineEditPassword"))
         self.verticalLayout.addWidget(self.lineEditPassword)
-        self.widget = QtGui.QWidget(self.centralwidget)
-        self.widget.setGeometry(QtCore.QRect(20, 180, 590, 28))
-        self.widget.setObjectName(_fromUtf8("widget"))
-        self.horizontalLayout_2 = QtGui.QHBoxLayout(self.widget)
+        self.layoutWidget2 = QtGui.QWidget(self.centralwidget)
+        self.layoutWidget2.setGeometry(QtCore.QRect(20, 180, 590, 28))
+        self.layoutWidget2.setObjectName(_fromUtf8("layoutWidget2"))
+        self.horizontalLayout_2 = QtGui.QHBoxLayout(self.layoutWidget2)
         self.horizontalLayout_2.setMargin(0)
         self.horizontalLayout_2.setObjectName(_fromUtf8("horizontalLayout_2"))
         self.horizontalLayout = QtGui.QHBoxLayout()
         self.horizontalLayout.setObjectName(_fromUtf8("horizontalLayout"))
-        self.labelAddUsername = QtGui.QLabel(self.widget)
+        self.labelAddUsername = QtGui.QLabel(self.layoutWidget2)
         self.labelAddUsername.setObjectName(_fromUtf8("labelAddUsername"))
         self.horizontalLayout.addWidget(self.labelAddUsername)
-        self.lineEditAddUsername = QtGui.QLineEdit(self.widget)
+        self.lineEditAddUsername = QtGui.QLineEdit(self.layoutWidget2)
         self.lineEditAddUsername.setObjectName(_fromUtf8("lineEditAddUsername"))
         self.horizontalLayout.addWidget(self.lineEditAddUsername)
-        self.labelAddHostname = QtGui.QLabel(self.widget)
+        self.labelAddHostname = QtGui.QLabel(self.layoutWidget2)
         self.labelAddHostname.setObjectName(_fromUtf8("labelAddHostname"))
         self.horizontalLayout.addWidget(self.labelAddHostname)
-        self.lineEditAddHostname = QtGui.QLineEdit(self.widget)
+        self.lineEditAddHostname = QtGui.QLineEdit(self.layoutWidget2)
         self.lineEditAddHostname.setObjectName(_fromUtf8("lineEditAddHostname"))
         self.horizontalLayout.addWidget(self.lineEditAddHostname)
-        self.pushButtonAdd = QtGui.QPushButton(self.widget)
+        self.pushButtonAdd = QtGui.QPushButton(self.layoutWidget2)
         self.pushButtonAdd.setObjectName(_fromUtf8("pushButtonAdd"))
         self.horizontalLayout.addWidget(self.pushButtonAdd)
         self.horizontalLayout_2.addLayout(self.horizontalLayout)
-        self.pushButtonGenerate = QtGui.QPushButton(self.widget)
+        self.pushButtonGenerate = QtGui.QPushButton(self.layoutWidget2)
         self.pushButtonGenerate.setObjectName(_fromUtf8("pushButtonGenerate"))
         self.horizontalLayout_2.addWidget(self.pushButtonGenerate)
         mainWindow.setCentralWidget(self.centralwidget)
@@ -134,7 +134,7 @@ class Ui_mainWindow(object):
         QtCore.QMetaObject.connectSlotsByName(mainWindow)
 
     def retranslateUi(self, mainWindow):
-        mainWindow.setWindowTitle(_translate("mainWindow", "determ-pwgen by I3ck", None))
+        mainWindow.setWindowTitle(_translate("mainWindow", "determ-pwgen created by I3ck (Martin Buck)", None))
         self.tableWidgetAccounts.setSortingEnabled(True)
         self.labelSeed1.setText(_translate("mainWindow", "Enter Seed:", None))
         self.labelSeed2.setText(_translate("mainWindow", "Again:", None))

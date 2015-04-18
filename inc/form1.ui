@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>determ-pwgen by I3ck</string>
+   <string>determ-pwgen created by I3ck (Martin Buck)</string>
   </property>
   <property name="locale">
    <locale language="English" country="UnitedStates"/>
@@ -127,7 +127,7 @@
       <x>20</x>
       <y>110</y>
       <width>391</width>
-      <height>43</height>
+      <height>44</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout">
@@ -150,7 +150,7 @@
      </item>
     </layout>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>20</x>
@@ -207,7 +207,6 @@
    <zorder>line_2</zorder>
    <zorder>tableWidgetAccounts</zorder>
    <zorder>labelGenerating</zorder>
-   <zorder>pushButtonGenerate</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
