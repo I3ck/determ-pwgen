@@ -89,8 +89,8 @@ class MyForm(QtGui.QMainWindow):
                 self.ui.lineEditPassword.hide()
 
                 self.generic_thread = GenericThread(self.generate_bg, seed1, hostname, username)
-                self.connect(self.genericThread, self.genericThread.signal, self.generate_done)
-                self.genericThread.start()
+                self.connect(self.generic_thread, self.generic_thread.signal, self.generate_done)
+                self.generic_thread.start()
 
         else:
             self.notify("Please enter a username and hostname")
@@ -145,8 +145,8 @@ class MyForm(QtGui.QMainWindow):
             self.ui.lineEditPassword.hide()
 
             self.generic_thread = GenericThread(self.generate_bg, seed1, hostname, username)
-            self.connect(self.genericThread, self.genericThread.signal, self.generate_done)
-            self.genericThread.start()
+            self.connect(self.generic_thread, self.generic_thread.signal, self.generate_done)
+            self.generic_thread.start()
 
     def generate_bg(self, seed, hostname, username):
         determ_pwgen = DetermPwgen(seed)
