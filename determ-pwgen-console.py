@@ -22,14 +22,14 @@ PROMPT = "> "
 
 
 def print_welcome_banner():
-    print("\n")
+    print ""
     print " ___________________________________________________________________ "
     print "| determ-pwgen created by I3ck (Martin Buck)                        |"
     print "| https://github.com/I3ck/determ-pwgen                              |"
     print "| licensed under the MIT License (see LICENSE file)                 |"
     print "| use determ-pwgen-qt.pyw for a graphical user interface            |"
     print "|___________________________________________________________________|"
-    print("\n")
+    print ""
 
 
 def print_result(hostname, username, pw):
@@ -46,7 +46,6 @@ def use_user_input(seed):
     while True:
         username = raw_input("\nUsername: ")
         hostname = raw_input("Hostname: ")
-
 
         pw = determ_pwgen.generate_password(hostname, username, settings.ROUNDS)
 
