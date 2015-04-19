@@ -4,8 +4,6 @@ allow import / export of accounts in qt version
 
 make table columns read only or fire proper events which update the accounts.json
 
-disable the table while seed hasn't been entered
-
 create a howto tutorial for the gui once its pretty much finished
 
 improve qt source code readability

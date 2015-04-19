@@ -42,6 +42,8 @@ class MyForm(QtGui.QMainWindow):
 
         self.update_table()
 
+        self.notify("Enter your seed first")
+
     def init_hide_widgets(self):
         self.hide_notify()
         self.ui.lineEditPassword.hide()
@@ -60,14 +62,21 @@ class MyForm(QtGui.QMainWindow):
         self.ui.tableWidgetAccounts.setColumnCount(len(self.tableColumns))
         self.ui.tableWidgetAccounts.setHorizontalHeaderLabels(self.tableColumns)
 
+        self.ui.tableWidgetAccounts.setDisabled(True)
+
     def change_seed(self):
         seed1 = str(self.ui.lineEditSeed1.text())
         seed2 = str(self.ui.lineEditSeed2.text())
+        enabletable = False
         self.hide_notify()
 
         if seed1 != "" and seed2 != "":
             if seed1 != seed2:
                 self.notify("Seeds don't match")
+            else:
+                enabletable = True
+
+        self.ui.tableWidgetAccounts.setEnabled(enabletable)
 
     def add(self):
         newuser = {
