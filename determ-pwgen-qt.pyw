@@ -53,9 +53,21 @@ class MyForm(QtGui.QMainWindow):
 
         self.ui.tableWidgetAccounts.cellClicked.connect(self.click_table)
 
+        self.ui.lineEditSeed1.textChanged.connect(self.change_seed)
+        self.ui.lineEditSeed2.textChanged.connect(self.change_seed)
+
     def init_table(self):
         self.ui.tableWidgetAccounts.setColumnCount(len(self.tableColumns))
         self.ui.tableWidgetAccounts.setHorizontalHeaderLabels(self.tableColumns)
+
+    def change_seed(self):
+        seed1 = str(self.ui.lineEditSeed1.text())
+        seed2 = str(self.ui.lineEditSeed2.text())
+        self.hide_notify()
+
+        if seed1 != "" and seed2 != "":
+            if seed1 != seed2:
+                self.notify("Seeds don't match")
 
     def add(self):
         newuser = {

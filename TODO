@@ -1,10 +1,6 @@
 add info box similar to console version to the gui version
 
-use floating positioning within the gui instead of the absolute positions
-
 allow import / export of accounts in qt version
-
-properly resize the table columns or the table itself
 
 make table columns read only or fire proper events which update the accounts.json
 
@@ -30,3 +26,5 @@ if there's ever a new version which generates other passwords,
 add a determ-pwgen specific seed which contains e.g. "determ-pwgen...RANDOM_DATA"
 
 update the cli information in README
+
+move Generic Thread into its own file in inc
