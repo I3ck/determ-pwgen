@@ -18,6 +18,7 @@ from PyQt4 import *
 
 from inc.form1 import *
 from inc.DetermPwgen import *
+from inc.GenericThread import *
 import inc.settings as settings
 
 
@@ -225,23 +226,6 @@ class MyForm(QtGui.QMainWindow):
             self.ui.tableWidgetAccounts.setItem(row, 1, widget_hostname)
             self.ui.tableWidgetAccounts.setItem(row, 2, widget_generate)
             self.ui.tableWidgetAccounts.setItem(row, 3, widget_remove)
-
-
-class GenericThread(QtCore.QThread):
-    def __init__(self, function, *args, **kwargs):
-        QtCore.QThread.__init__(self)
-        self.signal = QtCore.SIGNAL("signal")
-        self.function = function
-        self.args = args
-        self.kwargs = kwargs
-
-    def __del__(self):
-        self.wait()
-
-    def run(self):
-        result = self.function(*self.args, **self.kwargs)
-        self.emit(self.signal, result)
-        return
 
 
 if __name__ == "__main__":

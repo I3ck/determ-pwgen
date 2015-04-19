@@ -22,5 +22,3 @@ if there's ever a new version which generates other passwords,
 add a determ-pwgen specific seed which contains e.g. "determ-pwgen...RANDOM_DATA"
 
 update the cli information in README
-
-move Generic Thread into its own file in inc
