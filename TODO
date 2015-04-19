@@ -18,8 +18,6 @@ update screenshots to show the new generate button
 
 the readme needs a rework
 
-cli version also needs checks for the case where seed1 or 2 are empty
-
 if there's ever a new version which generates other passwords,
 add a determ-pwgen specific seed which contains e.g. "determ-pwgen...RANDOM_DATA"
 

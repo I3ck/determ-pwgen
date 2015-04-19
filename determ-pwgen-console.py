@@ -83,9 +83,12 @@ def main():
             print "\nEnter your seed:"
             seed = getpass.getpass('Seed: ')
             seed2 = getpass.getpass('Again: ')
-            if seed == seed2:
+            if seed == "" or seed2 == "":
+                print "Seeds can't be empty, please try again."
+            elif seed != seed2:
+                print "Seeds don't match, please try again."
+            else:
                 break
-            print "Seeds don't match, please try again."
 
         while True:
             print "\nSelect usage mode:"
