@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'inc/form1.ui'
 #
-# Created: Sat Apr 18 15:00:30 2015
+# Created: Mon Apr 20 14:28:56 2015
 #      by: PyQt4 UI code generator 4.11.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -43,6 +43,7 @@ class Ui_mainWindow(object):
         self.tableWidgetAccounts = QtGui.QTableWidget(self.centralwidget)
         self.tableWidgetAccounts.setEnabled(True)
         self.tableWidgetAccounts.setGeometry(QtCore.QRect(10, 220, 601, 361))
+        self.tableWidgetAccounts.setEditTriggers(QtGui.QAbstractItemView.NoEditTriggers)
         self.tableWidgetAccounts.setObjectName(_fromUtf8("tableWidgetAccounts"))
         self.tableWidgetAccounts.setColumnCount(0)
         self.tableWidgetAccounts.setRowCount(0)
@@ -117,7 +118,7 @@ class Ui_mainWindow(object):
         self.horizontalLayout_2.addWidget(self.pushButtonGenerate)
         mainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtGui.QMenuBar(mainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 624, 19))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 624, 22))
         self.menubar.setObjectName(_fromUtf8("menubar"))
         mainWindow.setMenuBar(self.menubar)
         self.statusbar = QtGui.QStatusBar(mainWindow)
