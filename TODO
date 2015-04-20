@@ -2,23 +2,13 @@ add info box similar to console version to the gui version
 
 allow import / export of accounts in qt version
 
-make table columns read only or fire proper events which update the accounts.json
-
-create a howto tutorial for the gui once its pretty much finished
-
 improve qt source code readability
 
 make everything work in py3 aswell
 
-make table rows / cells read only
-
 improve generate codebase (some parts used multiple times / naming of methods not too great)
-
-update screenshots to show the new generate button
 
 the readme needs a rework
 
 if there's ever a new version which generates other passwords,
 add a determ-pwgen specific seed which contains e.g. "determ-pwgen...RANDOM_DATA"
-
-update the cli information in README

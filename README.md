@@ -7,14 +7,19 @@ You'll only have to remember one password / seed and can use it to generate a un
 
 The GUI
 -------
+Enter your seed twice to enable the account table:  
 ![alt tag](https://raw.githubusercontent.com/I3ck/determ-pwgen/master/img/gui-example-1.png)  
+After that, simply click onto the `generate` cells to generate a password for the desired account:  
 ![alt tag](https://raw.githubusercontent.com/I3ck/determ-pwgen/master/img/gui-example-2.png)  
-no, I didn't use my seed there ;)  
+Copy and paste your password to where it's needed:  
+![alt tag](https://raw.githubusercontent.com/I3ck/determ-pwgen/master/img/gui-example-3.png)
+You can also add / remove accounts or generate a password directly, without adding them. `accounts.json` will be updated automatically.  
+No, I didn't use my seed there ;)  
 
 The cli
 -------
 ```
- ___________________________________________________________________
+___________________________________________________________________
 | determ-pwgen created by I3ck (Martin Buck)                        |
 | https://github.com/I3ck/determ-pwgen                              |
 | licensed under the MIT License (see LICENSE file)                 |
@@ -22,47 +27,64 @@ The cli
 |___________________________________________________________________|
 
 
-Enter the following:
-
-password:
+Enter your seed:
+Seed:
 ```
-after entering your password, hostname and username:  
+Selection of usage mode:
 ```
- ___________________________________________________________________
-| determ-pwgen created by I3ck (Martin Buck)                        |
-| https://github.com/I3ck/determ-pwgen                              |
-| licensed under the MIT License (see LICENSE file)                 |
-| use determ-pwgen-qt.pyw for a graphical user interface            |
-|___________________________________________________________________|
+Select usage mode:
+[1] Input host- and username directly
+[2] Use accounts.json
+>
+```
+Mode 1 let's you directly input username and hostname to generate a password:
+```
+> 1
 
+Enter the username and hostname you want to generate a password for:
 
-Enter the following:
+Username: user
+Hostname: host
+--------------------------------------------------------------------------------
 
-password:
-Re-enter password:
+user @ host:
+N0Eks3fpIyeb/vMGDDbRoD8qxKo5ClxBwvGMtFQ03EI=
+--------------------------------------------------------------------------------
+```
 
-Main Menu:
+Mode 2 allows you to generate passwords from your accounts.json file:
+```
+> 2
 
-1. Input host and usernames by hand.
-2. Use accounts.json
-Make a selection: 1
-
-
-Please enter the domain or name of the program (e.g. google or outlook): github
-Please enter your username for github: I3ck
+Edit accounts.json to add or remove accounts
+[    0] I3ck@github
+[    1] anotherUserOfYou@anotherHostOfYou
+Type the number of the account you want to generate the password for
+(-1 to abort)
+> 0
+--------------------------------------------------------------------------------
 
 I3ck @ github:
 bZEEagyeplME04hqFxxA6vSwSffwL5/1hviZa4H8JwI=
-
-
-Please enter the domain or name of the program (e.g. google or outlook):
+--------------------------------------------------------------------------------
 ```
-no, I didn't use my seed there ;)  
+The accounts.json is a simple json file:
+```json
+[
+    {
+        "username": "I3ck",
+        "hostname": "github"
+    },
+    {
+        "username": "anotherUserOfYou",
+        "hostname": "anotherHostOfYou"
+    }
+]
+...
+```
+which you can edit to add / remove accounts (or use the Qt GUI version)
 
-
-
-
-Version 3.3.7
+Version 3.3.8
 =============
 
 
