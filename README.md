@@ -6,8 +6,15 @@ A deterministic password generator
 You'll only have to remember one password / seed and can use it to generate a unique password for many websites or programs 
 
 
-Version 3.4.0
+Version 4.0.0
 =============
+
+Changes version 3 to 4
+----------------------
+- Ported to Python3
+- In older versions, the hashes might have depended on your system.
+I got the same hashes on both Windows and Linux. So it's unlikely that there's a problem, but I suggest checking yourself.
+Version 4 and above now always generates the same hashes no matter the system.
 
 
 Changes version 2 to 3
