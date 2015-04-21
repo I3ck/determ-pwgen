@@ -17,8 +17,11 @@ import json
 from inc.DetermPwgen import *
 import inc.settings as settings
 
+# -----------------------------------------------------------------------------
 
 PROMPT = "> "
+
+# -----------------------------------------------------------------------------
 
 
 def print_welcome_banner():
@@ -37,6 +40,8 @@ def print_result(hostname, username, pw):
     print username + " @ " + hostname + ":\n" + pw
     print "--------------------------------------------------------------------------------"
 
+# -----------------------------------------------------------------------------
+
 
 def use_user_input(seed):
     determ_pwgen = DetermPwgen(seed)
@@ -50,6 +55,8 @@ def use_user_input(seed):
         pw = determ_pwgen.generate_password(hostname, username, settings.ROUNDS)
 
         print_result(hostname, username, pw)
+
+# -----------------------------------------------------------------------------
 
 
 def use_json_file(seed):
@@ -73,6 +80,8 @@ def use_json_file(seed):
             account = accounts[index]
             pw = determ_pwgen.generate_password(account["hostname"], account["username"], settings.ROUNDS)
             print_result(account["hostname"], account["username"], pw)
+
+# -----------------------------------------------------------------------------
 
 
 def main():
