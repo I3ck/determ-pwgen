@@ -7,6 +7,8 @@ REQUIRED
 
     README screenshots for gui version have to be redone
 
+    add new password types (TYPE A: letters, numbers, symbols, both lower and upper case max 15 chars? | TYPE B: like A, without special chars)
+
 NICE-TO-HAVE
     a logo
 
