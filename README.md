@@ -6,7 +6,7 @@ A deterministic password generator
 You'll only have to remember one password / seed and can use it to generate a unique password for many websites or programs 
 
 
-Version 4.0.0
+Version 4.0.1
 =============
 
 Changes version 3 to 4
