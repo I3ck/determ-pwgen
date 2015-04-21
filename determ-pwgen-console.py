@@ -84,7 +84,7 @@ def use_json_file(seed):
 # -----------------------------------------------------------------------------
 
 
-def main():
+if __name__ == '__main__':
     print_welcome_banner()
 
     try:
@@ -116,8 +116,4 @@ def main():
 
     except KeyboardInterrupt:
         print "\ndeterm-pwgen exiting"
-
-
-if __name__ == '__main__':
-    main()
 
