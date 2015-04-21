@@ -112,9 +112,9 @@ which you can edit to add / remove accounts (or use the Qt GUI version)
 
 Usage
 =====
-To run the console version simply get `Python 2.7` from https://www.python.org/downloads/ and run `python2 determ-pwgen-console.py`  
-To run the Qt-gui version you'll have to get `PyQt4` for python2 from http://www.riverbankcomputing.co.uk/software/pyqt/download  
-and run `python2 determ-pwgen-qt.pyw`  
+To run the console version simply get `Python 3.4` from https://www.python.org/downloads/ and run `python determ-pwgen-console.py`
+To run the Qt-gui version you'll have to get `PyQt4` for python3 from http://www.riverbankcomputing.co.uk/software/pyqt/download
+and run `python determ-pwgen-qt.pyw`
 or double-click the `determ-pwgen-qt.pyw` depending on your OS.
 
 
