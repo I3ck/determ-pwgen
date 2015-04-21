@@ -28,7 +28,7 @@ class MyForm(QtGui.QMainWindow):
         self.accounts = list()
         self.generatedData = dict()
 
-        self.tableColumns = ["Username", "Hostname", "generate", "remove"]
+        self.tableColumns = ["Username", "Hostname", "Generate", "Remove"]
 
         self.ui = Ui_mainWindow()
         self.ui.setupUi(self)
@@ -53,19 +53,19 @@ class MyForm(QtGui.QMainWindow):
         self.ui.labelInfo.hide()
 
     def init_connections(self):
-        self.ui.pushButtonAdd.clicked.connect(self.add)
-        self.ui.pushButtonGenerate.clicked.connect(self.generate_directly)
+        self.ui.pushButtonAdd.clicked.connect(self.on_click_add)
+        self.ui.pushButtonGenerate.clicked.connect(self.on_click_generate)
 
-        self.ui.tableWidgetAccounts.cellClicked.connect(self.click_table)
+        self.ui.tableWidgetAccounts.cellClicked.connect(self.on_click_table)
 
-        self.ui.lineEditSeed1.textChanged.connect(self.change_seed)
-        self.ui.lineEditSeed2.textChanged.connect(self.change_seed)
+        self.ui.lineEditSeed1.textChanged.connect(self.on_change_seed)
+        self.ui.lineEditSeed2.textChanged.connect(self.on_change_seed)
 
     def init_table(self):
         self.ui.tableWidgetAccounts.setColumnCount(len(self.tableColumns))
         self.ui.tableWidgetAccounts.setHorizontalHeaderLabels(self.tableColumns)
 
-    def change_seed(self):
+    def on_change_seed(self):
         seed1 = str(self.ui.lineEditSeed1.text())
         seed2 = str(self.ui.lineEditSeed2.text())
         enable = False
@@ -88,7 +88,7 @@ class MyForm(QtGui.QMainWindow):
         self.ui.pushButtonAdd.setEnabled(enable)
         self.ui.pushButtonGenerate.setEnabled(enable)
 
-    def add(self):
+    def on_click_add(self):
         newuser = {
             "username": str(self.ui.lineEditAddUsername.text()),
             "hostname": str(self.ui.lineEditAddHostname.text())
@@ -100,7 +100,7 @@ class MyForm(QtGui.QMainWindow):
             self.update_table()
             self.save_accounts_file()
 
-    def generate_directly(self):
+    def on_click_generate(self):
         username = str(self.ui.lineEditAddUsername.text())
         hostname = str(self.ui.lineEditAddHostname.text())
 
@@ -119,8 +119,8 @@ class MyForm(QtGui.QMainWindow):
                 self.ui.labelInfo.hide()
                 self.ui.lineEditPassword.hide()
 
-                self.generic_thread = GenericThread(self.generate_bg, seed1, hostname, username)
-                self.connect(self.generic_thread, self.generic_thread.signal, self.generate_done)
+                self.generic_thread = GenericThread(self.threaded_generate, seed1, hostname, username)
+                self.connect(self.generic_thread, self.generic_thread.signal, self.threaded_generate_done)
                 self.generic_thread.start()
 
         else:
@@ -133,15 +133,15 @@ class MyForm(QtGui.QMainWindow):
     def hide_notify(self):
         self.ui.labelGenerating.hide()
 
-    def click_table(self, row, column):
-        if self.tableColumns[column] == "generate":
+    def on_click_table(self, row, column):
+        if self.tableColumns[column] == "Generate":
             self.generate(row)
 
-        elif self.tableColumns[column] == "remove":
+        elif self.tableColumns[column] == "Remove":
             self.remove(row)
 
         else:
-            self.notify("Either click remove or generate")
+            self.notify("Either click Remove or Generate")
 
     def remove(self, row):
         username = str(self.ui.tableWidgetAccounts.item(row, 0).text())
@@ -175,11 +175,11 @@ class MyForm(QtGui.QMainWindow):
             self.ui.labelInfo.hide()
             self.ui.lineEditPassword.hide()
 
-            self.generic_thread = GenericThread(self.generate_bg, seed1, hostname, username)
-            self.connect(self.generic_thread, self.generic_thread.signal, self.generate_done)
+            self.generic_thread = GenericThread(self.threaded_generate, seed1, hostname, username)
+            self.connect(self.generic_thread, self.generic_thread.signal, self.threaded_generate_done)
             self.generic_thread.start()
 
-    def generate_bg(self, seed, hostname, username):
+    def threaded_generate(self, seed, hostname, username):
         determ_pwgen = DetermPwgen(seed)
         
         pw = determ_pwgen.generate_password(hostname, username, settings.ROUNDS)
@@ -188,7 +188,7 @@ class MyForm(QtGui.QMainWindow):
         self.generatedData["username"] = username
         self.generatedData["pw"] = pw
 
-    def generate_done(self):
+    def threaded_generate_done(self):
         hostname = self.generatedData["hostname"]
         username = self.generatedData["username"]
         pw = self.generatedData["pw"]

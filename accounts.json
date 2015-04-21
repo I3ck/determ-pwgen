@@ -1,14 +1,14 @@
 [
-	{
-		"hostname" : "github",
-		"username" : "I3ck"
-	},
-	{
-		"hostname" : "YOURSITE",
-		"username" : "YOURNAME"
-	},
-	{
-		"hostname" : "anotherHostOfYou",
-		"username" : "anotherUserOfYou"
-	}
+    {
+        "username": "I3ck", 
+        "hostname": "github"
+    }, 
+    {
+        "username": "YOURNAME", 
+        "hostname": "YOURSITE"
+    }, 
+    {
+        "username": "anotherUserOfYou", 
+        "hostname": "anotherHostOfYou"
+    }
 ]
