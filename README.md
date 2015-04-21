@@ -84,7 +84,7 @@ The accounts.json is a simple json file:
 ```
 which you can edit to add / remove accounts (or use the Qt GUI version)
 
-Version 3.3.8
+Version 3.4.0
 =============
 
 

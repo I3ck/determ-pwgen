@@ -53,10 +53,12 @@ class MyForm(QtGui.QMainWindow):
         self.hide_notify()
         self.ui.lineEditPassword.hide()
         self.ui.labelInfo.hide()
+        self.ui.pushButtonClipboard.hide()
 
     def init_connections(self):
         self.ui.pushButtonAdd.clicked.connect(self.on_click_add)
         self.ui.pushButtonGenerate.clicked.connect(self.on_click_generate)
+        self.ui.pushButtonClipboard.clicked.connect(self.on_click_clipboard)
 
         self.ui.tableWidgetAccounts.cellClicked.connect(self.on_click_table)
 
@@ -116,6 +118,12 @@ class MyForm(QtGui.QMainWindow):
 
         else:
             self.notify("Either click Remove or Generate")
+
+    def on_click_clipboard(self):
+        cb = QtGui.QApplication.clipboard()
+        cb.clear(mode=cb.Clipboard )
+        cb.setText(self.ui.lineEditPassword.text(), mode=cb.Clipboard)
+        self.notify("Copied password to clipboard")
 
 # -----------------------------------------------------------------------------
 
@@ -203,7 +211,7 @@ class MyForm(QtGui.QMainWindow):
             username = str(self.ui.tableWidgetAccounts.item(row, 0).text())
             hostname = str(self.ui.tableWidgetAccounts.item(row, 1).text())
 
-            self.notify("generating password for " + username + "@" + hostname + "...")
+            self.notify("Generating password for " + username + "@" + hostname + "...")
 
             self.ui.labelInfo.hide()
             self.ui.lineEditPassword.hide()
@@ -232,8 +240,9 @@ class MyForm(QtGui.QMainWindow):
 
         self.ui.labelInfo.show()
         self.ui.lineEditPassword.show()
+        self.ui.pushButtonClipboard.show()
 
-        self.ui.labelInfo.setText("password for " + username + "@" + hostname + ":")
+        self.ui.labelInfo.setText("Password for " + username + "@" + hostname + ":")
         self.ui.lineEditPassword.setText(pw)
 
 # -----------------------------------------------------------------------------

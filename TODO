@@ -1,19 +1,16 @@
 BUGS:
 
 
-REQUIRED:
-
+REQUIRED
     the readme needs a rework
 
     if there's ever a new version which generates other passwords,
     add a determ-pwgen specific seed which contains e.g. "determ-pwgen...RANDOM_DATA"
 
-    clicking the password field should auto select all text (or add a "copy to clipboard" button)
-
-    rename "password for ..." to "Password for ..." in gui
-
-NICE-TO-HAVE:
+NICE-TO-HAVE
     a logo
+
+    rename form1
 
     add info box similar to console version to the gui version
 
