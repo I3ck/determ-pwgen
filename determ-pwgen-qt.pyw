@@ -47,6 +47,8 @@ class MyForm(QtGui.QMainWindow):
 
         self.notify("Enter your seed first")
 
+# -----------------------------------------------------------------------------
+
     def init_hide_widgets(self):
         self.hide_notify()
         self.ui.lineEditPassword.hide()
@@ -65,28 +67,7 @@ class MyForm(QtGui.QMainWindow):
         self.ui.tableWidgetAccounts.setColumnCount(len(self.tableColumns))
         self.ui.tableWidgetAccounts.setHorizontalHeaderLabels(self.tableColumns)
 
-    def on_change_seed(self):
-        seed1 = str(self.ui.lineEditSeed1.text())
-        seed2 = str(self.ui.lineEditSeed2.text())
-        enable = False
-        self.hide_notify()
-
-        if seed1 != "" and seed2 != "":
-            if seed1 != seed2:
-                self.notify("Seeds don't match")
-            else:
-                enable = True
-
-        self.enable_inputs(enable)
-
-    def enable_inputs(self, enable=True):
-        self.ui.tableWidgetAccounts.setEnabled(enable)
-
-        self.ui.lineEditAddUsername.setEnabled(enable)
-        self.ui.lineEditAddHostname.setEnabled(enable)
-
-        self.ui.pushButtonAdd.setEnabled(enable)
-        self.ui.pushButtonGenerate.setEnabled(enable)
+# -----------------------------------------------------------------------------
 
     def on_click_add(self):
         newuser = {
@@ -126,6 +107,64 @@ class MyForm(QtGui.QMainWindow):
         else:
             self.notify("Please enter a username and hostname")
 
+    def on_click_table(self, row, column):
+        if self.tableColumns[column] == "Generate":
+            self.generate_password(row)
+
+        elif self.tableColumns[column] == "Remove":
+            self.remove_account(row)
+
+        else:
+            self.notify("Either click Remove or Generate")
+
+# -----------------------------------------------------------------------------
+
+    def on_change_seed(self):
+        seed1 = str(self.ui.lineEditSeed1.text())
+        seed2 = str(self.ui.lineEditSeed2.text())
+        enable = False
+        self.hide_notify()
+
+        if seed1 != "" and seed2 != "":
+            if seed1 != seed2:
+                self.notify("Seeds don't match")
+            else:
+                enable = True
+
+        self.enable_inputs(enable)
+
+# -----------------------------------------------------------------------------
+
+    def update_table(self):
+        self.ui.tableWidgetAccounts.setRowCount(len(self.accounts))
+
+        for row, account in enumerate(self.accounts):
+            widget_username = QtGui.QTableWidgetItem(account["username"])
+            widget_hostname = QtGui.QTableWidgetItem(account["hostname"])
+            widget_generate = QtGui.QTableWidgetItem("click")
+            widget_remove = QtGui.QTableWidgetItem("click")
+
+            widget_generate.setTextAlignment(QtCore.Qt.AlignCenter)
+            widget_remove.setTextAlignment(QtCore.Qt.AlignCenter)
+
+            self.ui.tableWidgetAccounts.setItem(row, 0, widget_username)
+            self.ui.tableWidgetAccounts.setItem(row, 1, widget_hostname)
+            self.ui.tableWidgetAccounts.setItem(row, 2, widget_generate)
+            self.ui.tableWidgetAccounts.setItem(row, 3, widget_remove)
+
+# -----------------------------------------------------------------------------
+
+    def enable_inputs(self, enable=True):
+        self.ui.tableWidgetAccounts.setEnabled(enable)
+
+        self.ui.lineEditAddUsername.setEnabled(enable)
+        self.ui.lineEditAddHostname.setEnabled(enable)
+
+        self.ui.pushButtonAdd.setEnabled(enable)
+        self.ui.pushButtonGenerate.setEnabled(enable)
+
+# -----------------------------------------------------------------------------
+
     def notify(self, text):
         self.ui.labelGenerating.show()
         self.ui.labelGenerating.setText(text)
@@ -133,17 +172,9 @@ class MyForm(QtGui.QMainWindow):
     def hide_notify(self):
         self.ui.labelGenerating.hide()
 
-    def on_click_table(self, row, column):
-        if self.tableColumns[column] == "Generate":
-            self.generate(row)
+# -----------------------------------------------------------------------------
 
-        elif self.tableColumns[column] == "Remove":
-            self.remove(row)
-
-        else:
-            self.notify("Either click Remove or Generate")
-
-    def remove(self, row):
+    def remove_account(self, row):
         username = str(self.ui.tableWidgetAccounts.item(row, 0).text())
         hostname = str(self.ui.tableWidgetAccounts.item(row, 1).text())
         reply = QtGui.QMessageBox.question(self,
@@ -156,7 +187,9 @@ class MyForm(QtGui.QMainWindow):
             self.save_accounts_file()
             self.update_table()
 
-    def generate(self, row):
+# -----------------------------------------------------------------------------
+
+    def generate_password(self, row):
         seed1 = str(self.ui.lineEditSeed1.text())
         seed2 = str(self.ui.lineEditSeed2.text())
 
@@ -178,6 +211,8 @@ class MyForm(QtGui.QMainWindow):
             self.generic_thread = GenericThread(self.threaded_generate, seed1, hostname, username)
             self.connect(self.generic_thread, self.generic_thread.signal, self.threaded_generate_done)
             self.generic_thread.start()
+
+# -----------------------------------------------------------------------------
 
     def threaded_generate(self, seed, hostname, username):
         determ_pwgen = DetermPwgen(seed)
@@ -201,6 +236,8 @@ class MyForm(QtGui.QMainWindow):
         self.ui.labelInfo.setText("password for " + username + "@" + hostname + ":")
         self.ui.lineEditPassword.setText(pw)
 
+# -----------------------------------------------------------------------------
+
     def save_accounts_file(self):
         with open(settings.PATH_ACCOUNTS_FILE, 'w') as f:
             json.dump(self.accounts, f, indent=4)
@@ -210,22 +247,7 @@ class MyForm(QtGui.QMainWindow):
         with open(settings.PATH_ACCOUNTS_FILE, "r") as f:
             self.accounts = json.load(f)
 
-    def update_table(self):
-        self.ui.tableWidgetAccounts.setRowCount(len(self.accounts))
-
-        for row, account in enumerate(self.accounts):
-            widget_username = QtGui.QTableWidgetItem(account["username"])
-            widget_hostname = QtGui.QTableWidgetItem(account["hostname"])
-            widget_generate = QtGui.QTableWidgetItem("click")
-            widget_remove = QtGui.QTableWidgetItem("click")
-
-            widget_generate.setTextAlignment(QtCore.Qt.AlignCenter)
-            widget_remove.setTextAlignment(QtCore.Qt.AlignCenter)
-
-            self.ui.tableWidgetAccounts.setItem(row, 0, widget_username)
-            self.ui.tableWidgetAccounts.setItem(row, 1, widget_hostname)
-            self.ui.tableWidgetAccounts.setItem(row, 2, widget_generate)
-            self.ui.tableWidgetAccounts.setItem(row, 3, widget_remove)
+# -----------------------------------------------------------------------------
 
 
 if __name__ == "__main__":
