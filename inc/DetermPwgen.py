@@ -12,6 +12,7 @@
 """
 
 
+import sys
 import hashlib
 import base64
 
@@ -22,9 +23,9 @@ class DetermPwgen:
         self._seed = seed
 
     def generate_password(self, hostname, username, rounds):
-        pw = self._seed + hostname + username
+        pw = (self._seed + hostname + username).encode(sys.stdin.encoding)
 
         for i in range(rounds):
             pw = base64.b64encode((hashlib.sha256(pw).digest()))
 
-        return pw
+        return str(pw)

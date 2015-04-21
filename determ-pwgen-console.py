@@ -25,20 +25,20 @@ PROMPT = "> "
 
 
 def print_welcome_banner():
-    print ""
-    print " ___________________________________________________________________ "
-    print "| determ-pwgen created by I3ck (Martin Buck)                        |"
-    print "| https://github.com/I3ck/determ-pwgen                              |"
-    print "| licensed under the MIT License (see LICENSE file)                 |"
-    print "| use determ-pwgen-qt.pyw for a graphical user interface            |"
-    print "|___________________________________________________________________|"
-    print ""
+    print("")
+    print(" ___________________________________________________________________ ")
+    print("| determ-pwgen created by I3ck (Martin Buck)                        |")
+    print("| https://github.com/I3ck/determ-pwgen                              |")
+    print("| licensed under the MIT License (see LICENSE file)                 |")
+    print("| use determ-pwgen-qt.pyw for a graphical user interface            |")
+    print("|___________________________________________________________________|")
+    print("")
 
 
 def print_result(hostname, username, pw):
-    print "--------------------------------------------------------------------------------"
-    print username + " @ " + hostname + ":\n" + pw
-    print "--------------------------------------------------------------------------------"
+    print("--------------------------------------------------------------------------------")
+    print(username + " @ " + hostname + ":\n" + pw)
+    print("--------------------------------------------------------------------------------")
 
 # -----------------------------------------------------------------------------
 
@@ -46,11 +46,11 @@ def print_result(hostname, username, pw):
 def use_user_input(seed):
     determ_pwgen = DetermPwgen(seed)
 
-    print "\n\nEnter the username and hostname you want to generate a password for:"
+    print("\n\nEnter the username and hostname you want to generate a password for:")
 
     while True:
-        username = raw_input("\nUsername: ")
-        hostname = raw_input("Hostname: ")
+        username = input("\nUsername: ")
+        hostname = input("Hostname: ")
 
         pw = determ_pwgen.generate_password(hostname, username, settings.ROUNDS)
 
@@ -65,15 +65,15 @@ def use_json_file(seed):
     with open(settings.PATH_ACCOUNTS_FILE, 'r') as f:
         accounts = json.load(f)
 
-    print ""
-    print "Edit " + settings.PATH_ACCOUNTS_FILE + " to add or remove accounts"
+    print("")
+    print("Edit " + settings.PATH_ACCOUNTS_FILE + " to add or remove accounts")
     for i, account in enumerate(accounts):
-        print "[" + str(i).rjust(5) + "]" + " " + account["username"] + "@" + account["hostname"]
+        print("[" + str(i).rjust(5) + "]" + " " + account["username"] + "@" + account["hostname"])
 
-    print "Type the number of the account you want to generate the password for"
-    print "(-1 to abort)"
+    print("Type the number of the account you want to generate the password for")
+    print("(-1 to abort)")
     while True:
-        index = int(raw_input(PROMPT))
+        index = int(input(PROMPT))
         if index == -1:
             break
         if 0 <= index < len(accounts):
@@ -89,21 +89,21 @@ if __name__ == '__main__':
 
     try:
         while True:
-            print "\nEnter your seed:"
+            print("\nEnter your seed:")
             seed = getpass.getpass('Seed: ')
             seed2 = getpass.getpass('Again: ')
             if seed == "" or seed2 == "":
-                print "Seeds can't be empty, please try again."
+                print("Seeds can't be empty, please try again.")
             elif seed != seed2:
-                print "Seeds don't match, please try again."
+                print("Seeds don't match, please try again.")
             else:
                 break
 
         while True:
-            print "\nSelect usage mode:"
-            print "[1] Input host- and username directly"
-            print "[2] Use " + settings.PATH_ACCOUNTS_FILE
-            mode = raw_input(PROMPT)
+            print("\nSelect usage mode:")
+            print("[1] Input host- and username directly")
+            print("[2] Use " + settings.PATH_ACCOUNTS_FILE)
+            mode = input(PROMPT)
             if mode == "1":
                 use_user_input(seed)
                 break
@@ -112,8 +112,8 @@ if __name__ == '__main__':
                 use_user_input(seed)
                 break
             else:
-                print "Unknown mode, please try again"
+                print("Unknown mode, please try again")
 
     except KeyboardInterrupt:
-        print "\ndeterm-pwgen exiting"
+        print("\ndeterm-pwgen exiting")
 
