@@ -1,11 +1,11 @@
-BUGS:
+BUGS
 
 
 REQUIRED
-    the readme needs a rework
-
     if there's ever a new version which generates other passwords,
     add a determ-pwgen specific seed which contains e.g. "determ-pwgen...RANDOM_DATA"
+
+    README screenshots for gui version have to be redone
 
 NICE-TO-HAVE
     a logo
