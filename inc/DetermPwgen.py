@@ -27,4 +27,4 @@ class DetermPwgen:
         for i in range(rounds):
             pw = base64.b64encode((hashlib.sha256(pw).digest()))
 
-        return str(pw)
+        return pw.decode("UTF-8")
