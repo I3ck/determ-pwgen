@@ -16,7 +16,7 @@ import sys
 import json
 from PyQt4 import *
 
-from inc.form1 import *
+from inc.guiMain import *
 from inc.DetermPwgen import *
 from inc.GenericThread import *
 import inc.settings as settings

@@ -12,8 +12,6 @@ REQUIRED
 NICE-TO-HAVE
     a logo
 
-    rename form1
-
     add info box similar to console version to the gui version
 
     allow import / export of accounts in qt version
