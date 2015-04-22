@@ -99,9 +99,8 @@ class MyForm(QtGui.QMainWindow):
 
             else:
                 self.notify("generating password for " + username + "@" + hostname + "...")
-                self.ui.labelInfo.hide()
-                self.ui.lineEditPassword.hide()
-                self.ui.pushButtonClipboard.hide()
+
+                self.hide_generated()
 
                 self.generic_thread = GenericThread(self.threaded_generate, seed1, hostname, username)
                 self.connect(self.generic_thread, self.generic_thread.signal, self.threaded_generate_done)
@@ -178,8 +177,15 @@ class MyForm(QtGui.QMainWindow):
         self.ui.labelGenerating.show()
         self.ui.labelGenerating.setText(text)
 
+# -----------------------------------------------------------------------------
+
     def hide_notify(self):
         self.ui.labelGenerating.hide()
+
+    def hide_generated(self):
+        self.ui.labelInfo.hide()
+        self.ui.lineEditPassword.hide()
+        self.ui.pushButtonClipboard.hide()
 
 # -----------------------------------------------------------------------------
 
@@ -214,9 +220,7 @@ class MyForm(QtGui.QMainWindow):
 
             self.notify("Generating password for " + username + "@" + hostname + "...")
 
-            self.ui.labelInfo.hide()
-            self.ui.lineEditPassword.hide()
-            self.ui.pushButtonClipboard.hide()
+            self.hide_generated()
 
             self.generic_thread = GenericThread(self.threaded_generate, seed1, hostname, username)
             self.connect(self.generic_thread, self.generic_thread.signal, self.threaded_generate_done)
