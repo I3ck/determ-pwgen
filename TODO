@@ -2,6 +2,7 @@ BUGS
 
 
 REQUIRED
+    use an asic "secure" algorithm (similar to scrypt / the ones X11 uses, but NOT the same)
     if there's ever a new version which generates other passwords,
     add a determ-pwgen specific seed which contains e.g. "determ-pwgen...RANDOM_DATA"
 
