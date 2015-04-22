@@ -101,6 +101,7 @@ class MyForm(QtGui.QMainWindow):
                 self.notify("generating password for " + username + "@" + hostname + "...")
                 self.ui.labelInfo.hide()
                 self.ui.lineEditPassword.hide()
+                self.ui.pushButtonClipboard.hide()
 
                 self.generic_thread = GenericThread(self.threaded_generate, seed1, hostname, username)
                 self.connect(self.generic_thread, self.generic_thread.signal, self.threaded_generate_done)
@@ -215,6 +216,7 @@ class MyForm(QtGui.QMainWindow):
 
             self.ui.labelInfo.hide()
             self.ui.lineEditPassword.hide()
+            self.ui.pushButtonClipboard.hide()
 
             self.generic_thread = GenericThread(self.threaded_generate, seed1, hostname, username)
             self.connect(self.generic_thread, self.generic_thread.signal, self.threaded_generate_done)
@@ -224,7 +226,7 @@ class MyForm(QtGui.QMainWindow):
 
     def threaded_generate(self, seed, hostname, username):
         determ_pwgen = DetermPwgen(seed)
-        
+
         pw = determ_pwgen.generate_password(hostname, username, settings.ROUNDS)
 
         self.generatedData["hostname"] = hostname
