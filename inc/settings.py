@@ -14,10 +14,19 @@
 
 """
 number of iterations used to generate the passwords
+this increases CPU cost to brute-force
 altering this will change all generated passwords
 and render old ones incompatible
 """
 ROUNDS = 1000000
+
+"""
+number of times the master seed is copied
+this increases memory cost to brute-force
+altering this will change all generated passwords
+and render old ones incompatible
+"""
+TIMES_MASTER_SALT = 10
 
 """
 length of the generated short passwords

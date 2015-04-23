@@ -14,7 +14,7 @@
 
 import hashlib
 import base64
-from inc.settings import MASTER_SALT
+from inc.settings import MASTER_SALT, TIMES_MASTER_SALT
 from inc.Password import Password
 
 
@@ -24,21 +24,22 @@ class DetermPwgen:
         self._seed = seed
 
     @staticmethod
-    def multi_hash(text):
-        text = hashlib.md5(text).digest()
-        text = hashlib.sha1(text).digest()
-        text = hashlib.sha224(text).digest()
-        text = hashlib.sha256(text).digest()
-        text = hashlib.sha384(text).digest()
-        text = hashlib.sha512(text).digest()
+    def multi_hash(text, salt):
+        text = hashlib.md5(     text + salt).digest()
+        text = hashlib.sha1(    text + salt).digest()
+        text = hashlib.sha224(  text + salt).digest()
+        text = hashlib.sha256(  text + salt).digest()
+        text = hashlib.sha384(  text + salt).digest()
+        text = hashlib.sha512(  text + salt).digest()
 
         return text
 
     def generate_password(self, hostname, username, rounds):
-        pw = (MASTER_SALT + self._seed + hostname + username).encode("UTF-8")
+        salt = (MASTER_SALT*TIMES_MASTER_SALT).encode("UTF-8")
+        pw = (MASTER_SALT*TIMES_MASTER_SALT + self._seed + hostname + username).encode("UTF-8")
 
         for i in range(rounds):
-            pw = self.multi_hash(pw)
+            pw = self.multi_hash(pw, salt)
 
         pw = base64.b64encode(pw)
 
