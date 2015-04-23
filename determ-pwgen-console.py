@@ -37,7 +37,15 @@ def print_welcome_banner():
 
 def print_result(hostname, username, pw):
     print("--------------------------------------------------------------------------------")
-    print(username + " @ " + hostname + ":\n" + pw.PWLONG)
+    print(username + " @ " + hostname + ":")
+    print("")
+    print("Long password:\n" + pw.PWLONG)
+    print("")
+    print("Long password without special characters:\n" + pw.PWLONG_NO_SPECIAL)
+    print("")
+    print("Short password:\n" + pw.PWSHORT)
+    print("")
+    print("Short password without special characters:\n" + pw.PWSHORT_NO_SPECIAL)
     print("--------------------------------------------------------------------------------")
 
 # -----------------------------------------------------------------------------
