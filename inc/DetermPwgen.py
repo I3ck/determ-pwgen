@@ -14,6 +14,7 @@
 
 import hashlib
 import base64
+from inc.settings import MASTER_SEED
 
 
 class DetermPwgen:
@@ -22,7 +23,7 @@ class DetermPwgen:
         self._seed = seed
 
     def generate_password(self, hostname, username, rounds):
-        pw = (self._seed + hostname + username).encode("UTF-8")
+        pw = (MASTER_SEED + self._seed + hostname + username).encode("UTF-8")
 
         for i in range(rounds):
             pw = base64.b64encode((hashlib.sha256(pw).digest()))

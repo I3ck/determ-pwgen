@@ -20,6 +20,13 @@ and render old ones incompatible
 ROUNDS = 1000000
 
 """
+master seed that is used for the generation of passwords
+do not alter this or determ-pwgen will generate incompatible passwords
+"""
+MASTER_SEED = "MasterSeed for determ-pwgen by I3ck (Martin Buck)." \
+              "This enhances or at least doesn't lower security. NK3FE28Z7MGAED5RMN9YBPU5KPWCG7Q0DVY0NWEX4WVGY6Y98B"
+
+"""
 the path to the json file in which the accounts shall be saved / loaded
 """
 PATH_ACCOUNTS_FILE = "accounts.json"
