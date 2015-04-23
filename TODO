@@ -9,8 +9,6 @@ REQUIRED
 
     add new password types (TYPE A: letters, numbers, symbols, both lower and upper case max 15 chars? | TYPE B: like A, without special chars)
 
-    rename master seed to master salt
-
     display pwlongnospecial pwshort and pwshortnospecial aswell
 
     remae ROUNDS to HASHING_ROUNDS

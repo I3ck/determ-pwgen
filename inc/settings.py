@@ -30,10 +30,10 @@ the path to the json file in which the accounts shall be saved / loaded
 PATH_ACCOUNTS_FILE = "accounts.json"
 
 """
-master seed that is used for the generation of passwords
+master salt that is used for the generation of passwords
 do not alter this or determ-pwgen will generate incompatible passwords
 """
-MASTER_SEED = "MasterSeed for determ-pwgen by I3ck (Martin Buck)." \
+MASTER_SALT = "MasterSeed for determ-pwgen by I3ck (Martin Buck)." \
               "This enhances or at least doesn't lower security." \
               "By making a brute-force attack more expensive memory-wise." \
               "FMKZFWN4A6OZCCM25WBNC30NDJVBHJO3GE07XWLZAQF71LTVOQOMA70A2C5R450GG019DZQKDG4CWUQEJ77DR90VB5F3QWFKXP7G6UYD" \
