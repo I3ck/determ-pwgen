@@ -235,7 +235,7 @@ class MyForm(QtGui.QMainWindow):
 
         self.generatedData["hostname"] = hostname
         self.generatedData["username"] = username
-        self.generatedData["pw"] = pw
+        self.generatedData["pw"] = pw.PWLONG
 
     def threaded_generate_done(self):
         hostname = self.generatedData["hostname"]

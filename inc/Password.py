@@ -12,26 +12,15 @@
 """
 
 
-"""
-number of iterations used to generate the passwords
-altering this will change all generated passwords
-and render old ones incompatible
-"""
-ROUNDS = 1000000
+from inc.settings import LENGTH_SHORT
 
-"""
-master seed that is used for the generation of passwords
-do not alter this or determ-pwgen will generate incompatible passwords
-"""
-MASTER_SEED = "MasterSeed for determ-pwgen by I3ck (Martin Buck)." \
-              "This enhances or at least doesn't lower security. NK3FE28Z7MGAED5RMN9YBPU5KPWCG7Q0DVY0NWEX4WVGY6Y98B"
 
-"""
-length of the generated short passwords
-"""
-LENGTH_SHORT = 10
+class Password:
+    def __init__(self, pwlong):
+        self.PWLONG = pwlong
 
-"""
-the path to the json file in which the accounts shall be saved / loaded
-"""
-PATH_ACCOUNTS_FILE = "accounts.json"
+        self.PWLONG_NO_SPECIAL = ''.join(c for c in self.PWLONG if c.isalnum())
+
+        self.PWSHORT = self.PWLONG[:LENGTH_SHORT]
+
+        self.PWSHORT_NO_SPECIAL = self.PWLONG_NO_SPECIAL[:LENGTH_SHORT]
