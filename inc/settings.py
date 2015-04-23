@@ -29,7 +29,7 @@ MASTER_SEED = "MasterSeed for determ-pwgen by I3ck (Martin Buck)." \
 """
 length of the generated short passwords
 """
-LENGTH_SHORT = 10
+LENGTH_SHORT = 16
 
 """
 the path to the json file in which the accounts shall be saved / loaded
