@@ -11,16 +11,67 @@
     OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 """
 
-
+import random
+import string
 from inc.settings import LENGTH_SHORT
 
 
 class Password:
     def __init__(self, pwlong):
-        self.PWLONG = pwlong
+        self.PWLONG = self._mixed_case(self._with_special(pwlong))
 
-        self.PWLONG_NO_SPECIAL = ''.join(c for c in self.PWLONG if c.isalnum())
+        self.PWLONG_NO_SPECIAL = self._mixed_case(''.join(c for c in self.PWLONG if c.isalnum()))
 
-        self.PWSHORT = self.PWLONG[:LENGTH_SHORT]
+        self.PWSHORT = self._mixed_case(self._with_special(self.PWLONG[:LENGTH_SHORT]))
 
-        self.PWSHORT_NO_SPECIAL = self.PWLONG_NO_SPECIAL[:LENGTH_SHORT]
+        self.PWSHORT_NO_SPECIAL = self._mixed_case(self.PWLONG_NO_SPECIAL[:LENGTH_SHORT])
+
+    @staticmethod
+    def _mixed_case(pw):
+        allupper = True
+        alllower = True
+
+        for c in pw:
+            if not allupper and not alllower:
+                return pw
+            elif c.isalpha():
+                if c.isupper():
+                    alllower = False
+                elif c.islower():
+                    allupper = False
+
+        # either allupper or alllower
+        # swap case for first alphanumeric char
+        for i, c in enumerate(pw):
+            if c.isalpha():
+                pw[i].swapcase()
+                return pw
+
+        return pw
+
+    @staticmethod
+    def _with_special(pw):
+        if not Password._only_numbers_letters(pw):
+            return pw
+
+        # use pw as seed for random (to always get the same choice for the same password)
+        random.seed(pw)
+
+        newchar = random.choice(string.punctuation)
+
+        out = ""
+        for i, c in enumerate(pw):
+            if i == len(pw)-1:
+                out += newchar
+            else:
+                out += c
+
+        return out
+
+    @staticmethod
+    def _only_numbers_letters(pw):
+        allowed = string.ascii_letters + string.digits
+        return all(c in allowed for c in pw)
+
+
+
