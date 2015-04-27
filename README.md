@@ -48,7 +48,7 @@ Enter your seed twice to enable the account table:
 After that, simply click onto the `generate` cells to generate a password for the desired account:
 ![alt tag](https://raw.githubusercontent.com/I3ck/determ-pwgen/master/img/gui-example-2.png)  
 Copy and paste your password to where it's needed:
-![alt tag](https://raw.githubusercontent.com/I3ck/determ-pwgen/master/img/gui-example-3.png)
+![alt tag](https://raw.githubusercontent.com/I3ck/determ-pwgen/master/img/gui-example-3.png)  
 You can also add / remove accounts or generate a password directly, without adding them. `accounts.json` will be updated automatically.
 No, I didn't use my seed there ;)
 
