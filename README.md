@@ -11,7 +11,7 @@ Version 5.0.1
 
 Changes version 4 to 5
 ----------------------
-- generating DIFFERENT passwords than version 4 and prior (use version 4 to generate your old passwords and then change them)
+- generating DIFFERENT passwords than version 4 and prior (use version 4 to generate your old passwords and then change them https://github.com/I3ck/determ-pwgen/releases/tag/v4.0.2 )
 - generating multiple password types (long, long without special characters, short, short without special characters)
 - instead of solely using `sha256` now using a combination of `md5`, `sha1`, `sha224`, `sha256`, `sha384`, `sha512`  
 - the password generation now uses about 100mb of memory by using a huge random salt for all hashing operations
