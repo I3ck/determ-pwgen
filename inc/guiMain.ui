@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>624</width>
-    <height>658</height>
+    <width>1244</width>
+    <height>573</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -22,20 +22,7 @@
      <rect>
       <x>-3</x>
       <y>80</y>
-      <width>821</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="orientation">
-     <enum>Qt::Horizontal</enum>
-    </property>
-   </widget>
-   <widget class="Line" name="line_2">
-    <property name="geometry">
-     <rect>
-      <x>-10</x>
-      <y>160</y>
-      <width>831</width>
+      <width>1241</width>
       <height>20</height>
      </rect>
     </property>
@@ -50,8 +37,8 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>220</y>
-      <width>601</width>
+      <y>140</y>
+      <width>611</width>
       <height>361</height>
      </rect>
     </property>
@@ -109,7 +96,7 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>596</y>
+      <y>876</y>
       <width>781</width>
       <height>20</height>
      </rect>
@@ -128,7 +115,7 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>180</y>
+      <y>100</y>
       <width>590</width>
       <height>28</height>
      </rect>
@@ -174,18 +161,18 @@
      </item>
     </layout>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>100</y>
+      <x>640</x>
+      <y>180</y>
       <width>581</width>
       <height>48</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout">
      <item>
-      <widget class="QLabel" name="labelInfo">
+      <widget class="QLabel" name="labelInfoLong">
        <property name="text">
         <string>TextLabel</string>
        </property>
@@ -194,7 +181,7 @@
      <item>
       <layout class="QHBoxLayout" name="horizontalLayout_3">
        <item>
-        <widget class="QLineEdit" name="lineEditPassword">
+        <widget class="QLineEdit" name="lineEditPasswordLong">
          <property name="enabled">
           <bool>true</bool>
          </property>
@@ -204,7 +191,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="pushButtonClipboard">
+        <widget class="QPushButton" name="pushButtonClipboardLong">
          <property name="text">
           <string>Copy to Clipboard</string>
          </property>
@@ -214,21 +201,156 @@
      </item>
     </layout>
    </widget>
+   <widget class="QWidget" name="layoutWidget_2">
+    <property name="geometry">
+     <rect>
+      <x>640</x>
+      <y>240</y>
+      <width>581</width>
+      <height>48</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout_2">
+     <item>
+      <widget class="QLabel" name="labelInfoLongNoSpecial">
+       <property name="text">
+        <string>TextLabel</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout_4">
+       <item>
+        <widget class="QLineEdit" name="lineEditPasswordLongNoSpecial">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
+         <property name="readOnly">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButtonClipboardLongNoSpecial">
+         <property name="text">
+          <string>Copy to Clipboard</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="layoutWidget_3">
+    <property name="geometry">
+     <rect>
+      <x>640</x>
+      <y>300</y>
+      <width>581</width>
+      <height>48</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout_3">
+     <item>
+      <widget class="QLabel" name="labelInfoShort">
+       <property name="text">
+        <string>TextLabel</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout_5">
+       <item>
+        <widget class="QLineEdit" name="lineEditPasswordShort">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
+         <property name="readOnly">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButtonClipboardShort">
+         <property name="text">
+          <string>Copy to Clipboard</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="layoutWidget_4">
+    <property name="geometry">
+     <rect>
+      <x>640</x>
+      <y>360</y>
+      <width>581</width>
+      <height>48</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout_4">
+     <item>
+      <widget class="QLabel" name="labelInfoShortNoSpecial">
+       <property name="text">
+        <string>TextLabel</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout_6">
+       <item>
+        <widget class="QLineEdit" name="lineEditPasswordShortNoSpecial">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
+         <property name="readOnly">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButtonClipboardShortNoSpecial">
+         <property name="text">
+          <string>Copy to Clipboard</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QGroupBox" name="groupBoxPasswords">
+    <property name="geometry">
+     <rect>
+      <x>630</x>
+      <y>100</y>
+      <width>601</width>
+      <height>341</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>GroupBox</string>
+    </property>
+   </widget>
+   <zorder>groupBoxPasswords</zorder>
    <zorder>layoutWidget</zorder>
    <zorder>layoutWidget</zorder>
    <zorder>layoutWidget</zorder>
    <zorder>line</zorder>
-   <zorder>line_2</zorder>
    <zorder>tableWidgetAccounts</zorder>
    <zorder>labelGenerating</zorder>
-   <zorder>labelInfo</zorder>
+   <zorder>layoutWidget_2</zorder>
+   <zorder>layoutWidget_3</zorder>
+   <zorder>layoutWidget_4</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>624</width>
+     <width>1244</width>
      <height>19</height>
     </rect>
    </property>
