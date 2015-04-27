@@ -315,13 +315,6 @@ class MyForm(QtGui.QMainWindow):
 
         self.ui.groupBoxPasswords.setTitle("Passwords for " + username + "@" + hostname)
 
-        # TODO can be done in GUI file directly
-        self.ui.labelInfoLong.setText("Long password:")
-        self.ui.labelInfoLongNoSpecial.setText("Long password without special characters:")
-        self.ui.labelInfoShort.setText("Short password:")
-        self.ui.labelInfoShortNoSpecial.setText("Short password without special characters:")
-
-
         self.ui.lineEditPasswordLong.setText(pw.PWLONG)
         self.ui.lineEditPasswordLongNoSpecial.setText(pw.PWLONG_NO_SPECIAL)
         self.ui.lineEditPasswordShort.setText(pw.PWSHORT)
