@@ -15,6 +15,8 @@
 import unittest
 
 from inc.Password import Password
+import inc.settings as settings
+from inc.DetermPwgen import *
 
 
 class DetermPwgenTest(unittest.TestCase):
@@ -46,6 +48,18 @@ class DetermPwgenTest(unittest.TestCase):
         self.assertEqual(password.PWLONG_NO_SPECIAL, "Nospecialalllowe")
         self.assertEqual(password.PWSHORT, "Nospecialalllow[")
         self.assertEqual(password.PWSHORT_NO_SPECIAL, "Nospecialalllowe")
+
+    def test_password_generation_v5(self):
+        seed = "a"
+        username = "a"
+        hostname = "a"
+        determpwgen = DetermPwgen(seed)
+        pw = determpwgen.generate_password(hostname, username, settings.ROUNDS)
+        self.assertEqual(pw.PWLONG, "KGm9tKSsV1rtDNkr35ffAv6AF6Oau98qe0f8a7RHdL9PAKzhJzU3f+mpe2O13SHyFDv6TD3lmdxJDjuiKJcnSw==")
+        self.assertEqual(pw.PWLONG_NO_SPECIAL, "KGm9tKSsV1rtDNkr35ffAv6AF6Oau98qe0f8a7RHdL9PAKzhJzU3fmpe2O13SHyFDv6TD3lmdxJDjuiKJcnSw")
+        self.assertEqual(pw.PWSHORT, "KGm9tKSsV1rtDNk$")
+        self.assertEqual(pw.PWSHORT_NO_SPECIAL, "KGm9tKSsV1rtDNkr")
+
 
 if __name__ == "__main__":
     unittest.main()

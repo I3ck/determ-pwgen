@@ -19,8 +19,6 @@ REQUIRED
 
     rename master salt to master seed
 
-    once everything is set up, generate some passwords and add version_5 tests for them to make sure they generate the same pw on all platforms / future versions
-
 NICE-TO-HAVE
     a logo
 
