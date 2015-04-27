@@ -51,14 +51,33 @@ class MyForm(QtGui.QMainWindow):
 
     def init_hide_widgets(self):
         self.hide_notify()
-        self.ui.lineEditPassword.hide()
-        self.ui.labelInfo.hide()
-        self.ui.pushButtonClipboard.hide()
+
+        self.ui.groupBoxPasswords.hide()
+
+        self.ui.lineEditPasswordLong.hide()
+        self.ui.labelInfoLong.hide()
+        self.ui.pushButtonClipboardLong.hide()
+
+        self.ui.lineEditPasswordLongNoSpecial.hide()
+        self.ui.labelInfoLongNoSpecial.hide()
+        self.ui.pushButtonClipboardLongNoSpecial.hide()
+
+        self.ui.lineEditPasswordShort.hide()
+        self.ui.labelInfoShort.hide()
+        self.ui.pushButtonClipboardShort.hide()
+
+        self.ui.lineEditPasswordShortNoSpecial.hide()
+        self.ui.labelInfoShortNoSpecial.hide()
+        self.ui.pushButtonClipboardShortNoSpecial.hide()
 
     def init_connections(self):
         self.ui.pushButtonAdd.clicked.connect(self.on_click_add)
         self.ui.pushButtonGenerate.clicked.connect(self.on_click_generate)
-        self.ui.pushButtonClipboard.clicked.connect(self.on_click_clipboard)
+
+        self.ui.pushButtonClipboardLong.clicked.connect(self.on_click_clipboard_long)
+        self.ui.pushButtonClipboardLongNoSpecial.clicked.connect(self.on_click_clipboard_long_no_special)
+        self.ui.pushButtonClipboardShort.clicked.connect(self.on_click_clipboard_short)
+        self.ui.pushButtonClipboardShortNoSpecial.clicked.connect(self.on_click_clipboard_short_no_special)
 
         self.ui.tableWidgetAccounts.cellClicked.connect(self.on_click_table)
 
@@ -119,11 +138,29 @@ class MyForm(QtGui.QMainWindow):
         else:
             self.notify("Either click Remove or Generate")
 
-    def on_click_clipboard(self):
+    def on_click_clipboard_long(self):
         cb = QtGui.QApplication.clipboard()
-        cb.clear(mode=cb.Clipboard )
-        cb.setText(self.ui.lineEditPassword.text(), mode=cb.Clipboard)
-        self.notify("Copied password to clipboard")
+        cb.clear(mode=cb.Clipboard)
+        cb.setText(self.ui.lineEditPasswordLong.text(), mode=cb.Clipboard)
+        self.notify("Copied long password to clipboard")
+
+    def on_click_clipboard_long_no_special(self):
+        cb = QtGui.QApplication.clipboard()
+        cb.clear(mode=cb.Clipboard)
+        cb.setText(self.ui.lineEditPasswordLongNoSpecial.text(), mode=cb.Clipboard)
+        self.notify("Copied long password without special characters to clipboard")
+
+    def on_click_clipboard_short(self):
+        cb = QtGui.QApplication.clipboard()
+        cb.clear(mode=cb.Clipboard)
+        cb.setText(self.ui.lineEditPasswordShort.text(), mode=cb.Clipboard)
+        self.notify("Copied short password to clipboard")
+
+    def on_click_clipboard_short_no_special(self):
+        cb = QtGui.QApplication.clipboard()
+        cb.clear(mode=cb.Clipboard)
+        cb.setText(self.ui.lineEditPasswordShortNoSpecial.text(), mode=cb.Clipboard)
+        self.notify("Copied short password without special characters to clipboard")
 
 # -----------------------------------------------------------------------------
 
@@ -183,9 +220,23 @@ class MyForm(QtGui.QMainWindow):
         self.ui.labelGenerating.hide()
 
     def hide_generated(self):
-        self.ui.labelInfo.hide()
-        self.ui.lineEditPassword.hide()
-        self.ui.pushButtonClipboard.hide()
+        self.ui.groupBoxPasswords.hide()
+
+        self.ui.labelInfoLong.hide()
+        self.ui.lineEditPasswordLong.hide()
+        self.ui.pushButtonClipboardLong.hide()
+
+        self.ui.labelInfoLongNoSpecial.hide()
+        self.ui.lineEditPasswordLongNoSpecial.hide()
+        self.ui.pushButtonClipboardLongNoSpecial.hide()
+
+        self.ui.labelInfoShort.hide()
+        self.ui.lineEditPasswordShort.hide()
+        self.ui.pushButtonClipboardShort.hide()
+
+        self.ui.labelInfoShortNoSpecial.hide()
+        self.ui.lineEditPasswordShortNoSpecial.hide()
+        self.ui.pushButtonClipboardShortNoSpecial.hide()
 
 # -----------------------------------------------------------------------------
 
@@ -235,7 +286,7 @@ class MyForm(QtGui.QMainWindow):
 
         self.generatedData["hostname"] = hostname
         self.generatedData["username"] = username
-        self.generatedData["pw"] = pw.PWLONG
+        self.generatedData["pw"] = pw
 
     def threaded_generate_done(self):
         hostname = self.generatedData["hostname"]
@@ -244,12 +295,37 @@ class MyForm(QtGui.QMainWindow):
 
         self.hide_notify()
 
-        self.ui.labelInfo.show()
-        self.ui.lineEditPassword.show()
-        self.ui.pushButtonClipboard.show()
+        self.ui.groupBoxPasswords.show()
 
-        self.ui.labelInfo.setText("Password for " + username + "@" + hostname + ":")
-        self.ui.lineEditPassword.setText(pw)
+        self.ui.labelInfoLong.show()
+        self.ui.lineEditPasswordLong.show()
+        self.ui.pushButtonClipboardLong.show()
+
+        self.ui.labelInfoLongNoSpecial.show()
+        self.ui.lineEditPasswordLongNoSpecial.show()
+        self.ui.pushButtonClipboardLongNoSpecial.show()
+
+        self.ui.labelInfoShort.show()
+        self.ui.lineEditPasswordShort.show()
+        self.ui.pushButtonClipboardShort.show()
+
+        self.ui.labelInfoShortNoSpecial.show()
+        self.ui.lineEditPasswordShortNoSpecial.show()
+        self.ui.pushButtonClipboardShortNoSpecial.show()
+
+        self.ui.groupBoxPasswords.setTitle("Passwords for " + username + "@" + hostname)
+
+        # TODO can be done in GUI file directly
+        self.ui.labelInfoLong.setText("Long password:")
+        self.ui.labelInfoLongNoSpecial.setText("Long password without special characters:")
+        self.ui.labelInfoShort.setText("Short password:")
+        self.ui.labelInfoShortNoSpecial.setText("Short password without special characters:")
+
+
+        self.ui.lineEditPasswordLong.setText(pw.PWLONG)
+        self.ui.lineEditPasswordLongNoSpecial.setText(pw.PWLONG_NO_SPECIAL)
+        self.ui.lineEditPasswordShort.setText(pw.PWSHORT)
+        self.ui.lineEditPasswordShortNoSpecial.setText(pw.PWSHORT_NO_SPECIAL)
 
 # -----------------------------------------------------------------------------
 

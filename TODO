@@ -1,10 +1,18 @@
 BUGS
 
+    passwords groupbox is blocking password fields
+
+    notify is not visible
+
+
 
 REQUIRED
     README screenshots for gui version have to be redone
 
-    display pwlongnospecial pwshort and pwshortnospecial in qt aswell
+    groubox for passwords has to be resized
+
+
+
 
 NICE-TO-HAVE
     a logo
