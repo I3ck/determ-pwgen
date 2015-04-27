@@ -2,18 +2,9 @@ BUGS
 
 
 REQUIRED
-    use an asic "secure" algorithm (similar to scrypt / the ones X11 uses, but NOT the same)
-    if there's ever a new version which generates other passwords,
-
     README screenshots for gui version have to be redone
 
-    add new password types (TYPE A: letters, numbers, symbols, both lower and upper case max 15 chars? | TYPE B: like A, without special chars)
-
-    display pwlongnospecial pwshort and pwshortnospecial aswell
-
-    add constant which defines how often the master seed is used
-
-    find good values for memory and cpu contants
+    display pwlongnospecial pwshort and pwshortnospecial in qt aswell
 
 NICE-TO-HAVE
     a logo
