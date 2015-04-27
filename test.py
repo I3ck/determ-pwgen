@@ -55,12 +55,11 @@ class DetermPwgenTest(unittest.TestCase):
         hostname = "a"
         determpwgen = DetermPwgen(seed)
         pw = determpwgen.generate_password(hostname, username, settings.HASHING_ROUNDS)
-        self.assertEqual(pw.PWLONG, "KGm9tKSsV1rtDNkr35ffAv6AF6Oau98qe0f8a7RHdL9PAKzhJzU3f+mpe2O13SHyFDv6TD3lmdxJDjuiKJcnSw==")
-        self.assertEqual(pw.PWLONG_NO_SPECIAL, "KGm9tKSsV1rtDNkr35ffAv6AF6Oau98qe0f8a7RHdL9PAKzhJzU3fmpe2O13SHyFDv6TD3lmdxJDjuiKJcnSw")
-        self.assertEqual(pw.PWSHORT, "KGm9tKSsV1rtDNk$")
-        self.assertEqual(pw.PWSHORT_NO_SPECIAL, "KGm9tKSsV1rtDNkr")
+        self.assertEqual(pw.PWLONG, "4g+b9DXlgGTV1d0QHBeCSl3Fh/+GKuxk6HOU+K+D7ioFmE73kLgPrVAzvq+IGif5zukWpO74zyuT77KhjYMU2g==")
+        self.assertEqual(pw.PWLONG_NO_SPECIAL, "4gb9DXlgGTV1d0QHBeCSl3FhGKuxk6HOUKD7ioFmE73kLgPrVAzvqIGif5zukWpO74zyuT77KhjYMU2g")
+        self.assertEqual(pw.PWSHORT, "4g+b9DXlgGTV1d0Q")
+        self.assertEqual(pw.PWSHORT_NO_SPECIAL, "4gb9DXlgGTV1d0QH")
 
 
 if __name__ == "__main__":
     unittest.main()
-

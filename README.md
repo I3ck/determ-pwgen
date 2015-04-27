@@ -1,13 +1,23 @@
 determ-pwgen
 ============
 
-A deterministic password generator
+A deterministic password generator for Python3.4
 
 You'll only have to remember one password / seed and can use it to generate a unique password for many websites or programs
 
 
-Version 4.0.2
+Version 5.0.0
 =============
+
+Changes version 4 to 5
+----------------------
+- generating DIFFERENT passwords than version 4 and prior (use version 4 to generate your old passwords and then change them)
+- generating multiple password types (long, long without special characters, short, short without special characters)
+- instead of solely using `sha256` now using a combination of `md5`, `sha1`, `sha224`, `sha256`, `sha384`, `sha512`  
+- the password generation now uses about 100mb of memory by using a huge random salt for all hashing operations
+- the reason for these changes was to not use `sha256` solely because of Bitcoin mining ASICs. An attacker would have to build ASICs solely for `determ-pwgen`. The high memory usage makes this task even harder (see `scrypt`)
+
+
 
 Changes version 3 to 4
 ----------------------
@@ -32,9 +42,9 @@ Changes version 1 to 2
 The GUI
 =======
 Enter your seed twice to enable the account table:
-![alt tag](https://raw.githubusercontent.com/I3ck/determ-pwgen/master/img/gui-example-1.png)
+![alt tag](https://raw.githubusercontent.com/I3ck/determ-pwgen/master/img/gui-example-1.png)  
 After that, simply click onto the `generate` cells to generate a password for the desired account:
-![alt tag](https://raw.githubusercontent.com/I3ck/determ-pwgen/master/img/gui-example-2.png)
+![alt tag](https://raw.githubusercontent.com/I3ck/determ-pwgen/master/img/gui-example-2.png)  
 Copy and paste your password to where it's needed:
 ![alt tag](https://raw.githubusercontent.com/I3ck/determ-pwgen/master/img/gui-example-3.png)
 You can also add / remove accounts or generate a password directly, without adding them. `accounts.json` will be updated automatically.

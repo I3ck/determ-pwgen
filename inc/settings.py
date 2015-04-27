@@ -42,9 +42,9 @@ PATH_ACCOUNTS_FILE = "accounts.json"
 master salt that is used for the generation of passwords
 do not alter this or determ-pwgen will generate incompatible passwords
 """
-MASTER_SALT = "MasterSeed for determ-pwgen by I3ck (Martin Buck)." \
-              "This enhances or at least doesn't lower security." \
-              "By making a brute-force attack more expensive memory-wise." \
+MASTER_SALT = "MasterSalt for determ-pwgen by I3ck (Martin Buck)." \
+              "This enhances security by making a brute-force attack more expensive memory-wise." \
+              "DO NOT ALTER THIS!!! Or determ-pwgen will generate different passwords which won't match." \
               "FMKZFWN4A6OZCCM25WBNC30NDJVBHJO3GE07XWLZAQF71LTVOQOMA70A2C5R450GG019DZQKDG4CWUQEJ77DR90VB5F3QWFKXP7G6UYD" \
               "TC5095I6AAAI5EUOW4U4OW20A975Y0V3A13UIEONGLIUPB78HN4P4Y2V69JECU8AI0GIY4XQ1G0NJWZVUC5I2U6W0ZKRACN8YBXLMBYQ" \
               "91J7JGSAY9S1L1DZWQT8EDUBAKFFPZ5JHWUSXK7TGI6I6IF361E8W4M5LAHS099GOGRVIR7RRK9NO2NFW071WS25RNZGMMD8NKG8X25R" \
