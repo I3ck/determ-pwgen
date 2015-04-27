@@ -17,6 +17,12 @@ REQUIRED
 
     find good values for memory and cpu contants
 
+    rename master salt to master seed
+
+    if pw has no special char => add special char to end / replace last symbol
+
+    if pw has no upper / lower case => change case of first letter
+
 NICE-TO-HAVE
     a logo
 
