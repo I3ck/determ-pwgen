@@ -19,9 +19,7 @@ REQUIRED
 
     rename master salt to master seed
 
-    add unit tests for Password and the generator (define some required, generated pws which will make it easier to test changes later on)
-    test generation algorithms
-    test that Password("abc") generates mixed case passwords and passwords with special chars
+    once everything is set up, generate some passwords and add version_5 tests for them to make sure they generate the same pw on all platforms / future versions
 
 NICE-TO-HAVE
     a logo

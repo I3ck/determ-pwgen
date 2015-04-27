@@ -34,7 +34,7 @@ class Password:
         for c in pw:
             if not allupper and not alllower:
                 return pw
-            elif c.isalpha():
+            elif Password._only_numbers_letters(c):
                 if c.isupper():
                     alllower = False
                 elif c.islower():
@@ -42,12 +42,16 @@ class Password:
 
         # either allupper or alllower
         # swap case for first alphanumeric char
+        out = ""
+        changed = False
         for i, c in enumerate(pw):
-            if c.isalpha():
-                pw[i].swapcase()
-                return pw
+            if not changed and Password._only_numbers_letters(c):
+                out += pw[i].swapcase()
+                changed = True
+            else:
+                out += pw[i]
 
-        return pw
+        return out
 
     @staticmethod
     def _with_special(pw):
