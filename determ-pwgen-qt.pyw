@@ -231,7 +231,7 @@ class MyForm(QtGui.QMainWindow):
     def threaded_generate(self, seed, hostname, username):
         determ_pwgen = DetermPwgen(seed)
 
-        pw = determ_pwgen.generate_password(hostname, username, settings.ROUNDS)
+        pw = determ_pwgen.generate_password(hostname, username, settings.HASHING_ROUNDS)
 
         self.generatedData["hostname"] = hostname
         self.generatedData["username"] = username

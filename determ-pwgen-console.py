@@ -60,7 +60,7 @@ def use_user_input(seed):
         username = input("\nUsername: ")
         hostname = input("Hostname: ")
 
-        pw = determ_pwgen.generate_password(hostname, username, settings.ROUNDS)
+        pw = determ_pwgen.generate_password(hostname, username, settings.HASHING_ROUNDS)
 
         print_result(hostname, username, pw)
 
@@ -86,7 +86,7 @@ def use_json_file(seed):
             break
         if 0 <= index < len(accounts):
             account = accounts[index]
-            pw = determ_pwgen.generate_password(account["hostname"], account["username"], settings.ROUNDS)
+            pw = determ_pwgen.generate_password(account["hostname"], account["username"], settings.HASHING_ROUNDS)
             print_result(account["hostname"], account["username"], pw)
 
 # -----------------------------------------------------------------------------

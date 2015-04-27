@@ -54,7 +54,7 @@ class DetermPwgenTest(unittest.TestCase):
         username = "a"
         hostname = "a"
         determpwgen = DetermPwgen(seed)
-        pw = determpwgen.generate_password(hostname, username, settings.ROUNDS)
+        pw = determpwgen.generate_password(hostname, username, settings.HASHING_ROUNDS)
         self.assertEqual(pw.PWLONG, "KGm9tKSsV1rtDNkr35ffAv6AF6Oau98qe0f8a7RHdL9PAKzhJzU3f+mpe2O13SHyFDv6TD3lmdxJDjuiKJcnSw==")
         self.assertEqual(pw.PWLONG_NO_SPECIAL, "KGm9tKSsV1rtDNkr35ffAv6AF6Oau98qe0f8a7RHdL9PAKzhJzU3fmpe2O13SHyFDv6TD3lmdxJDjuiKJcnSw")
         self.assertEqual(pw.PWSHORT, "KGm9tKSsV1rtDNk$")

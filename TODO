@@ -11,13 +11,9 @@ REQUIRED
 
     display pwlongnospecial pwshort and pwshortnospecial aswell
 
-    remae ROUNDS to HASHING_ROUNDS
-
     add constant which defines how often the master seed is used
 
     find good values for memory and cpu contants
-
-    rename master salt to master seed
 
 NICE-TO-HAVE
     a logo

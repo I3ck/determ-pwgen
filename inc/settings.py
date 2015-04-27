@@ -18,7 +18,7 @@ this increases CPU cost to brute-force
 altering this will change all generated passwords
 and render old ones incompatible
 """
-ROUNDS = 5  # 5 and MASTER_SALT * 1000 => about 5s
+HASHING_ROUNDS = 5  # 5 and MASTER_SALT * 1000 => about 5s
 
 """
 number of times the master seed is copied
