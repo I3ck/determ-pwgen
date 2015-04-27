@@ -6,7 +6,7 @@ A deterministic password generator for Python3.4
 You'll only have to remember one password / seed and can use it to generate a unique password for many websites or programs
 
 
-Version 5.0.0
+Version 5.0.1
 =============
 
 Changes version 4 to 5
@@ -16,6 +16,8 @@ Changes version 4 to 5
 - instead of solely using `sha256` now using a combination of `md5`, `sha1`, `sha224`, `sha256`, `sha384`, `sha512`  
 - the password generation now uses about 100mb of memory by using a huge random salt for all hashing operations
 - the reason for these changes was to not use `sha256` solely because of Bitcoin mining ASICs. An attacker would have to build ASICs solely for `determ-pwgen`. The high memory usage makes this task even harder (see `scrypt`)
+- passwords are always mixed-case now  
+- passwords with special characters now always include at least one special character
 
 
 

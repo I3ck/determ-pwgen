@@ -44,6 +44,7 @@ do not alter this or determ-pwgen will generate incompatible passwords
 """
 MASTER_SALT = "MasterSalt for determ-pwgen by I3ck (Martin Buck)." \
               "This enhances security by making a brute-force attack more expensive memory-wise." \
+              "Donate Bitcoin: 19iBhPLkco15ap9HV5UUT5PNoU2djiUiz2" \
               "DO NOT ALTER THIS!!! Or determ-pwgen will generate different passwords which won't match." \
               "FMKZFWN4A6OZCCM25WBNC30NDJVBHJO3GE07XWLZAQF71LTVOQOMA70A2C5R450GG019DZQKDG4CWUQEJ77DR90VB5F3QWFKXP7G6UYD" \
               "TC5095I6AAAI5EUOW4U4OW20A975Y0V3A13UIEONGLIUPB78HN4P4Y2V69JECU8AI0GIY4XQ1G0NJWZVUC5I2U6W0ZKRACN8YBXLMBYQ" \
