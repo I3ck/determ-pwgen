@@ -82,7 +82,18 @@ Hostname: host
 --------------------------------------------------------------------------------
 
 user @ host:
-N0Eks3fpIyeb/vMGDDbRoD8qxKo5ClxBwvGMtFQ03EI=
+
+Long password:
+gspTaZUAIEg9jytoZ1sfaRzd4sAe5qBdZT/PyRFLAmpesMwm4no1DbFHhKDRvFE9QejAtg3IS4+qC7NQIXlVCw==
+
+Long password without special characters:
+gspTaZUAIEg9jytoZ1sfaRzd4sAe5qBdZTPyRFLAmpesMwm4no1DbFHhKDRvFE9QejAtg3IS4qC7NQIXlVCw
+
+Short password:
+gspTaZUAIEg9jyt)
+
+Short password without special characters:
+gspTaZUAIEg9jyto
 --------------------------------------------------------------------------------
 ```
 
@@ -99,7 +110,20 @@ Type the number of the account you want to generate the password for
 --------------------------------------------------------------------------------
 
 I3ck @ github:
-bZEEagyeplME04hqFxxA6vSwSffwL5/1hviZa4H8JwI=
+
+Long password:
+dYW6UQtHK/QcjVmSSiJQ102uIeNdnJMSZozBq0LV0jLoKBH4wjdj1UfkTZG05+vPbKLY1NHa3NVEaHHV
+1VsG7w==
+
+Long password without special characters:
+dYW6UQtHKQcjVmSSiJQ102uIeNdnJMSZozBq0LV0jLoKBH4wjdj1UfkTZG05vPbKLY1NHa3NVEaHHV1V
+sG7w
+
+Short password:
+dYW6UQtHK/QcjVmS
+
+Short password without special characters:
+dYW6UQtHKQcjVmSS
 --------------------------------------------------------------------------------
 ```
 The accounts.json is a simple json file:
@@ -201,3 +225,7 @@ sha256("asuihdatzwgqegooglemyName2")
 
 That way the user only has to remember the seed and can generate any number of passwords from it
 if someone manages to steal the password of "myName", "myName2"'s password would still be save
+
+#Donate
+Feeling generous?  
+BTC: 19iBhPLkco15ap9HV5UUT5PNoU2djiUiz2
