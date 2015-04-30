@@ -167,20 +167,33 @@
       <x>630</x>
       <y>130</y>
       <width>421</width>
-      <height>251</height>
+      <height>301</height>
      </rect>
     </property>
     <property name="title">
      <string>GroupBox</string>
     </property>
+    <widget class="QPushButton" name="pushButtonHide">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>240</y>
+       <width>79</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Hide</string>
+     </property>
+    </widget>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>640</x>
       <y>150</y>
       <width>401</width>
-      <height>204</height>
+      <height>212</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout_5">
@@ -314,6 +327,17 @@
      </item>
     </layout>
    </widget>
+   <widget class="QWidget" name="">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>2</width>
+      <height>2</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout_6"/>
+   </widget>
    <zorder>groupBoxPasswords</zorder>
    <zorder>layoutWidget</zorder>
    <zorder>layoutWidget</zorder>
@@ -321,9 +345,6 @@
    <zorder>line</zorder>
    <zorder>tableWidgetAccounts</zorder>
    <zorder>labelGenerating</zorder>
-   <zorder>layoutWidget_2</zorder>
-   <zorder>layoutWidget_3</zorder>
-   <zorder>layoutWidget_4</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -331,7 +352,7 @@
      <x>0</x>
      <y>0</y>
      <width>1059</width>
-     <height>22</height>
+     <height>19</height>
     </rect>
    </property>
   </widget>

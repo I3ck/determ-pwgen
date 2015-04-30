@@ -70,6 +70,8 @@ class MyForm(QtGui.QMainWindow):
         self.ui.labelInfoShortNoSpecial.hide()
         self.ui.pushButtonClipboardShortNoSpecial.hide()
 
+        self.ui.pushButtonHide.hide()
+
     def init_connections(self):
         self.ui.pushButtonAdd.clicked.connect(self.on_click_add)
         self.ui.pushButtonGenerate.clicked.connect(self.on_click_generate)
@@ -83,6 +85,8 @@ class MyForm(QtGui.QMainWindow):
 
         self.ui.lineEditSeed1.textChanged.connect(self.on_change_seed)
         self.ui.lineEditSeed2.textChanged.connect(self.on_change_seed)
+
+        self.ui.pushButtonHide.clicked.connect(self.hide_generated)
 
     def init_table(self):
         self.ui.tableWidgetAccounts.setColumnCount(len(self.tableColumns))
@@ -238,6 +242,8 @@ class MyForm(QtGui.QMainWindow):
         self.ui.lineEditPasswordShortNoSpecial.hide()
         self.ui.pushButtonClipboardShortNoSpecial.hide()
 
+        self.ui.pushButtonHide.hide()
+
 # -----------------------------------------------------------------------------
 
     def remove_account(self, row):
@@ -319,6 +325,8 @@ class MyForm(QtGui.QMainWindow):
         self.ui.lineEditPasswordLongNoSpecial.setText(pw.PWLONG_NO_SPECIAL)
         self.ui.lineEditPasswordShort.setText(pw.PWSHORT)
         self.ui.lineEditPasswordShortNoSpecial.setText(pw.PWSHORT_NO_SPECIAL)
+
+        self.ui.pushButtonHide.show()
 
 # -----------------------------------------------------------------------------
 
