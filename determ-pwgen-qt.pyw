@@ -121,7 +121,7 @@ class MyForm(QtGui.QMainWindow):
                 self.notify("Seeds don't match, please re-type them")
 
             else:
-                self.notify("generating password for " + username + "@" + hostname + "...")
+                self.notify("generating passwords for " + username + "@" + hostname + "...")
 
                 self.hide_generated()
 
