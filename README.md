@@ -6,7 +6,7 @@ A deterministic password generator for Python3.4
 You'll only have to remember one password / seed and can use it to generate a unique password for many websites or programs
 
 
-Version 5.0.1
+Version 5.0.2
 =============
 
 Changes version 4 to 5
