@@ -86,7 +86,7 @@ class MyForm(QtGui.QMainWindow):
         self.ui.lineEditSeed1.textChanged.connect(self.on_change_seed)
         self.ui.lineEditSeed2.textChanged.connect(self.on_change_seed)
 
-        self.ui.pushButtonHide.clicked.connect(self.hide_generated)
+        self.ui.pushButtonHide.clicked.connect(self.clear_and_hide_generated)
 
     def init_table(self):
         self.ui.tableWidgetAccounts.setColumnCount(len(self.tableColumns))
@@ -123,7 +123,9 @@ class MyForm(QtGui.QMainWindow):
             else:
                 self.notify("generating passwords for " + username + "@" + hostname + "...")
 
-                self.hide_generated()
+                self.clear_generated()
+
+                self.clear_and_hide_generated()
 
                 self.generic_thread = GenericThread(self.threaded_generate, seed1, hostname, username)
                 self.connect(self.generic_thread, self.generic_thread.signal, self.threaded_generate_done)
@@ -246,6 +248,20 @@ class MyForm(QtGui.QMainWindow):
 
 # -----------------------------------------------------------------------------
 
+    def clear_generated(self):
+        self.ui.lineEditPasswordLong.clear()
+        self.ui.lineEditPasswordLongNoSpecial.clear()
+        self.ui.lineEditPasswordShort.clear()
+        self.ui.lineEditPasswordShortNoSpecial.clear()
+
+# -----------------------------------------------------------------------------
+
+    def clear_and_hide_generated(self):
+        self.clear_generated()
+        self.hide_generated()
+
+# -----------------------------------------------------------------------------
+
     def remove_account(self, row):
         username = str(self.ui.tableWidgetAccounts.item(row, 0).text())
         hostname = str(self.ui.tableWidgetAccounts.item(row, 1).text())
@@ -277,7 +293,7 @@ class MyForm(QtGui.QMainWindow):
 
             self.notify("Generating password for " + username + "@" + hostname + "...")
 
-            self.hide_generated()
+            self.clear_and_hide_generated()
 
             self.generic_thread = GenericThread(self.threaded_generate, seed1, hostname, username)
             self.connect(self.generic_thread, self.generic_thread.signal, self.threaded_generate_done)
