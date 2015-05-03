@@ -22,7 +22,7 @@ from inc.GenericThread import *
 import inc.settings as settings
 
 
-class MyForm(QtGui.QMainWindow):
+class FormDetermPwgen(QtGui.QMainWindow):
     def __init__(self, parent=None):
         QtGui.QWidget.__init__(self, parent)
         self.accounts = list()
@@ -360,6 +360,6 @@ class MyForm(QtGui.QMainWindow):
 
 if __name__ == "__main__":
     app = QtGui.QApplication(sys.argv)
-    myapp = MyForm()
-    myapp.show()
+    formDetermPwgen = FormDetermPwgen()
+    formDetermPwgen.show()
     sys.exit(app.exec_())
