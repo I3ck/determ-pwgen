@@ -171,10 +171,12 @@ class FormDetermPwgen(QtGui.QMainWindow):
 # -----------------------------------------------------------------------------
 
     def on_change_seed(self):
+        enable = False
+        self.clear_and_hide_generated()
+        self.hide_notify()
+
         seed1 = str(self.ui.lineEditSeed1.text())
         seed2 = str(self.ui.lineEditSeed2.text())
-        enable = False
-        self.hide_notify()
 
         if seed1 != "" and seed2 != "":
             if seed1 != seed2:
